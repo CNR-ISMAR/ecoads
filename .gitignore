@@ -1,6 +1,7 @@
 # Custom file
 local.py
-
+*~
+x
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
