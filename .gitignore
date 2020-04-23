@@ -1,8 +1,12 @@
 # Custom file
 local.py
 *~
+<<<<<<< HEAD
 *.png
 
+=======
+x
+>>>>>>> c32c00d92550df0085bf2c077224f460912057bd
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
