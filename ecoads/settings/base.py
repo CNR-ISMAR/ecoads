@@ -29,7 +29,8 @@ INSTALLED_APPS = [
     'ecos',
     'flex',
     'streams',
-    
+
+    'django_extensions',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
