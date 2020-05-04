@@ -1,7 +1,7 @@
 # Custom file
+swagger_client
 local.py
 *~
-*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

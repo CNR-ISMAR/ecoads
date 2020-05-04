@@ -2,9 +2,10 @@
 
 from django.db import models
 from django.contrib.gis.db import models
+from wagtail.admin.edit_handlers import FieldPanel
 
 class DataSource(models.Model):
-    datasource_name = models.CharField(max_length=200, blank=True, null=False)
+    name = models.CharField(max_length=200, blank=True, null=False)
     observation_model = models.CharField(max_length=200, blank=True, null=False)
     location = models.GeometryField(blank=False, null=True )
     #variables = models.TextField(blank=False, null=True )
@@ -15,7 +16,9 @@ class DataSource(models.Model):
     temporal_coverage = models.CharField(max_length=200, blank=True, null=False)
 
     def _str_(self): 
-        return self.datasource_name
+        return self.name
+
+
 
 class Parameter(models.Model):
     uri = models.URLField(max_length=600,blank=False, null=True )  
@@ -32,7 +35,8 @@ class EcosSite(models.Model):
     domain_area = models.MultiPolygonField(blank=False, null=True )  #il poligono
     location = models.GeometryField() #il punto che lo identifica
     website = models.URLField(max_length=600,blank=False, null=True )
-    data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources')  
+    data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
+
 
     def _str_(self):
         return self.denomination
@@ -44,5 +48,3 @@ class EcosSitesDataSources(models.Model):
 class ParametersDataSources(models.Model): 
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
-
-    
