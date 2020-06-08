@@ -4,8 +4,13 @@ var map = L.map('map', {
     center: [44.00, 13.00]
     });
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+L.tileLayer('http://tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
 }).addTo(map);
+
+L.tileLayer('http://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
+attribution: ''
+}).addTo(map);
+
 
 
