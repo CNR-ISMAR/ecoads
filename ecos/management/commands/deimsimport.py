@@ -35,7 +35,7 @@ class Command(BaseCommand):
             site = api.sites_resource_id_get(resource_id=s.id.suffix)
             #site = api.sites_resource_id_get(resource_id=s)
            #fatto con Slovenia and Italy 
-            if not ('Italy' in site.attributes.geographic.country):
+            if not (set(['Italy', 'Slovenia']) & set(site.attributes.geographic.country)):
                 continue
                 #print(site.id.suffix, site.title, site.attributes.geographic.country)
                 #print(obj)
