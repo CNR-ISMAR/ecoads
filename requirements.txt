@@ -1,2 +1,4 @@
 Django==2.2.12
 wagtail>=2.8,<2.9
+django-leaflet==0.26.0
+wagtailleafletwidget==1.0.1
