@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'ecos',
     'flex',
     'streams',
+    'leaflet',
 
     'django_extensions',
 
@@ -182,3 +183,7 @@ WAGTAIL_SITE_NAME = "ecoads"
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
 BASE_URL = 'http://example.com'
+
+SERIALIZATION_MODULES = {
+    "geojson": "django.contrib.gis.serializers.geojson", 
+ }

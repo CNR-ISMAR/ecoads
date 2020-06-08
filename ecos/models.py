@@ -7,7 +7,7 @@ from wagtail.admin.edit_handlers import FieldPanel
 class DataSource(models.Model):
     name = models.CharField(max_length=200, blank=True, null=False)
     observation_model = models.CharField(max_length=200, blank=True, null=False)
-    location = models.GeometryField(blank=False, null=True )
+    location = models.PointField(blank=False, null=True )
     #variables = models.TextField(blank=False, null=True )
     domain_area = models.MultiPolygonField(blank=False, null=True )
     update_frequency = models.CharField(max_length=200, blank=True, null=False)
@@ -30,11 +30,14 @@ class Parameter(models.Model):
         return self.preferred_label_en
 
 class EcosSite(models.Model):
+    suffix = models.CharField(max_length=200, blank=False, null=True)
     denomination = models.CharField(max_length=200)
-    description = models.TextField(blank=False, null=True )
-    domain_area = models.MultiPolygonField(blank=False, null=True )  #il poligono
-    location = models.GeometryField() #il punto che lo identifica
-    website = models.URLField(max_length=600,blank=False, null=True )
+    description = models.TextField(blank=False, null=True)
+    domain_area = models.MultiPolygonField(blank=False, null=True)  #il poligono
+    location = models.PointField() #il punto che lo identifica
+    website = models.URLField(max_length=600,blank=False, null=True)
+    last_update = models.DateTimeField(blank=False, null=True)
+    is_ecoss = models.BooleanField(default=False)
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
 
 

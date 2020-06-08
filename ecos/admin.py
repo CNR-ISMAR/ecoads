@@ -23,7 +23,7 @@ class DataSourceAdmin(ModelAdmin):
          FieldPanel("name"),
          FieldPanel("observation_model"),
          GeoPanel("location"),
-         GeoPanel("domain_area"),
+         #GeoPanel("domain_area"), #tofix 
          FieldPanel("update_frequency"),
          FieldPanel("sampling_frequency"),
          FieldPanel("temporal_resolution"),
@@ -61,9 +61,10 @@ class EcosSiteAdmin(ModelAdmin):
     panels =[
     FieldPanel("denomination"),
     FieldPanel("description"),
-    GeoPanel("domain_area"),
+    #GeoPanel("domain_area"), #tofix poligono e non location!
     GeoPanel("location"),
     FieldPanel("website"),
+    FieldPanel("is_ecoss"),
     ] 
 
 modeladmin_register(EcosSiteAdmin)

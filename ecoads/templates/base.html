@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="en">
     <head>
+
         <meta charset="utf-8" />
         <title>
             {% block title %}
@@ -14,75 +15,81 @@
                 {% endwith %}
             {% endblock %}
         </title>
+        
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         {# Global stylesheets #}
         <link rel="stylesheet" href="https://bootswatch.com/4/cerulean/bootstrap.min.css" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'css/ECOAdS_site.css' %}">
-
+        
         {% block extra_css %}
             {# Override this in templates to add extra stylesheets #}
+            <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+            integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+            crossorigin=""/>
+
         {% endblock %}
+       
+        <style type="text/css">
+            /* Additional styles by custom themes @tofix i colori */
+            body {
+            background: #c5c8d6; 
+            color: #023a70;
+            }
 
+            .home .navbar-inverse , .navbar-inverse {
+            background-color: #2c689c;
+            }
 
+            .navbar-inverse .navbar-nav > li > a {
+            color: #ffffff;
+            font-weight: 600;
+            padding-top: 25px;
+            padding-bottom: 25px;
+            }
 
+            .navbar-nav .dropdown-menu {
+            background-color: #2c689c;
+            border-top: 1px solid #2c689c;
+            position:relative;
+            }
 
+            .navbar-nav .dropdown-menu a {
+            color: #ffffff;
+            border-top: 1px solid #2c689c;
+            position:relative;
+            }
 
+            .navbar-nav .dropdown-menu li a:hover {   /* quello che evidenzia */
+            background-color: #204d74;
+            color: #ffffff;
+            position:relative;
+            }
 
+            .home .jumbotron {
+            background-color: #2c689c
+            }
 
-    <style type="text/css">
-        /* Additional styles by custom themes @tofix i colori */
-        body {
-          background: #c5c8d6; 
-          color: #023a70;
-        }
+            .home .jumbotron h1,    /* @tofix colori paragrafi e titoli */
+            .home .jumbotron h2,
+            .home .jumbotron h3 {
+            color: #ffffff
+            }
 
-        .home .navbar-inverse , .navbar-inverse {
-          background-color: #2c689c;
-        }
+            .home .jumbotron p {
+            color: #ffffff
+            }
 
-        .navbar-inverse .navbar-nav > li > a {
-          color: #ffffff;
-          font-weight: 600;
-          padding-top: 25px;
-          padding-bottom: 25px;
-        }
-
-        .navbar-nav .dropdown-menu {
-          background-color: #2c689c;
-          border-top: 1px solid #2c689c;
-        }
-
-        .navbar-nav .dropdown-menu a {
-          color: #ffffff;
-        }
-
-        .navbar-nav .dropdown-menu li a:hover {   /* quello che evidenzia */
-          background-color: #204d74;
-          color: #ffffff;
-        }
-
-        .home .jumbotron {
-          background-color: #2c689c
-        }
-
-        .home .jumbotron h1,    /* @tofix colori paragrafi e titoli */
-        .home .jumbotron h2,
-        .home .jumbotron h3 {
-          color: #ffffff
-        }
-
-        .home .jumbotron p {
-          color: #ffffff
-        }
-
-    </style>
-
-    <!--link href="/static//geonode/css/site_base.css" rel="stylesheet"/ @todo css di base-->
-
-
-
+            #map { 
+                height: 550px; 
+                width: 1100px;
+                border: 1px solid #023a70;
+                margin-top: 60px;
+                margin-bottom: 60px;
+                }
+                
+        </style>
 
     </head>
 
@@ -91,49 +98,47 @@
 
         {# NavBar #}
 
-
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         
-            <div class=container>
-                <link rel="icon" type="image/png" href="/media/images/logo_pagina_parzialeECOSS_rgb.max-165x165.max-165x165.png"/>
-                <a class="navbar-brand" href="#">
-                    <img src="/media/images/ECOSS_rgb.max-165x165.jpg" height="60" alt="">
-                </a>
-                <a class="navbar-brand" href="/">ECOAdS</a> <!-- @tofix --> 
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                
-                <div class="collapse navbar-collapse" id="navbarColor02">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Map<span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-atlas">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EU Directives<i class="far fa-angle-double-down"></i></a>
-                                <ul class="dropdown-menu"> 
-                                    <li><a href="#">The Marine Strategy Framework Directive</a></li>
-                                    <li><a href="#">The Water Framework Directive</a></li>
-                                    <li><a href="#">The Birds Directive</a></li>
-                                    <li><a href="#">The Habitats Directive</a></li>
-                                </ul>
-                        </li>
+            <link rel="icon" type="image/png" href="/media/images/logo_pagina_parzialeECOSS_rgb.max-165x165.max-165x165.png"/>
+            <a class="navbar-brand" href="/">
+                <img src="/media/images/ECOSS_rgb.max-165x165.jpg" height="60" alt="">
+            </a>
+            <a class="navbar-brand" href="/">ECOAdS</a> <!-- @tofix --> 
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Documentation</a>
-                        </li>
+            <div class="collapse navbar-collapse" id="navbarColor02">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Map<span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-atlas">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">EU Directives<i class="far fa-angle-double-down"></i></a>
+                            <ul class="dropdown-menu"> 
+                                <li><a href="#">The Marine Strategy Framework Directive</a></li>
+                                <li><a href="#">The Water Framework Directive</a></li>
+                                <li><a href="#">The Birds Directive</a></li>
+                                <li><a href="#">The Habitats Directive</a></li>
+                            </ul>
+                    </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link" href="/about/">About</a>  <!-- @tofix -->
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Documentation</a>
+                    </li>
 
-                    </ul>
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about/">About</a>  <!-- @tofix -->
+                    </li>
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
             </div>
+            
         </nav>
         
 
@@ -148,6 +153,10 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
         {% block extra_js %}
             {# Override this in templates to add extra javascript #}
+            <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
+            integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
+            crossorigin=""></script>
         {% endblock %}
+        
     </body>
 </html>

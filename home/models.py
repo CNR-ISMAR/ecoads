@@ -1,9 +1,12 @@
 from django.db import models
 from django.utils.functional import cached_property
+from django.core.serializers import serialize
 from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
+from ecos.models import EcosSite
+import json
 
 class HomePage(Page):
     """Home page model."""
@@ -37,3 +40,14 @@ class HomePage(Page):
          ImageChooserPanel("banner_image"),
          PageChooserPanel("banner_cta"),
     ]
+
+    def get_context(self, request):
+        context = super(HomePage, self).get_context(request)
+        #context['ecossites'] = EcosSite.objects.all()
+        context['ecossites'] = [(s.denomination, s.location.y, s.location.x) for s in EcosSite.objects.filter(is_ecoss=True)]
+        #context['polygons'] = [s.domain_area for s in EcosSite.objects.all()]
+        context['other_ecossites'] = [(s.denomination, s.location.y, s.location.x) for s in EcosSite.objects.filter(is_ecoss=False)]
+        context['polygons'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_ecoss=True),
+          geometry_field='domain_area',
+          fields=('denomination',)))
+        return context
