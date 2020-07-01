@@ -2,7 +2,7 @@ var icon_other_site = L.icon({
     iconUrl: '/media/images/other_site.max-165x165.png',
     iconSize: [15, 15],
     /*iconAnchor: [0, 0],*/
-    popupAnchor: [-3, -76],
+    popupAnchor: [0, -10],
 });
 /*L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);*/
 
@@ -17,7 +17,7 @@ var icon_ecoss_site = L.icon({
     iconUrl: '/media/images/ecoss_site.max-165x165.png',
     iconSize: [45, 45],
     /*iconAnchor: [0, 0],*/
-    popupAnchor: [-3, -76],
+    popupAnchor: [0, -20],
 });
 
 var ecossites = JSON.parse(document.getElementById('ecossites').textContent);
@@ -27,23 +27,31 @@ var ecossites = JSON.parse(document.getElementById('ecossites').textContent);
         .addTo(map);
     };
 
-var polygons = JSON.parse(document.getElementById('polygons').textContent);
+var stylepolygons = {
+    color: "#99c034",
+    weight: 1,
+    opacity: 0.70
+    };
 
-var layer = L.geoJSON().addTo(map);
+var polygons = JSON.parse(document.getElementById('polygons').textContent);
+var layer = L.geoJSON(polygons, {style: stylepolygons}).addTo(map);
 layer.addData(polygons);
 
+var legend = L.control({position: 'topright'});
+    legend.onAdd = function (map) {
 
-/*for (var i = 0; i < polygons.length; i++) {
-    poligon = new L.polygon([polygons[i]])
-    .bindPopup(polygons[i])
-    .addTo(map);
-}*/
+        var div = L.DomUtil.create('div', 'info legend'),
+        grades=['ECOSS sites', 'Other Sites'];
+        labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png'];
 
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+           (" <img src="+ labels[i] +" height='35' width='35'>") + grades[i] + '<br>';
+    }
 
-// questo per aggiungere i poligoni 
+    return div;
 
-/* var polygon = L.polygon([
-    [51.509, -0.08],
-    [51.503, -0.06],
-    [51.51, -0.047]
-]).addTo(map); */
+    return div;
+};
+legend.addTo(map);
+

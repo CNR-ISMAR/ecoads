@@ -4,7 +4,7 @@ from wagtail.contrib.modeladmin.options import (
 )
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtailleafletwidget.edit_handlers import GeoPanel
-from .models import DataSource, Parameter, EcosSite, EcosSitesDataSources, ParametersDataSources
+from .models import DataSource, Parameter, EcosSite, EcosSitesDataSources, DataSourcesParameters
 
 
 class DataSourceAdmin(ModelAdmin):
@@ -83,11 +83,11 @@ class EcosSitesDataSourcesAdmin(ModelAdmin):
 
 modeladmin_register(EcosSitesDataSourcesAdmin)
 
-class ParametersDataSourcesAdmin(ModelAdmin):
-    """ParametersDataSources admin."""
+class DataSourcesParametersAdmin(ModelAdmin):
+    """DataSourcesParametersAdmin."""
 
-    model = ParametersDataSources
-    menu_label = "M2M Parameters/DataSources"
+    model = DataSourcesParameters
+    menu_label = "M2M DataSources/Parameters"
     menu_icon = "pick"
     menu_order = 900
     add_to_settings_menu = False 
@@ -95,5 +95,5 @@ class ParametersDataSourcesAdmin(ModelAdmin):
     list_display = ("parameter", "data_source",)
     search_field = ("parameter", "data_source",)
 
-modeladmin_register(ParametersDataSourcesAdmin)
+modeladmin_register(DataSourcesParametersAdmin)
 

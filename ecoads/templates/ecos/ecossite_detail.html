@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+   
+   <hr style="height:30pt; visibility:hidden;" />
+   <h1 style="text-align: center";>{{ object.denomination }}</h1>
+   
+   <div id=site>    
+        <div id="sitepage" style="text-align: justify";>    
+            <h5>Description:</h5>
+            <hr style="height:1pt; visibility:hidden;" />
+                
+                 <div>
+                    {{ object.description }}
+                     {{ object.purpose }}
+                </div>
+        </div>
+
+        <div id="mapsite"  >
+        </div>
+    </div>
+
+
+    
+    <!-- <div id="debug">
+        {{ singlesite }}
+        {{ polygon }}
+        {{ denomination }}
+    </div> -->
+
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+{{ polygon|json_script:"polygon" }}
+{{ singlesite|json_script:"singlesite" }}
+{{ denomination|json_script:"denomination" }}
+
+
+
+
+<script type="text/javascript" src="/static/js/singlesite.js"></script>
+
+{% endblock %}
+
+
+
+
+<!--div class="field field--name-field-abstract field--type-string-long field--label-inline">
+                <div class="field--item"><div id="" class="expand-collapse" data-trim-length="750" data-default-state="collapsed"
+                        data-link-text-open="Show more ..." data-link-text-close="Show less"
+                        data-link-class-open="ecf-open" data-link-class-close="ecf-close">
+                            <div class="ec-content">
+                                {{ object.description }}
+                        
+                            </div>
+                    <a href="#expand-collapse-0" class="ec-toggle-link ecf-close">Show less</a>
+                    </div>
+                </div>
+            </div -->

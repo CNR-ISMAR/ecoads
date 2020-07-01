@@ -23,7 +23,7 @@ class HomePage(Page):
         on_delete= models.SET_NULL,
         related_name="+",
     )
-    body = RichTextField(null=True)
+    body = RichTextField(null=False)
 
     banner_cta = models.ForeignKey( 
         "wagtailcore.Page",
@@ -43,7 +43,7 @@ class HomePage(Page):
 
     def get_context(self, request):
         context = super(HomePage, self).get_context(request)
-        #context['ecossites'] = EcosSite.objects.all()
+        #context['allsites'] = [(s.denomination, s.location.y, s.location.x)for s in EcosSite.objects.all()]
         context['ecossites'] = [(s.denomination, s.location.y, s.location.x) for s in EcosSite.objects.filter(is_ecoss=True)]
         #context['polygons'] = [s.domain_area for s in EcosSite.objects.all()]
         context['other_ecossites'] = [(s.denomination, s.location.y, s.location.x) for s in EcosSite.objects.filter(is_ecoss=False)]

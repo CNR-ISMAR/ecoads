@@ -1,6 +1,9 @@
 from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
+from django.urls import path
+from ecos.views import EcosSiteList
+from ecos.views import EcosSiteDetailView
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
@@ -18,6 +21,11 @@ urlpatterns = [
     url(r'^search/$', search_views.search, name='search'),
 
      url(r'', include('allauth.urls')), #tolto account di mezzo 
+    
+    url(r'sites/', EcosSiteList.as_view()),
+
+    path('<slug:slug>/', EcosSiteDetailView.as_view(), name='EcosSiteDetailView'),
+
 ]
 
 if settings.DEBUG:
