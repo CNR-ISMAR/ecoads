@@ -6,28 +6,43 @@
    <hr style="height:30pt; visibility:hidden;" />
    <h1 style="text-align: center";>{{ object.denomination }}</h1>
    
-   <div id=site>    
-        <div id="sitepage" style="text-align: justify";>    
+   <div id=site> 
+        <div id="sitepage" style="text-align: justify";>
             <h5>Description:</h5>
             <hr style="height:1pt; visibility:hidden;" />
                 
                  <div>
                     {{ object.description }}
-                     {{ object.purpose }}
                 </div>
+            <hr style="height:5pt; visibility:hidden;" />
+            
+            <h5>Purpose:</h5>
+            <hr style="height:1pt; visibility:hidden;" />
+                <div>
+                    {{ object.data.attributes.general.purpose }}
+                    
+                </div>
+            <hr style="height:5pt; visibility:hidden;" />
+
+            <h5>Go to <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">Website</h5></a>  
+           
+
+            
+            
+
         </div>
 
         <div id="mapsite"  >
+
+                   
         </div>
     </div>
 
 
     
-    <!-- <div id="debug">
-        {{ singlesite }}
-        {{ polygon }}
-        {{ denomination }}
-    </div> -->
+    <!--div id="debug">
+        {{ purpose }}
+    </div--> 
 
 {% endblock %}
 

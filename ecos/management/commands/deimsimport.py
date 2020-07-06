@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand, CommandError
-
+import json
 import swagger_client                                                                                                                                                                    
 from swagger_client.api_client import ApiClient
 from ecos.models import EcosSite
@@ -23,7 +23,7 @@ class Command(BaseCommand):
             site = api.sites_resource_id_get(resource_id=s.id.suffix)
             if not (set(['Italy', 'Slovenia']) & set(site.attributes.geographic.country)):
                 continue
-            print(site.id.suffix, site.title, site.attributes.geographic.country)
+            print(site.id.prefix, site.id.suffix, site.title, site.attributes.geographic.country)
 
             domain_area = None
             if site.attributes.geographic.boundaries is not None:
@@ -41,12 +41,13 @@ class Command(BaseCommand):
                 location = GEOSGeometry(site.attributes.geographic.coordinates, srid=4326)
             )
 
-            obj.data = api_client.last_response.data
+        
+            obj.data = json.loads(api_client.last_response.data) 
             obj.denomination =site.title 
             obj.description = site.attributes.general.abstract
             obj.domain_area = domain_area 
-            #website= site.attributes.contact.site_url[0].value, #deims  + suffix 
-            obj.last_update = site.changed 
+            obj.website= site.id.prefix+site.id.suffix
+            obj.last_update = site.changed
 
             obj.save()
             

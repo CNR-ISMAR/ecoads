@@ -2,23 +2,23 @@ var map = L.map('map', {
     zoom: 7,
     fullscreenControl: true,
     center: [44.00, 13.00]
-    });
+});
 
 L.tileLayer('http://tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
-attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
 }).addTo(map);
 
 L.tileLayer('http://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
-attribution: ''
+    attribution: ''
 }).addTo(map);
 
 var bathymetryLayer = L.tileLayer.wms("http://ows.emodnet-bathymetry.eu/wms", {
-        layers: 'emodnet:mean_atlas_land',
-        format: 'image/png',
-        transparent: true,
-        attribution: "EMODnet Bathymetry",
-        opacity: 0.5
-    }).addTo(map);
+    layers: 'emodnet:mean_atlas_land',
+    format: 'image/png',
+    transparent: true,
+    attribution: "EMODnet Bathymetry",
+    opacity: 0.5
+}).addTo(map);
 
 
 /*var inspireWgs84Grid = function(levels, prefix) {

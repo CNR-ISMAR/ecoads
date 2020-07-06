@@ -55,13 +55,13 @@ class EcosSiteAdmin(ModelAdmin):
     menu_order = 700
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ("denomination", "description", "website")
-    search_field = ("denomination", "description", "website")
+    list_display = ("denomination", "last_update", "website", "is_ecoss")
+    search_field = ("denomination", "last_update", "website", "is_ecoss")
 
     panels =[
     FieldPanel("denomination"),
+    FieldPanel("last_update"),
     FieldPanel("description"),
-    #GeoPanel("domain_area"), #tofix poligono e non location!
     GeoPanel("location"),
     FieldPanel("website"),
     FieldPanel("is_ecoss"),
