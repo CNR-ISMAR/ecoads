@@ -8,11 +8,15 @@ a {
 }
 
 h1 {
+    color: #590416;
+}
+
+h4 {
     color: #023a70;
 }
 
 h5 {
-    color: #023a70;
+    color: #BD4602;
 }
 
 h6 {
@@ -109,4 +113,18 @@ h6 {
     width: 30px;
     height: 30px;
     float: left;
+}
+
+#more {
+    display: none;
+}
+
+#btn1 {
+    background-color: #c5c8d6;
+    border: none;
+    color: #BD4602;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

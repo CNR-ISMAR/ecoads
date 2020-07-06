@@ -12,7 +12,14 @@
             <hr style="height:1pt; visibility:hidden;" />
                 
                  <div>
-                    {{ object.description }}
+
+                    <!--<p> The main activities are oriented <span id="dots">...</span><span id="more">to study biodiversity and ecosystem functioning. The collected data mainly regard the phytoplanktonic, macrobenthic and fish guild, with particular attention to the morphofunctional characteristics. Various data are gathered with annual, seasonal and monthly frequency: the main chemical–physical parameters (temperature, pH, salinity, dissolved oxygen, nutrients, organic material); chlorophyll; taxonomy, abundance, biomass and morphofunctional traits of phytoplankton and macrobenthos. 
+                    </span>
+                    </p>-->
+
+                    {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
+                    <button id="btn1" onclick="myFunction()" >Read more</button>
+                    
                 </div>
             <hr style="height:5pt; visibility:hidden;" />
             
@@ -22,6 +29,10 @@
                     {{ object.data.attributes.general.purpose }}
                     
                 </div>
+            <hr style="height:5pt; visibility:hidden;" />
+
+            <h5>Last Update:</h5> <p>{{ object.last_update}}</p> 
+
             <hr style="height:5pt; visibility:hidden;" />
 
             <h5>Go to <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">Website</h5></a>  
