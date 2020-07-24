@@ -43,10 +43,8 @@ class HomePage(Page):
 
     def get_context(self, request):
         context = super(HomePage, self).get_context(request)
-        #context['allsites'] = [(s.denomination, s.location.y, s.location.x)for s in EcosSite.objects.all()]
-        context['ecossites'] = [(s.denomination, s.location.y, s.location.x) for s in EcosSite.objects.filter(is_ecoss=True)]
-        #context['polygons'] = [s.domain_area for s in EcosSite.objects.all()]
-        context['other_ecossites'] = [(s.denomination, s.location.y, s.location.x) for s in EcosSite.objects.filter(is_ecoss=False)]
+        context['ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_ecoss=True)]
+        context['other_ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_ecoss=False)]
         context['polygons'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_ecoss=True),
           geometry_field='domain_area',
           fields=('denomination',)))

@@ -1,18 +1,13 @@
 {% extends "base.html" %}
-
 {% load wagtailcore_tags wagtailimages_tags %} {# this is a filter #}
 
-
 {% block content %}
-<hr style="height:30pt; visibility:hidden;" />
 <h1 style="text-align: center"> Ecos Sites List</h1>
 <div style="margin-left: 80px"> 
     {% for ecossite in object_list %}
         <a href="/{{ ecossite.suffix }}/">
             <h4> <li>{{ ecossite.denomination}}</li> </h4>
-    </a>
+        </a>
     {% endfor %}
 </div>
-
-
 {% endblock %}

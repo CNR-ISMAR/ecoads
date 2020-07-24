@@ -2,55 +2,28 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-   
-   <hr style="height:30pt; visibility:hidden;" />
-   <h1 style="text-align: center";>{{ object.denomination }}</h1>
-   
-   <div id=site> 
+    <h1 style="text-align: center";>{{ object.denomination }}</h1>
+    <div id=site>
         <div id="sitepage" style="text-align: justify";>
             <h5>Description:</h5>
-            <hr style="height:1pt; visibility:hidden;" />
-                
-                 <div>
-
-                    <!--<p> The main activities are oriented <span id="dots">...</span><span id="more">to study biodiversity and ecosystem functioning. The collected data mainly regard the phytoplanktonic, macrobenthic and fish guild, with particular attention to the morphofunctional characteristics. Various data are gathered with annual, seasonal and monthly frequency: the main chemical–physical parameters (temperature, pH, salinity, dissolved oxygen, nutrients, organic material); chlorophyll; taxonomy, abundance, biomass and morphofunctional traits of phytoplankton and macrobenthos. 
-                    </span>
-                    </p>-->
-
-                    {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
-                    <button id="btn1" onclick="myFunction()" >Read more</button>
-                    
-                </div>
-            <hr style="height:5pt; visibility:hidden;" />
-            
+            <div>
+                {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
+                <button id="btn1" onclick="myFunction()" >Read more</button>
+            </div>
+            <hr style="height:5pt; visibility:hidden;"/>
             <h5>Purpose:</h5>
-            <hr style="height:1pt; visibility:hidden;" />
-                <div>
-                    {{ object.data.attributes.general.purpose }}
-                    
-                </div>
-            <hr style="height:5pt; visibility:hidden;" />
-
+            <div>
+                {{ object.data.attributes.general.purpose }}
+            </div>
+            <hr style="height:5pt; visibility:hidden;"/>
             <h5>Last Update:</h5> <p>{{ object.last_update}}</p> 
-
-            <hr style="height:5pt; visibility:hidden;" />
-
-            <h5>Go to <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">Website</h5></a>  
-           
-
-            
-            
-
+            <hr style="height:5pt; visibility:hidden;"/>
+            <h5>Go to <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">Website</h5></a>
         </div>
-
-        <div id="mapsite"  >
-
-                   
+        <div id="mapsite"  >             
         </div>
     </div>
 
-
-    
     <!--div id="debug">
         {{ purpose }}
     </div--> 
@@ -62,26 +35,5 @@
 {{ polygon|json_script:"polygon" }}
 {{ singlesite|json_script:"singlesite" }}
 {{ denomination|json_script:"denomination" }}
-
-
-
-
 <script type="text/javascript" src="/static/js/singlesite.js"></script>
-
 {% endblock %}
-
-
-
-
-<!--div class="field field--name-field-abstract field--type-string-long field--label-inline">
-                <div class="field--item"><div id="" class="expand-collapse" data-trim-length="750" data-default-state="collapsed"
-                        data-link-text-open="Show more ..." data-link-text-close="Show less"
-                        data-link-class-open="ecf-open" data-link-class-close="ecf-close">
-                            <div class="ec-content">
-                                {{ object.description }}
-                        
-                            </div>
-                    <a href="#expand-collapse-0" class="ec-toggle-link ecf-close">Show less</a>
-                    </div>
-                </div>
-            </div -->

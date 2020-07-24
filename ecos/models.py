@@ -42,7 +42,9 @@ class EcosSite(models.Model):
     last_update = models.DateTimeField(blank=False, null=True)
     is_ecoss = models.BooleanField(default=False)
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
+    #parametri diretto 
 
+    
     def _str_(self):
         return self.denomination
 

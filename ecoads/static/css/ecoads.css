@@ -9,6 +9,8 @@ a {
 
 h1 {
     color: #590416;
+    margin-top: 100px;
+    margin-bottom: 50px;
 }
 
 h4 {
@@ -17,6 +19,7 @@ h4 {
 
 h5 {
     color: #BD4602;
+    margin-bottom: 15px;
 }
 
 h6 {
