@@ -2,7 +2,7 @@ from django.core.management.base import BaseCommand, CommandError
 import json
 import swagger_client                                                                                                                                                                    
 from swagger_client.api_client import ApiClient
-from ecos.models import EcosSite
+from ecos.models import EcosSite, Parameter
 from django.contrib.gis.geos import GEOSGeometry, LineString, Point, Polygon, MultiPolygon, MultiLineString
 
 class Command(BaseCommand):
@@ -15,9 +15,6 @@ class Command(BaseCommand):
         api_client.configuration.host = "https://deims.org/api"
         api = swagger_client.DefaultApi(api_client=api_client)
         sites = api.sites_get()
-      
-
-        #suffix = ['4e645ab1-61d5-4414-92a2-eeb912f5e515']
 
         for s in sites:
             site = api.sites_resource_id_get(resource_id=s.id.suffix)
@@ -40,8 +37,7 @@ class Command(BaseCommand):
                 suffix = site.id.suffix,
                 location = GEOSGeometry(site.attributes.geographic.coordinates, srid=4326)
             )
-
-        
+            
             obj.data = json.loads(api_client.last_response.data) 
             obj.denomination =site.title 
             obj.description = site.attributes.general.abstract
@@ -50,6 +46,17 @@ class Command(BaseCommand):
             obj.last_update = site.changed
 
             obj.save()
-            
+
+            if site.attributes.focus_design_scale.parameters is not None:
+                #print(site.attributes.focus_design_scale.parameters.__class__, site.attributes.focus_design_scale.parameters.__dict__)
+                #print(site.attributes.focus_design_scale.parameters)
+                #print(site.attributes.focus_design_scale.parameters[0].label)
+                #print(site.attributes.focus_design_scale.parameters[0].uri)
+                
+                obj, created = Parameter.objects.get_or_create(
+                    uri = site.attributes.focus_design_scale.parameters[0].uri,
+                    preferred_label_en = site.attributes.focus_design_scale.parameters[0].label
+                )
+                
             #./manage.py shell< ecoads/sandbox.py
 

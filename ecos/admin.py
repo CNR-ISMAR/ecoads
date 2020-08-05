@@ -4,7 +4,7 @@ from wagtail.contrib.modeladmin.options import (
 )
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtailleafletwidget.edit_handlers import GeoPanel
-from .models import DataSource, Parameter, EcosSite, EcosSitesDataSources, DataSourcesParameters
+from .models import DataSource, Parameter, EcosSite, EcosSitesDataSources, DataSourcesParameters, EcosSitesParameters
 
 
 class DataSourceAdmin(ModelAdmin):
@@ -41,8 +41,8 @@ class ParameterAdmin(ModelAdmin):
     menu_order = 600
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ("uri", "preferred_label_en", "definition_en",)
-    search_field = ("uri", "preferred_label_en", "definition_en",)
+    list_display = ("preferred_label_en", "uri", "definition_en",)
+    search_field = ("preferred_label_en", "uri", "definition_en",)
 
 modeladmin_register(ParameterAdmin)
 
@@ -65,6 +65,7 @@ class EcosSiteAdmin(ModelAdmin):
     GeoPanel("location"),
     FieldPanel("website"),
     FieldPanel("is_ecoss"),
+    FieldPanel("parameters"),
     ] 
 
 modeladmin_register(EcosSiteAdmin)
@@ -82,6 +83,22 @@ class EcosSitesDataSourcesAdmin(ModelAdmin):
     search_field = ("ecos_site", "data_source",)
 
 modeladmin_register(EcosSitesDataSourcesAdmin)
+
+
+
+class EcosSitesParametersAdmin(ModelAdmin):
+    """EcosSitesParameters admin."""
+    model = EcosSitesParameters
+    menu_label = "M2M EcosSites/Parameters"
+    menu_icon = "success"
+    menu_order = 800
+    add_to_settings_menu = False 
+    exclude_from_explorer = False
+    list_display = ("ecos_site", "parameters",)
+    search_field = ("ecos_site", "parameters",)
+
+modeladmin_register(EcosSitesParametersAdmin)
+
 
 class DataSourcesParametersAdmin(ModelAdmin):
     """DataSourcesParametersAdmin."""

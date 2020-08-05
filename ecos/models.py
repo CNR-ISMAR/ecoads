@@ -10,7 +10,6 @@ class DataSource(models.Model):
     name = models.CharField(max_length=200, blank=True, null=False)
     observation_model = models.CharField(max_length=200, blank=True, null=False)
     location = models.PointField(blank=False, null=True )
-    #variables = models.TextField(blank=False, null=True )
     domain_area = models.MultiPolygonField(blank=False, null=True )
     update_frequency = models.CharField(max_length=200, blank=True, null=False)
     sampling_frequency = models.CharField(max_length=200, blank=True, null=False)
@@ -42,12 +41,16 @@ class EcosSite(models.Model):
     last_update = models.DateTimeField(blank=False, null=True)
     is_ecoss = models.BooleanField(default=False)
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
-    #parametri diretto 
+    parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
+
 
     
     def _str_(self):
         return self.denomination
 
+class EcosSitesParameters(models.Model): 
+    ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)
+    parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
 
 class EcosSitesDataSources(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)

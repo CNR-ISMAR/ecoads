@@ -22,10 +22,20 @@
         </div>
         <div id="mapsite"  >             
         </div>
+        <div>
+            <hr style="height:385pt; visibility:hidden;"/>
+            <h5>Parameters:</h5>
+            {% for parameter in object.data.attributes.focusDesignScale.parameters%}
+                
+                <li>
+                    <a class="nav-link" href="{{ parameter.uri  }}">{{ parameter.label  }} </a>
+                </li>
+            {% endfor %}
+        </div>
     </div>
 
     <!--div id="debug">
-        {{ purpose }}
+        {{ object.labels }}
     </div--> 
 
 {% endblock %}
