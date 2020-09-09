@@ -5,13 +5,13 @@
 {% block content %}
 
 
- <div id="map"  >
+<div id="map"  >
 
-    </div>
+</div>
     
-    {% image self.banner_image fill-2876x350 as img %}
+{% image self.banner_image fill-2876x350 as img %}
 
-    <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: cover; background-position: center center;  !important"> <!-- @tofix sistemare con una immagine migliore, se si sistema togliere hr -->
+   <div class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: cover; background-position: center center;  !important"> <!-- @tofix sistemare con una immagine migliore, se si sistema togliere hr -->
         <h1 class="display-3" style="text-align: center; color:	#023a70"> {{ self.banner_title }}</h1> <!-- @tofix colore testo-->
         <h4 class="display-5" style="text-align: center; color:	#023a70"> {{ self.banner_subtitle }}</h4>
         <!-- <hr style="height:200pt; visibility:hidden;" /> --> 
@@ -31,7 +31,7 @@
     </div--> 
 
     
-   <!--div class map <iframe width="420" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://cigno.ve.ismar.cnr.it/maps/30/embed" style="border: 1px solid black"></iframe> 
+   <!--div cl ass map <iframe width="420" height="350" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://cigno.ve.ismar.cnr.it/maps/30/embed" style="border: 1px solid black"></iframe> 
    @tofix-->
         
    
