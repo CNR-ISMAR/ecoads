@@ -23,7 +23,7 @@ class HomePage(Page):
         on_delete= models.SET_NULL,
         related_name="+",
     )
-    body = RichTextField(null=False)
+    #body = RichTextField(null=False)
 
     banner_cta = models.ForeignKey( 
         "wagtailcore.Page",
@@ -36,7 +36,7 @@ class HomePage(Page):
     content_panels = Page.content_panels + [
          FieldPanel("banner_title"),    
          FieldPanel("banner_subtitle"),
-         FieldPanel("body"),
+         #FieldPanel("body"),
          ImageChooserPanel("banner_image"),
          PageChooserPanel("banner_cta"),
     ]

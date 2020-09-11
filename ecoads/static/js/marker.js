@@ -39,6 +39,8 @@ var stylepolygons = {
     color: "#99c034",
     weight: 1,
     opacity: 0.70
+
+    
 };
 
 var polygons = JSON.parse(document.getElementById('polygons').textContent);
