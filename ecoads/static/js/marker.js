@@ -45,7 +45,7 @@ var polygons = JSON.parse(document.getElementById('polygons').textContent);
 var layer = L.geoJSON(polygons, { style: stylepolygons }).addTo(map);
 layer.addData(polygons);
 
-var legend = L.control({ position: 'topright' });
+var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
@@ -54,7 +54,7 @@ legend.onAdd = function(map) {
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
-            (" <img src=" + labels[i] + " height='35' width='35'>") + grades[i] + '<br>';
+            (" <img src=" + labels[i] + " height='28' width='28'>") + grades[i] + '<br>';
     }
 
     return div;
