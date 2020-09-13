@@ -1,4 +1,5 @@
 ECOADS 
+[release in GPL]
 
 The Website prototype is published at https://ecoads.eu/
 
