@@ -5,7 +5,7 @@
 <h1 style="text-align: center"> Ecos Sites List</h1>
 <div style="margin-left: 80px"> 
     {% for ecossite in object_list %}
-        <a href="/{{ ecossite.suffix }}/">
+        <a href="{% url 'site-view' ecossite.suffix %}">
             <h4> <li>{{ ecossite.denomination}}</li> </h4>
         </a>
     {% endfor %}

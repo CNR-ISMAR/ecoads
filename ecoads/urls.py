@@ -20,11 +20,11 @@ urlpatterns = [
 
     url(r'^search/$', search_views.search, name='search'),
 
-     url(r'', include('allauth.urls')), #tolto account di mezzo 
+    url(r'', include('allauth.urls')), #tolto account di mezzo 
     
     url(r'sites/', EcosSiteList.as_view()),
 
-    path('<slug:slug>/', EcosSiteDetailView.as_view(), name='EcosSiteDetailView'),
+    path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
 
 ]
 
@@ -43,6 +43,7 @@ urlpatterns = urlpatterns + [
 
     url(r"", include(wagtail_urls)),
 
+    
     # Alternatively, if you want Wagtail pages to be served from a subpath
     # of your site, rather than the site root:
     #    url(r"^pages/", include(wagtail_urls)),

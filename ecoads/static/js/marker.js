@@ -56,7 +56,7 @@ legend.onAdd = function(map) {
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
-            (" <img src=" + labels[i] + " height='28' width='28'>") + grades[i] + '<br>';
+            (" <img src=" + labels[i] + " height='25' width='25'>") + grades[i] + '<br>';
     }
 
     return div;
