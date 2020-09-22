@@ -75,11 +75,22 @@ h6 {
 }
 
 #map {
-    height: 680px;
-    /*width: 1600px;
-                border: 1px solid #023a70;
-                margin-top: 60px;
-                margin-bottom: 60px;*/
+    height: 670px;
+    width: 70%;
+    float: right;
+    /*border: 1px solid #023a70;
+    margin-top: 60px;
+    margin-bottom: 60px;*/
+}
+
+#infoblock{
+    height: 670px;
+    width: 30%;
+    /*background-color: #590416;*/
+}
+
+#banner{
+    height: 350px;
 }
 
 #site {
