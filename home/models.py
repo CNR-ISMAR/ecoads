@@ -23,7 +23,6 @@ class HomePage(Page):
         on_delete= models.SET_NULL,
         related_name="+",
     )
-    #body = RichTextField(null=False)
 
     banner_cta = models.ForeignKey( 
         "wagtailcore.Page",
