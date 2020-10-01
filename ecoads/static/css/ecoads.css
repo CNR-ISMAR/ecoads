@@ -1,5 +1,5 @@
 body {
-    background-color: #c5c8d6;
+    background-color: #ffffff;
     color: #023a70;
 }
 
@@ -93,16 +93,22 @@ h6 {
     /*background-color: #590416;*/
 }
 
+#homepage{
+    padding-top: 0px;
+
+}
 #hometable{
     font-size: 21px;
     border: 1px solid #023a70;
     text-align: center;
-    padding-top: 80px;
-    
+    padding-top: 80px;©
 }
 
 #banner{
-    height: 350px;
+    height: 165navpx;
+    margin-bottom: 0px;
+    padding: 2rem;
+
 }
 
 #site {
