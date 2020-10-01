@@ -18,7 +18,7 @@ class Command(BaseCommand):
 
         for s in sites:
             site = api.sites_resource_id_get(resource_id=s.id.suffix)
-            if not (set(['Italy', 'Slovenia']) & set(site.attributes.geographic.country)):
+            if not (set(['Italy', 'Slovenia', 'Croatia']) & set(site.attributes.geographic.country)):
                 continue
             print(site.id.prefix, site.id.suffix, site.title, site.attributes.geographic.country)
 

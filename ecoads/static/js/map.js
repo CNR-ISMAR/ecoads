@@ -23,7 +23,7 @@ var baselayer = L.layerGroup([tonerlite, opensea, bathymetryLayer]);
 var map = L.map('map', {
     zoom: 7,
     fullscreenControl: true,
-    center: [43.50, 12.50],
+    center: [43.50, 13.40],
     layers: [baselayer]
 });
 
