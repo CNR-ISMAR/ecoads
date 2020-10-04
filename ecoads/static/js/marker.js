@@ -9,7 +9,7 @@ var icon_other_site = L.icon({
 var other_ecossites = JSON.parse(document.getElementById('other_ecossites').textContent);
 for (var i = 0; i < other_ecossites.length; i++) {
     var name = other_ecossites[i][0]
-    var link = $(name.link(other_ecossites[i][3])).click(function() {
+    var link = $(name.link("site/" + other_ecossites[i][3])).click(function() {
         //alert("test");
     })[0];
     marker = new L.marker([other_ecossites[i][1], other_ecossites[i][2]], { icon: icon_other_site })
@@ -27,7 +27,7 @@ var icon_ecoss_site = L.icon({
 var ecossites = JSON.parse(document.getElementById('ecossites').textContent);
 for (var i = 0; i < ecossites.length; i++) {
     var name = ecossites[i][0]
-    var link = $(name.link(ecossites[i][3])).click(function() {
+    var link = $(name.link("site/" + ecossites[i][3])).click(function() {
         //alert("test");
     })[0];
     marker = new L.marker([ecossites[i][1], ecossites[i][2]], { icon: icon_ecoss_site })
