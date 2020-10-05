@@ -90,7 +90,7 @@ h6 {
 }
 
 #infoblock{
-    height: 665px;
+    height: 550px;
     width: 26%;
     padding-top: 20px;
     margin-right: 10px;
@@ -143,6 +143,11 @@ h6 {
     width: 45%;
     padding-bottom: 80px;
 }
+
+#cardcontainer{
+    padding-bottom: 80px;
+}
+
 
 .legend {
     line-height: 40px;
