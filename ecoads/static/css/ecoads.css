@@ -7,10 +7,15 @@ a {
     color: #BD4602;
 }
 
+hr{
+    margin-top: 0px;
+    margin-bottom: 0px; 
+}
+
 h1 {
     color: #590416;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin-top: 80px;
+    margin-bottom: 40px;
 }
 
 h4 {
@@ -96,8 +101,20 @@ h6 {
     margin-right: 10px;
     margin-left: 30px;
     margin-bottom: 80px;
-    font-size: 21px;
     /*background-color: #590416;*/
+}
+
+#buttonbox{
+    background:  hsla(0, 0%, 85%, 1);;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 2px;
+    border-radius: 12px;
+}
+
+#btngroup{
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 #homepage{
@@ -123,7 +140,6 @@ h6 {
     padding: 2rem;
 }
 
-
 #site {
     margin-left: 80px;
     margin-right: 80px;
@@ -147,7 +163,6 @@ h6 {
 #cardcontainer{
     padding-bottom: 80px;
 }
-
 
 .legend {
     line-height: 40px;
