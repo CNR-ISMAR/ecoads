@@ -3,11 +3,22 @@
 
 {% block content %}
 <h1 style="text-align: center"> Ecos Sites List</h1>
-<div style="margin-left: 80px"> 
+<div style="margin-left: 80px">
+    
     {% for ecossite in object_list %}
-        <a href="{% url 'site-view' ecossite.suffix %}">
-            <h4> <li>{{ ecossite.denomination}}</li> </h4>
-        </a>
+
+        <div class="alert alert-dark" role="alert" style =" width: 95%; ">
+            <a href="{% url 'site-view' ecossite.suffix %}" class="alert-link">
+                <h6> {{ ecossite.denomination}} </h6>
+            </a>
+                <p> {{ ecossite.description | truncatechars:200 }}
+        </div>
+
+        <!--<a href="{% url 'site-view' ecossite.suffix %}">
+            <h4> <ul>{{ ecossite.denomination}}</ul> </h4>
+        </a-->  
+        
     {% endfor %}
+    
 </div>
 {% endblock %}

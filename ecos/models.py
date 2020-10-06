@@ -40,6 +40,9 @@ class EcosSite(models.Model):
     website = models.URLField(max_length=600,blank=False, null=True)
     last_update = models.DateTimeField(blank=False, null=True)
     is_ecoss = models.BooleanField(default=False)
+    is_n2k = models.BooleanField(default=False)
+    is_lter = models.BooleanField(default=False)
+    is_fixoss = models.BooleanField(default=False)
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
 

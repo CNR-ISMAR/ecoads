@@ -10,6 +10,14 @@ class EcosSiteList(ListView):
     
     model = EcosSite
     template_name = 'ecossite_list.html'
+    def get_queryset(self): 
+        sitetype = self.kwargs.get('sitetype')
+        if sitetype == 'natura2000':
+            return EcosSite.objects.filter(is_n2k = True )
+        elif sitetype == 'lter':
+            return EcosSite.objects.filter(is_lter = True )
+        else:
+            return EcosSite.objects.all()
 
 
 class EcosSiteDetailView(DetailView):

@@ -47,4 +47,4 @@ class HomePage(Page):
         context['polygons'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_ecoss=True),
           geometry_field='domain_area',
           fields=('denomination',)))
-        return context
+        return context 

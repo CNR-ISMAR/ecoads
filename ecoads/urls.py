@@ -22,7 +22,9 @@ urlpatterns = [
 
     url(r'', include('allauth.urls')), #tolto account di mezzo 
     
-    url(r'sites/', EcosSiteList.as_view()),
+    url(r'sites/$', EcosSiteList.as_view()),
+
+    url(r'sites/(?P<sitetype>[\w]+)/$', EcosSiteList.as_view()),
 
     path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
 
