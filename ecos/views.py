@@ -21,7 +21,6 @@ class EcosSiteList(ListView):
         else:
             return EcosSite.objects.all()
 
-
 class EcosSiteDetailView(DetailView):
 
     model = EcosSite
