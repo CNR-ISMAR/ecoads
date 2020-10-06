@@ -16,6 +16,8 @@ class EcosSiteList(ListView):
             return EcosSite.objects.filter(is_n2k = True )
         elif sitetype == 'lter':
             return EcosSite.objects.filter(is_lter = True )
+        elif sitetype == 'fixoss':
+            return EcosSite.objects.filter(is_fixoss= True )
         else:
             return EcosSite.objects.all()
 
