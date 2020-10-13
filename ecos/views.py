@@ -6,6 +6,14 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from .models import DataSource, Parameter, EcosSite
 
+from django.http import JsonResponse
+
+def sitesjson(request):
+    data = []
+    for s in EcosSite.objects.filter(is_lter = True ):
+        data.append(s.data)
+    return JsonResponse(data, safe=False)
+    
 class EcosSiteList(ListView):
     
     model = EcosSite
@@ -20,6 +28,8 @@ class EcosSiteList(ListView):
             return EcosSite.objects.filter(is_fixoss= True )
         else:
             return EcosSite.objects.all()
+
+
 
 class EcosSiteDetailView(DetailView):
 
