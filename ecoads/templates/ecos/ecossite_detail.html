@@ -4,35 +4,38 @@
 {% block content %}
     <h1 style="text-align: center";>{{ object.denomination }}</h1>
     <div id=site>
-        <div id="sitepage" style="text-align: justify";>
-            <h5>Description:</h5>
-            <div>
-                {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
-                <button id="btn1" onclick="myFunction()" >Read more</button>
+            <div id="sitepage" style="text-align: justify";>
+                <h5>Description:</h5>
+                <div>
+                    {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
+                    <button id="btn1" onclick="myFunction()" >Read more</button>
+                </div>
+                <hr style="height:5pt; visibility:hidden;"/>
+                <h5>Purpose:</h5>
+                <div>
+                    {{ object.data.attributes.general.purpose }}
+                </div>
+                <hr style="height:5pt; visibility:hidden;"/>
+                <h5>Last Update:</h5> <p>{{ object.last_update}}</p> 
+                <hr style="height:5pt; visibility:hidden;"/>
+                <h5>Go to <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">Website</h5></a>
             </div>
-            <hr style="height:5pt; visibility:hidden;"/>
-            <h5>Purpose:</h5>
-            <div>
-                {{ object.data.attributes.general.purpose }}
+            <div id="mapsite">             
+            </div>            
+  
+        <div id="parameter" class="container">
+        <h5>Parameters:</h5>
+            <div class="md-form active-cyan-2 mb-3">
+        <input id="parameter-search" class="form-control" type="text" placeholder="Search" aria-label="Search">
+        </div>
+            <div id="parameter-list" class="row">
+                {% for parameter in object.data.attributes.focusDesignScale.parameters%}
+                    <div id="singleparameter" class="col-6"> <a class="nav-link" href="{{ parameter.uri  }}">{{ parameter.label  }} </a> </div>
+                {% endfor %}
             </div>
-            <hr style="height:5pt; visibility:hidden;"/>
-            <h5>Last Update:</h5> <p>{{ object.last_update}}</p> 
-            <hr style="height:5pt; visibility:hidden;"/>
-            <h5>Go to <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">Website</h5></a>
-        </div>
-        <div id="mapsite">             
-        </div>
-        <div>
-            <hr style="height:385pt; visibility:hidden;"/>
-            <h5>Parameters:</h5>
-            {% for parameter in object.data.attributes.focusDesignScale.parameters%}
-                
-                <li>
-                    <a class="nav-link" href="{{ parameter.uri  }}">{{ parameter.label  }} </a>
-                </li>
-            {% endfor %}
         </div>
     </div>
+  
 
     <!--div id="debug">
         {{ object.labels }}
@@ -46,4 +49,14 @@
 {{ singlesite|json_script:"singlesite" }}
 {{ denomination|json_script:"denomination" }}
 <script type="text/javascript" src="/static/js/singlesite.js"></script>
+<script>
+    $(document).ready(function(){
+    $("#parameter-search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#parameter-list div").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+    });
+    </script> 
 {% endblock %}

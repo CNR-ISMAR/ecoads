@@ -35,7 +35,8 @@ class Command(BaseCommand):
 
             obj, created = EcosSite.objects.get_or_create(
                 suffix = site.id.suffix,
-                location = GEOSGeometry(site.attributes.geographic.coordinates, srid=4326)
+                defaults= {'location' : GEOSGeometry(site.attributes.geographic.coordinates, srid=4326)}
+                
             )
             
             obj.data = json.loads(api_client.last_response.data) 
@@ -44,6 +45,7 @@ class Command(BaseCommand):
             obj.domain_area = domain_area 
             obj.website= site.id.prefix+site.id.suffix
             obj.last_update = site.changed
+            obj.location = GEOSGeometry(site.attributes.geographic.coordinates, srid=4326)
 
             obj.save()
 
@@ -52,11 +54,15 @@ class Command(BaseCommand):
                 #print(site.attributes.focus_design_scale.parameters)
                 #print(site.attributes.focus_design_scale.parameters[0].label)
                 #print(site.attributes.focus_design_scale.parameters[0].uri)
+
+                preferred_label_en = site.attributes.focus_design_scale.parameters[0].label
                 
                 obj, created = Parameter.objects.get_or_create(
                     uri = site.attributes.focus_design_scale.parameters[0].uri,
-                    preferred_label_en = site.attributes.focus_design_scale.parameters[0].label
+                    defaults={'preferred_label_en': preferred_label_en}
                 )
+
+                preferred_label_en = preferred_label_en
                 
             #./manage.py shell< ecoads/sandbox.py
 

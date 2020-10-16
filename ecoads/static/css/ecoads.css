@@ -145,6 +145,7 @@ h6 {
     margin-right: 80px;
     margin-top: 80px;
     margin-bottom: 80px;
+    padding-bottom: 180px;
 }
 
 #mapsite {
@@ -157,12 +158,29 @@ h6 {
 #sitepage{
     float: right;
     width: 45%;
-    padding-bottom: 80px;
 }
 
 #cardcontainer{
     padding-bottom: 80px;
 }
+
+#singleparameter{
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 3px;
+
+}
+
+#parameter{
+    font-size: 14px;
+    line-height: 0;
+    width: 50%;
+    float: left;
+    margin-top: 80px;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
 
 .legend {
     line-height: 40px;
