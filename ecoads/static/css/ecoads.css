@@ -4,6 +4,10 @@ body {
     font-size: 21px;
 }
 
+p {
+    color: #023a70;
+}
+
 a {
     color: #590416;
 }
