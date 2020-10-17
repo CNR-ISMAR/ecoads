@@ -2,11 +2,12 @@
 
 <div id="cardcontainer" class="container" >
     <h1 class="text-center">{{ self.title }}</h1>
+
     <div class="card-deck"> 
         {% for card in self.cards %}
-            {% image card.image max-500x450 as img %} <!-- se l'immagie si fosse chiamata immagine sarebbe stato card.immagine-->
+            {% image card.image max-338x200 as img %} 
             <div class="card"> 
-                <img src="{{ img.url }}" alt="{{ img.alt}}" class="card-img-top"  height="200"/>
+                <img src="{{ img.url }}" alt="{{ img.alt}}" class="card-img-top" style= "height: 200px;">
                 <div class="card-body">
                     <h5 class="card-title">{{ card.title }}</h5>
                     <p class="card-text">{{ card.text }}</p>
@@ -15,13 +16,10 @@
                             Learn more 
                         </a>
                     {% elif card.button_url %}
-
                         <a href="{{ card.button_url }}" class="btn btn-secondary">
-                            Go to sites list 
+                            Go to page 
                         </a>
-
                     {% endif %}
-
                 </div>
             </div>     
         {% endfor %}

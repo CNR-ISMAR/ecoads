@@ -21,7 +21,7 @@ class RichtextBlock(blocks.RichTextBlock):
          label = "Full RichText"
 
 class CardBlock(blocks.StructBlock):
-    title = blocks.CharBlock(required=True, help_text='Add your title' )
+    title = blocks.CharBlock(required=False, help_text='Add your title' )
 
     cards = blocks.ListBlock(
         blocks.StructBlock(
