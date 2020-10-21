@@ -2,17 +2,11 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-     {% image self.banner_image fill-1920x437 as img %}
-     
-   <div id="banner" class="jumbotron" style="background-image: url('{{ img.url }}'); background-size: cover; background-position: center center;  !important"> <!-- @tofix sistemare con una immagine migliore, se si sistema togliere hr -->
-        <p class="display-4" style="text-align: center; color:	#ffffff"> {{ self.banner_title }}</p> <!-- @tofix colore testo-->
-        <p class="display-5" style="text-align: center; color:	#ffffff"> {{ self.banner_subtitle }}</p>
-    </div>
     <div id="homepage">
         <div id="map"></div>
             <div id="infoblock" >
                 <div id="buttonbox" >
-                    <h3 style="text-align:center; font-weight: 500;"> ECOAdS resources </h3>
+                    <h3 style="text-align:center; font-weight: 600;"> ECOAdS resources </h3>
                     <div id="btngroup" class="btn-group-vertical" style="width: 96%;" > 
                         <button id="btn-resources" type="button" class="btn btn-secondary" ><h4><a style=" color:  #023a70;" href="/sites/natura2000/">Natura 2000 sites</a></h4></button>
                         <hr style="height:3pt; visibility:hidden;"/>

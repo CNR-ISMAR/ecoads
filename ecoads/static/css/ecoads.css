@@ -1,7 +1,37 @@
+.view {
+    background: url(http://127.0.0.1:8000/media/images/sfondofacts.2e16d0ba.fill-2876x350.png)no-repeat center center;
+    background-size: cover;
+}
+@media (min-width: 768px) {
+    .view {
+        overflow: visible;
+        margin-top: -56px;
+    }
+}
+.navbar {
+    height: 50px;
+    font-weight: 700;
+    font-size: 22px;
+    z-index: 1;
+    background-color: transparent;
+  }
+
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+}
+
+.view {
+  height: 50%;
+}
+
 body {
-    background-color: #ffffff;
     color: #023a70;
-    font-size: 21px;
+    font-size: 24px;
 }
 
 p {
@@ -12,7 +42,7 @@ a {
     color: #590416;
 }
 
-hr{
+hr {
     margin-top: 0px;
     margin-bottom: 0px; 
 }
@@ -29,6 +59,7 @@ h3 {
 
 h4 {
     color: #590402;
+    font-weight: 600;
 
 }
 
@@ -93,13 +124,12 @@ h6 {
     margin-right: 15px;
     margin-left: 15px;
     margin-bottom: 80px;
-    /*background-color: #590416;*/
 }
 
 #buttonbox{
-    background:  hsla(0, 0%, 80%, 1);;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    background:  hsla(0, 0%, 80%, 0.8);;
+    padding-bottom: 40px;
+    padding-top: 20px;
     padding-right: 2px;
     border-radius: 12px;
 }
@@ -121,11 +151,7 @@ h6 {
     padding-top: 80px;
 }
 
-#banner{
-    height: 150px;
-    margin-bottom: 0px;
-    padding: 1rem;
-}
+
 
 #bannerflex{
     height: 140px;
@@ -208,4 +234,20 @@ h6 {
 #btn-resources{
     border-radius: 70px 2px 70px 2px;
     margin-top: 10px;
+}
+
+#searchbtn{
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 2px solid white;
+    border-radius: 0px;
+    padding : 0px;
+}
+
+.navbar .form-control::placeholder { 
+    color: white;
+    opacity: 1; 
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
 }

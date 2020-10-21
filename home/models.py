@@ -16,13 +16,6 @@ class HomePage(Page):
 
     banner_title = models.CharField(max_length=100, blank=False, null=True)
     banner_subtitle = models.CharField(max_length=100, blank=False, null=True) 
-    banner_image = models.ForeignKey(
-        "wagtailimages.Image",
-        null= True,  
-        blank= False, 
-        on_delete= models.SET_NULL,
-        related_name="+",
-    )
 
     banner_cta = models.ForeignKey( 
         "wagtailcore.Page",
@@ -36,7 +29,6 @@ class HomePage(Page):
          FieldPanel("banner_title"),    
          FieldPanel("banner_subtitle"),
          #FieldPanel("body"),
-         ImageChooserPanel("banner_image"),
          PageChooserPanel("banner_cta"),
     ]
 
