@@ -1,5 +1,5 @@
 .view {
-    background: url(http://127.0.0.1:8000/media/images/sfondofacts.2e16d0ba.fill-2876x350.png)no-repeat center center;
+    background: url(/media/images/sfondofacts.2e16d0ba.fill-2876x350.png)no-repeat center center;
     background-size: cover;
 }
 @media (min-width: 768px) {
