@@ -30,6 +30,8 @@ urlpatterns = [
 
     path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
 
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
+
 ]
 
 if settings.DEBUG:
