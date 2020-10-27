@@ -277,4 +277,21 @@ h6 {
   @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
-  } 
+  }
+
+
+ /* Footer */
+ footer {
+    
+    background-image: linear-gradient(to right, #00309f , #00a1cd);
+    padding: 4em 0;
+   }
+
+ footer nav ul {
+  margin-top:0.5em;
+ }
+ 
+ footer nav ul li {
+  display:inline;
+  margin:0;
+ }
