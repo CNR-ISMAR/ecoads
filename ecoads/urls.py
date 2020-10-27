@@ -2,6 +2,11 @@ from django.conf import settings
 from django.conf.urls import include, url
 from django.contrib import admin
 from django.urls import path
+
+from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+
 from ecos.views import EcosSiteList
 from ecos.views import EcosSiteDetailView, sitesjson
 
@@ -10,8 +15,14 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
+import ecos.dashplotly
 
 urlpatterns = [
+
+    url('^demo-one$', TemplateView.as_view(template_name='plotly/plotly.html'), name="demo-one"),
+
+    path('django_plotly_dash/', include('django_plotly_dash.urls')),
+
     url(r'^django-admin/', admin.site.urls),
 
     url(r'^admin/', include(wagtailadmin_urls)),
@@ -30,7 +41,7 @@ urlpatterns = [
 
     path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
 
-    path('django_plotly_dash/', include('django_plotly_dash.urls')),
+    
 
 ]
 
