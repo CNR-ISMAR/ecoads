@@ -30,7 +30,8 @@
 
 body {
     color: #023a70;
-    font-size: 24px;
+    font-size: 22px;
+    
 }
 
 p {
@@ -180,6 +181,7 @@ h6 {
 
 #cardcontainer{
     padding-bottom: 80px;
+    font-size: 15px;
 }
 
 #singleparameter{
