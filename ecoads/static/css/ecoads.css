@@ -110,28 +110,11 @@ h6 {
 
 #map {
     height: 670px;
-    width: 70%;
+    width: 78%;
     float: right;
     /*border: 1px solid #023a70;
-    margin-top: 60px;
-    margin-bottom: 60px;*/
-}
-
-#infoblock{
-    height: 550px;
-    width: 28%;
-    padding-top: 20px;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-bottom: 80px;
-}
-
-#buttonbox{
-    background:  hsla(0, 0%, 80%, 0.8);;
-    padding-bottom: 40px;
-    padding-top: 20px;
-    padding-right: 2px;
-    border-radius: 12px;
+    margin-top: 60px;*/
+    margin-bottom: 60px;
 }
 
 #btngroup{
@@ -222,6 +205,7 @@ h6 {
     display: none;
 }
 
+
 #btn1 {
     background-color: hsla(0, 0%, 80%, 0.8);
     border: none;
@@ -252,3 +236,45 @@ h6 {
     font-weight: 600;
     font-size: 22px;
 }
+
+
+ /* The sidebar menu */
+ .sidenav {
+    height: 670px; /* Full-height: remove this if you want "auto" height */
+    width: 22%; /* Set the width of the sidebar */
+    /*position: fixed; Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0;  /*Stay at the top */
+    left: 0;
+    background-color:hsla(0, 0%, 80%, 0.8); 
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
+  
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 18px 8px 18px 25px;
+    text-decoration: none;
+    font-size: 19px;
+    color:#023a70;
+    display: block;
+    font-weight: 400;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color:  hsla(209, 96%, 40%, 0.8);
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 160px; /* Same as the width of the sidebar */
+    padding: 0px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } 

@@ -1,29 +1,31 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
+<!-- Side navigation -->
 
-{% block content %}
-    <div id="homepage">
-        <div id="map"></div>
-            <div id="infoblock" >
-                <div id="buttonbox" >
-                    <h3 style="text-align:center; font-weight: 600;"> ECOAdS resources </h3>
-                    <div id="btngroup" class="btn-group-vertical" style="width: 96%;" > 
-                        <button id="btn-resources" type="button" class="btn btn-secondary" ><h4><a style=" color:  #023a70;" href="/sites/natura2000/">Natura 2000 sites</a></h4></button>
-                        <hr style="height:3pt; visibility:hidden;"/>
-                        <button id="btn-resources" type="button" class="btn btn-secondary" ><h4><a style=" color:  #023a70;" href="/sites/lter/">LTER sites</a></h4></button>
-                        <hr style="height:3pt; visibility:hidden;"/>
-                        <button id="btn-resources" type="button" class="btn btn-secondary" ><h4><a style=" color:  #023a70;" href="/sites/fixoss/">Fixed-point observing systems</a></h4></button>
-                        <hr style="height:3pt; visibility:hidden;"/>
-                        <button id="btn-resources" type="button" class="btn btn-secondary" ><h4 style=" color:  #023a70;">Parameters</h4></button>
-                        <hr style="height:3pt; visibility:hidden;"/>
-                        <button id="btn-resources" type="button" class="btn btn-secondary" ><h4 style=" color:  #023a70;">Data sources</h4></button>
-                        <hr style="height:3pt; visibility:hidden;"/>
-                        <button id="btn-resources" type="button" class="btn btn-secondary" ><h4 style=" color:  #023a70;">Directives</h4></button>
-                    </div>
-                </div>
+    {% block content %}
+
+        
+            <div id="map">
             </div>
-    </div>
-   
+                
+                
+            <div class="sidenav">
+                <h4 style="padding:15px 8px 20px 20px; color: #023a70" >ECOAdS RESOURCES</h4>
+
+                <a  href="/sites/ecoss/">All ECOAdS sites</a>
+                <a  href="/sites/natura2000/">Natura 2000 sites</a>
+                <a  href="/sites/lter/">LTER sites</a>
+                <a  href="/sites/fixoss/">Fixed-point observing systems</a>
+
+
+
+                <a href="#">Parameters</a>
+                <a href="#">Data sources</a>
+                <a href="#">Directives</a>
+            </div>
+               
+       
+    
     
     <!--div id="debug">
      {{ other_ecossites }}
