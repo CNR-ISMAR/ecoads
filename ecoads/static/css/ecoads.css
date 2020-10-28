@@ -285,13 +285,19 @@ h6 {
     
     background-image: linear-gradient(to right, #00309f , #00a1cd);
     padding: 4em 0;
+    font-weight: 300;
+    font-size: 15px;
+    
    }
 
+   
  footer nav ul {
   margin-top:0.5em;
+  color: #ffffff;
  }
  
  footer nav ul li {
   display:inline;
   margin:0;
+  color: #ffffff;
  }
