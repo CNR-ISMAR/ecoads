@@ -284,9 +284,10 @@ h6 {
  footer {
     
     background-image: linear-gradient(to right, #00309f , #00a1cd);
-    padding: 4em 0;
+    padding: 60px 0;
     font-weight: 300;
     font-size: 15px;
+    height: 200px;
     
    }
 
