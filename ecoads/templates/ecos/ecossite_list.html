@@ -4,20 +4,27 @@
 {% block content %}
 <h1 style="text-align: center"> ECOAdS Sites List</h1>
 <div class="container">
-
     <div class="md-form active-cyan-2 mb-3">
         <input id="list-search" class="form-control" type="text" style="text-align: center;" placeholder="Search Site" aria-label="Search">
     </div>
-    <div id="site-list">
+    <div id="sitelist" class="row spacing2">
         {% for ecossite in object_list %}
-            <div class="alert alert-dark" role="alert" >
-                <a href="{% url 'site-view' ecossite.suffix %}" class="alert-link">
-                    <h5> {{ ecossite.denomination}} </h5>
-                </a>
-                    <p> {{ ecossite.description | truncatechars:200 }} </p>
+            <div class="carousel slide spacing2" data-ride="carousel" id="carousel" style="width: 150px; margin-left:10px">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        <img alt="..." class="pull-left" src="{{ ecossite.img}}" width="150" height="100">
+                    </div>
+                </div> 
+            </div>
+             <div class="col-md-10" id="carousel_text" >
+                <div>
+                    <a href="{% url 'site-view' ecossite.suffix %}" class="alert-link">
+                        <h5> {{ ecossite.denomination}} </h5>
+                    </a>
+                    <p style="font-size: 15px;"> {{ ecossite.description | truncatechars:300 }} </p>
+                </div>
             </div>
         {% endfor %}
-    </div>
     
 </div>
 {% endblock %}
@@ -25,3 +32,4 @@
 {% block extra_js %}
 <script type="text/javascript" src="/static/js/searchsite.js"></script> 
 {% endblock %}
+

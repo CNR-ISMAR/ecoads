@@ -5,6 +5,10 @@ from swagger_client.api_client import ApiClient
 from ecos.models import EcosSite, Parameter
 from django.contrib.gis.geos import GEOSGeometry, LineString, Point, Polygon, MultiPolygon, MultiLineString
 
+from urllib.request import urlopen
+from bs4 import BeautifulSoup
+
+
 class Command(BaseCommand):
     help = 'Import sites from deims sdr'
 
@@ -45,6 +49,7 @@ class Command(BaseCommand):
             obj.domain_area = domain_area 
             obj.website= site.id.prefix+site.id.suffix
             obj.last_update = site.changed
+            obj.img = imgimport(site.id.suffix)
             obj.location = GEOSGeometry(site.attributes.geographic.coordinates, srid=4326)
 
             obj.save()
@@ -65,4 +70,15 @@ class Command(BaseCommand):
                 preferred_label_en = preferred_label_en
                 
             #./manage.py shell< ecoads/sandbox.py
+
+def imgimport(suffix):
+
+    URL = "https://deims.org/{}".format(suffix)  #provare con alre pagine prima 
+    soup = BeautifulSoup(urlopen(URL), "html5lib")
+    img_div = soup.find('div', {"id": "bootstrap-panel--3"})
+    if img_div is None or img_div.img is None:
+        return None
+    img = img_div.img['data-lazy'] #funziona ed ha una / davanti 
+
+    return "https://deims.org{}".format(img)
 

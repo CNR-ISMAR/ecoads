@@ -43,6 +43,7 @@ class EcosSite(models.Model):
     is_n2k = models.BooleanField(default=False)
     is_lter = models.BooleanField(default=False)
     is_fixoss = models.BooleanField(default=False)
+    img = models.URLField(max_length=600,blank=False, null=True)
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
 

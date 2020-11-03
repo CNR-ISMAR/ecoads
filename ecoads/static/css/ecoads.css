@@ -108,6 +108,14 @@ h6 {
     position: relative;
 }
 
+#carousel{
+    margin-bottom: 30px;
+} 
+
+#carousel_text{
+    margin-bottom: 30px;
+}
+
 #map {
     height: 670px;
     width: 78%;
@@ -158,10 +166,7 @@ h6 {
 }
 
 
-#sitepage{
-    float: right;
-    width: 45%;
-}
+
 
 #cardcontainer{
     padding-bottom: 80px;
@@ -174,6 +179,16 @@ h6 {
     padding-top: 3px;
 
 }
+#sitelist{
+    margin: 5px;
+}
+
+#sitepage{
+    float: right;
+    width: 45%;
+}
+
+
 
 #parameter{
     font-size: 14px;
