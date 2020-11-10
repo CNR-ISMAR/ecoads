@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'search',
     'ecos',
     'flex',
+    'ecos_cm',
     'streams',
     'leaflet',
 
