@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+
+    
+
+    <h1 style="text-align: center"> Conceptual Model of </h1>
+    <h1 style="text-align: center">{{ self.cm_title }}</h1>
+    
+
+    <div class="container">
+        {% image self.cm_image width-1200 %}
+    
+        <p style="font-size:8 ;">yellow - human interaction / activities <br>
+            green - ecological parts <br>
+            blue - oceanographic variables/ processes  <br>
+            orange - performance indicators that come from ecological variables <br>
+            all of these feed ECOAdS (in red in the middle of the model) <br>
+            simple line causal relationships<br>
+            dotted line - different functions
+        </p>
+    </div>        
+    <div class="container">
+        <h4 style="text-align: center">Human Interaction</h4>
+        <p>{{ self.model_human_interactions|richtext }}</p>  
+        <h4 style="text-align: center">Ecological processes</h4>
+        <p>{{ self.cm_ecolagical_processes|richtext }}</p>
+        <h4 style="text-align: center">Oceanographic Variables</h4>
+        <p>{{ self.cm_oceanographic_variables|richtext }}</p>
+        <h4 style="text-align: center">Performance Indicators (coming from ecological variables)</h4>
+        <p>{{ self.cm_performance_indicators|richtext }}</p>
+    </div>    
+    
+    
+    
+    
+{% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}
