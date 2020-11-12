@@ -47,14 +47,14 @@ class EcosSite(models.Model):
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
 
-
-    
     def _str_(self):
         return self.denomination
+
 
 class EcosSitesParameters(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
+
 
 class EcosSitesDataSources(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)
@@ -64,3 +64,21 @@ class EcosSitesDataSources(models.Model):
 class DataSourcesParameters(models.Model): 
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+
+
+class Serie(models.Model):
+    data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+    parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE)
+    height = models.FloatField(blank=True, null=True)
+
+    def __str__(self):
+        return u'{} - {}'.format(self.data_source, self.parameter)
+
+
+class Measure(models.Model):
+    serie = models.ForeignKey(Serie, on_delete=models.CASCADE)
+    timestamp = models.DateTimeField(db_index=True)
+    value = models.FloatField()
+
+    class Meta:
+        unique_together = ('serie', 'timestamp', 'value')
