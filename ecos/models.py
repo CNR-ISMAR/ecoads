@@ -1,4 +1,3 @@
-
 """Ecological observatory system models."""
 
 from django.db import models
