@@ -67,12 +67,12 @@ class DataSourcesParameters(models.Model):
 
 
 class Serie(models.Model):
-    data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+    site_data_source = models.ForeignKey(EcosSitesDataSources, on_delete=models.CASCADE)
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE)
     height = models.FloatField(blank=True, null=True)
 
     def __str__(self):
-        return u'{} - {}'.format(self.data_source, self.parameter)
+        return u'{} - {}'.format(self.site_data_source, self.parameter)
 
 
 class Measure(models.Model):
