@@ -4,6 +4,7 @@ from django.db import models
 from django.contrib.gis.db import models
 from django.contrib.postgres.fields import JSONField
 from wagtail.admin.edit_handlers import FieldPanel
+from ecos_cm.models import CMPage
 
 
 class DataSource(models.Model):
@@ -17,7 +18,7 @@ class DataSource(models.Model):
     temporal_coverage = models.CharField(max_length=200, blank=True, null=False)
     parameters = models.ManyToManyField("Parameter", through='DataSourcesParameters')
 
-    def _str_(self): 
+    def __str__(self): 
         return self.name
 
 
@@ -26,7 +27,7 @@ class Parameter(models.Model):
     preferred_label_en = models.CharField(max_length=500, blank=False, null=True)
     definition_en = models.TextField(blank=False, null=True)
     
-    def _str_(self): 
+    def __str__(self): 
         return self.preferred_label_en
 
 
@@ -46,8 +47,12 @@ class EcosSite(models.Model):
     img = models.URLField(max_length=600,blank=False, null=True)
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
+    conceptualmodel = models.ForeignKey(CMPage,
+        null=True,
+        blank=True,
+        on_delete=models.CASCADE)
 
-    def _str_(self):
+    def __str__(self):
         return self.denomination
 
 
