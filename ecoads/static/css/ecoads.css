@@ -55,6 +55,8 @@ h1 {
 
 h3 {
     color: #590402;
+    font-weight: 600;
+
 }
 
 h4 {
@@ -142,6 +144,10 @@ h6 {
     padding-top: 80px;
 }
 
+#prova{
+    width: 50%;
+    font-size: 15px;
+}
 
 
 #bannerflex{
@@ -155,7 +161,7 @@ h6 {
     margin-top: 80px;
     margin-bottom: 80px;
     padding-bottom: 180px;
-    height: 1600px;
+    height: 1650px;
 }
 
 #mapsite {

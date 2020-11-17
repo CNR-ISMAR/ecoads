@@ -5,16 +5,17 @@ from wagtail.core.models import Page
 from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
-from ecos.models import EcosSite
+#from ecos.models import EcosSite
 
 class CMPage(Page):
 
     template = "ecos_cm/cm_page.html"
 
-    ecossite = models.ForeignKey(EcosSite,
-    null=True,
-    blank=True,
-    on_delete=models.CASCADE)
+    #ecossite = models.ForeignKey(EcosSite,
+    #null=True,
+    #blank=True,
+    #on_delete=models.CASCADE)
+    
     cm_title = models.CharField(max_length=300, null=True, blank=True)
     cm_image = models.ForeignKey(
         "wagtailimages.Image",
@@ -32,7 +33,7 @@ class CMPage(Page):
 
 
     content_panels = Page.content_panels + [
-        FieldPanel("ecossite"),
+        #FieldPanel("ecossite"),
         FieldPanel("cm_title"),
         ImageChooserPanel("cm_image"),
         FieldPanel("cm_human_interactions"),

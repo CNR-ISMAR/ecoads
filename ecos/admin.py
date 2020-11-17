@@ -60,13 +60,14 @@ class EcosSiteAdmin(ModelAdmin):
 
     panels =[
     FieldPanel("denomination"),
+    FieldPanel("conceptualmodel"),
     FieldPanel("last_update"),
     FieldPanel("description"),
     GeoPanel("location"),
     FieldPanel("website"),
     FieldPanel("is_ecoss"),
     FieldPanel("is_n2k"), 
-    FieldPanel("is_lter"), 
+    FieldPanel("is_lter"),
     FieldPanel("is_fixoss"),
     FieldPanel("parameters"),
     ] 
