@@ -60,7 +60,7 @@ class EcosSiteAdmin(ModelAdmin):
 
     panels =[
     FieldPanel("denomination"),
-    FieldPanel("conceptualmodel"),
+    FieldPanel("conceptualmodels"),
     FieldPanel("last_update"),
     FieldPanel("description"),
     GeoPanel("location"),

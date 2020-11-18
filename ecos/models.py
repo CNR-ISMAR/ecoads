@@ -47,10 +47,7 @@ class EcosSite(models.Model):
     img = models.URLField(max_length=600,blank=False, null=True)
     data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
-    conceptualmodel = models.ForeignKey(CMPage,
-        null=True,
-        blank=True,
-        on_delete=models.CASCADE)
+    conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages')
 
     def __str__(self):
         return self.denomination
@@ -69,6 +66,10 @@ class EcosSitesDataSources(models.Model):
 class DataSourcesParameters(models.Model): 
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+
+class EcosSitesCMPages(models.Model): 
+    ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
+    conceptualmodels = models.ForeignKey(CMPage, on_delete=models.CASCADE)
 
 
 class Serie(models.Model):
