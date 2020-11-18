@@ -19,7 +19,9 @@
                 <h4>Last Update:</h4> <p>{{ object.last_update}}</p>
                 <p>Go to DEIMS-SDR <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">website.</h4></a> </p>
                 <hr style="height:10pt; visibility:hidden;"/>
-                <p>View the Concetual Model <a href="/{{ object.conceptualmodel }}"> Page</h4></a> </p>
+                {% for cm in object.conceptualmodels.all %}
+                    <p>View the Concetual Model for the <a href="/{{ cm.slug }}"> {{ cm.conceptual_model_type}} </h4></a> </p>
+                {% endfor %}
                 <img class="pull-right" src="{{ object.img}}" width="576" height="400"> 
             </div>
             <div id="mapsite">             
