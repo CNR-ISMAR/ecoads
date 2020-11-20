@@ -12,7 +12,12 @@
             <div class="carousel slide spacing2" data-ride="carousel" id="carousel" style="width: 150px; margin-left:10px">
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        <img alt="..." class="pull-left" src="{{ ecossite.img}}" width="150" height="100">
+                        {% if ecossite.img is None %}
+                            <img alt=""  class="pull-left" src="/media/images/img_placeholder.max-165x165.png" width="120" height="100">
+                        {% endif %}
+                        {% if ecossite.img is not None %}   
+                            <img alt=""  class="pull-left" src="{{ ecossite.img}}" width="150" height="100">
+                        {% endif %}
                     </div>
                 </div> 
             </div>

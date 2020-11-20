@@ -22,7 +22,9 @@
                 {% for cm in object.conceptualmodels.all %}
                     <p>View the Concetual Model for the <a href="/{{ cm.slug }}"> {{ cm.conceptual_model_type}} </h4></a> </p>
                 {% endfor %}
-                <img class="pull-right" src="{{ object.img}}" width="576" height="400"> 
+                {% if ecossite.img is not None %}   
+                    <img alt=""  class="pull-left" src="{{ object.img}}" width="150" height="100">
+                {% endif %} 
             </div>
             <div id="mapsite">             
             </div>            
