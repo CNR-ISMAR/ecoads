@@ -12,7 +12,7 @@
     height: 50px;
     font-weight: 700;
     font-size: 22px;
-    background-color: transparent;
+    background-color: rgba(255,255,255,.1);
   }
 
 .top-nav-collapse {
@@ -74,7 +74,7 @@ h6 {
 }
 
 .navbar {
-    height: 50px;
+    height: 80px;
     font-weight: 700;
     font-size: 22px;
   }
@@ -147,6 +147,10 @@ h6 {
 #prova{
     width: 50%;
     font-size: 15px;
+}
+
+#banner{
+    height: 300px;
 }
 
 
