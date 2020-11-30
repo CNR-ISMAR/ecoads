@@ -2,6 +2,11 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 <!-- Side navigation -->
 
+    {% block bannertitle%}
+    <p class="display-4" style="text-align: center; color:	#ffffff; font-weight: 500;padding-top: 25px;"> {{ self.banner_title }}</p> <!-- @tofix colore testo-->
+    <p class="display-5" style="text-align: center; color:	#ffffff; font-weight: 500;margin-bottom: 0px; padding-bottom: 5px;"> {{ self.banner_subtitle }}</p>
+    {% endblock %}
+
     {% block content %}
 
         

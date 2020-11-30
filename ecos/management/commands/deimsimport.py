@@ -44,7 +44,7 @@ class Command(BaseCommand):
             )
             
             obj.data = json.loads(api_client.last_response.data) 
-            obj.denomination =site.title 
+            obj.denomination = site.title
             obj.description = site.attributes.general.abstract
             obj.domain_area = domain_area 
             obj.website= site.id.prefix+site.id.suffix

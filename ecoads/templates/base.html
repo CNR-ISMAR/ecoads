@@ -68,15 +68,15 @@
                    
             </nav>
 
-            <div class="view intro-2" style="margin-top:-90px;">
+            <div class="view intro-2" style="margin-top:-90px;padding-bottom: 20px;">
                 <div class="full-bg-img">
                 <div class="mask rgba-indigo-slight flex-center">
                     <div id="banner" class="container">
                     <div class="white-text text-center wow fadeInUp" style="padding-top:70px;">
                         
-                        <p class="display-4" style="text-align: center; color:	#ffffff; font-weight: 500;padding-top: 20px;"> {{ self.banner_title }}</p> <!-- @tofix colore testo-->
-                        <p class="display-5" style="text-align: center; color:	#ffffff; font-weight: 500;margin-bottom: 0px; padding-bottom: 20px;"> {{ self.banner_subtitle }}</p>
-    
+                        {% block bannertitle%}
+                        {% endblock %}
+                        
                       
                     </div>
                     </div>
