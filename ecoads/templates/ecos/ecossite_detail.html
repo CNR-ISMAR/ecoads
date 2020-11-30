@@ -5,17 +5,21 @@
     <h1 style="text-align: center";>{{ object.denomination }}</h1>
     <div id=site>
             <div id="sitepage" style="text-align: justify";>
-                <h4>Description:</h4>
-                <div>
-                    {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
-                    <button id="btn1" onclick="myFunction()" >Read more</button>
-                </div>
-                <hr style="height:10pt; visibility:hidden;"/>
-                <h4>Purpose:</h4>
-                <div>
-                    {{ object.data.attributes.general.purpose }}
-                </div>
-                <hr style="height:10pt; visibility:hidden;"/>
+                {% if object.description is not None %}
+                    <h4>Description:</h4>
+                    <div>
+                        {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
+                        <button id="btn1" onclick="myFunction()" >Read more</button>
+                    </div>
+                    <hr style="height:10pt; visibility:hidden;"/>
+                {% endif %}
+                {% if object.data.attributes.general.purpose is not None %}
+                    <h4>Purpose:</h4>
+                    <div>
+                        {{ object.data.attributes.general.purpose }}
+                    </div>
+                    <hr style="height:10pt; visibility:hidden;"/>
+                {% endif %}     
                 <h4>Last Update:</h4> <p>{{ object.last_update}}</p>
                 <p>Go to DEIMS-SDR <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">website.</h4></a> </p>
                 <hr style="height:10pt; visibility:hidden;"/>
@@ -28,18 +32,19 @@
             </div>
             <div id="mapsite">             
             </div>            
-  
-        <div id="parameter" class="container">
-            <h4 style="text-align: center;">Parameters:</h4>
-            <div class="md-form active-cyan-2 mb-3">
-                <input id="parameter-search" class="form-control" type="text" placeholder="Search" aria-label="Search">
+        {% if object.data.attributes.focusDesignScale.parameters is not None %}
+            <div id="parameter" class="container">
+                <h4 style="text-align: center;">Parameters:</h4>
+                <div class="md-form active-cyan-2 mb-3">
+                    <input id="parameter-search" class="form-control" type="text" placeholder="Search" aria-label="Search">
+                </div>
+                <div id="parameter-list" class="row">
+                    {% for parameter in object.data.attributes.focusDesignScale.parameters %}
+                        <div id="singleparameter" class="col-6"> <a class="nav-link" href="{{ parameter.uri  }}">{{ parameter.label  }} </a> </div>
+                    {% endfor %}
+                </div>
             </div>
-            <div id="parameter-list" class="row">
-                {% for parameter in object.data.attributes.focusDesignScale.parameters%}
-                    <div id="singleparameter" class="col-6"> <a class="nav-link" href="{{ parameter.uri  }}">{{ parameter.label  }} </a> </div>
-                {% endfor %}
-            </div>
-        </div>
+        {% endif %}
     </div>
   
 
