@@ -1,13 +1,13 @@
 {% load wagtailimages_tags %}
 
-<div id="cardcontainer" class="container" >
+<div id="cardcontainer" class="container">
     <h1 class="text-center">{{ self.title }}</h1>
 
-    <div class="card-deck"> 
+    <div class="card-deck container-flex"> 
         {% for card in self.cards %}
             {% image card.image max-338x200 as img %} 
             <div class="card"> 
-                <img src="{{ img.url }}" alt="{{ img.alt}}" class="card-img-top" style= "height: 200px;">
+                <img src="{{ img.url }}" alt="{{ img.alt}}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{{ card.title }}</h5>
                     <p class="card-text">{{ card.text }}</p>

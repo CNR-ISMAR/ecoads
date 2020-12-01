@@ -324,3 +324,21 @@ h6 {
   margin:0;
   color: #ffffff;
  }
+
+
+
+ /* Da qui in poi già sistemati */
+
+ .container-flex div {
+    width: 338px;
+    text-align: justify;  
+ }
+
+ .container-flex img {
+    width: 338px;
+    height: auto;
+ }
+
+ .card{
+    max-width: 338px;
+ }
