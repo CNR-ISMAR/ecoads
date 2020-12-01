@@ -329,19 +329,18 @@ h6 {
 
  /* Da qui in poi già sistemati */
 
- .container-flex div {
-    width: 338px;
-    text-align: justify;  
- }
+.card{
+    max-width: 338px;
+}
 
- .container-flex img {
+.container-flex div {
+    text-align: justify;  
+}
+
+.container-flex img {
     max-width: 338px;
     max-height: 200px;
- }
-
- .card{
-    max-width: 338px;
- }
+}
 
 #img_container{
     height: 200px;
