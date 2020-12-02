@@ -1,41 +1,31 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
-<!-- Side navigation -->
 
-    {% block bannertitle%}
-    <p class="display-4" style="text-align: center; color:	#ffffff; font-weight: 500;padding-top: 25px;"> {{ self.banner_title }}</p> <!-- @tofix colore testo-->
+{% block bannertitle%}
+    <p class="display-4"> {{ self.banner_title }}</p> <!-- @tofix colore testo-->
     <p class="display-5" style="text-align: center; color:	#ffffff; font-weight: 500;margin-bottom: 0px; padding-bottom: 5px;"> {{ self.banner_subtitle }}</p>
-    {% endblock %}
+{% endblock %}
 
-    {% block content %}
+{% block content %}
+    <div id="map">
+    </div>
+            
+    <div class="sidenav">
+        <h4 style="padding:15px 8px 20px 20px; color: #023a70" >ECOAdS RESOURCES</h4>
+        <a  href="/sites/ecoss/">All ECOAdS sites</a>
+        <a  href="/sites/natura2000/">Natura 2000 sites</a>
+        <a  href="/sites/lter/">LTER sites</a>
+        <a  href="/sites/fixoss/">Fixed-point observing systems</a>
+        <a href="#">Parameters</a>
+        <a href="#">Data sources</a>
+        <a href="#">Directives</a>
+    </div>
 
-        
-            <div id="map">
-            </div>
-                
-                
-            <div class="sidenav">
-                <h4 style="padding:15px 8px 20px 20px; color: #023a70" >ECOAdS RESOURCES</h4>
-
-                <a  href="/sites/ecoss/">All ECOAdS sites</a>
-                <a  href="/sites/natura2000/">Natura 2000 sites</a>
-                <a  href="/sites/lter/">LTER sites</a>
-                <a  href="/sites/fixoss/">Fixed-point observing systems</a>
-
-
-
-                <a href="#">Parameters</a>
-                <a href="#">Data sources</a>
-                <a href="#">Directives</a>
-            </div>
-               
-       
-    
-    
-    <!--div id="debug">
-     {{ other_ecossites }}
-     
-    </div-->           
+    <!--
+    <div id="debug">
+        {{ other_ecossites }}
+    </div>
+    -->        
 {% endblock %}
 
 {% block extra_js %}
