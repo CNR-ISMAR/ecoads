@@ -10,11 +10,12 @@
     }
 }
 .navbar {
-    height: 50px;
+    height: 80px;
     font-weight: 700;
     font-size: 22px;
     background-color: rgba(255,255,255,.1);
-  }
+}
+
 
 .top-nav-collapse {
     background-color: #00a1cd;
@@ -26,11 +27,9 @@
 }
 
 
-
 body {
     color: #023a70;
     font-size: 22px;
-    
 }
 
 p {
@@ -72,11 +71,7 @@ h6 {
     color: #023a70;
 }
 
-.navbar {
-    height: 80px;
-    font-weight: 700;
-    font-size: 22px;
-  }
+
 
 .home .navbar-inverse,
 .navbar-inverse {
@@ -121,8 +116,6 @@ h6 {
     height: 670px;
     width: 78%;
     float: right;
-    /*border: 1px solid #023a70;
-    margin-top: 60px;*/
     margin-bottom: 60px;
 }
 
@@ -133,7 +126,6 @@ h6 {
 
 #homepage{
     padding-top: 0px;
-
 }
 
 #hometable{
@@ -146,13 +138,6 @@ h6 {
 #prova{
     width: 50%;
     font-size: 15px;
-}
-
-
-
-#bannerflex{
-    height: 140px;
-    padding: 2rem;
 }
 
 #site {
@@ -171,9 +156,6 @@ h6 {
     float: left;
 }
 
-
-
-
 #cardcontainer{
     padding-bottom: 80px;
     font-size: 15px;
@@ -185,6 +167,7 @@ h6 {
     padding-top: 3px;
 
 }
+
 #sitelist{
     margin: 5px;
 }
@@ -193,8 +176,6 @@ h6 {
     float: right;
     width: 45%;
 }
-
-
 
 #parameter{
     font-size: 14px;
@@ -205,7 +186,6 @@ h6 {
     padding-right: 0px;
     padding-left: 0px;
 }
-
 
 .legend {
     line-height: 40px;
@@ -226,7 +206,6 @@ h6 {
 #more {
     display: none;
 }
-
 
 #btn1 {
     background-color: hsla(0, 0%, 80%, 0.8);
@@ -258,7 +237,6 @@ h6 {
     font-weight: 600;
     font-size: 22px;
 }
-
 
  /* The sidebar menu */
  .sidenav {
@@ -333,6 +311,9 @@ h6 {
     max-width: 338px;
 }
 
+.card-img-top{
+    width: auto;
+}
 .container-flex div {
     text-align: justify;  
 }
@@ -342,6 +323,16 @@ h6 {
     max-height: 200px;
 }
 
+.display-4 {
+    text-align: center;
+    color:	#ffffff; 
+    font-weight: 500;
+    padding-top: 25px;
+    margin-bottom: 0px;
+}
+
+
+
 #img_container{
-    height: 200px;
+    max-height: 200px;
 }
