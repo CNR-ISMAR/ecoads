@@ -313,13 +313,14 @@ h6 {
 
 .card-img-top{
     width: auto;
+    max-width: 337px;
 }
 .container-flex div {
     text-align: justify;  
 }
 
 .container-flex img {
-    max-width: 338px;
+    max-width: 335px;
     max-height: 200px;
 }
 
@@ -335,4 +336,5 @@ h6 {
 
 #img_container{
     max-height: 200px;
+    align-content: center;
 }
