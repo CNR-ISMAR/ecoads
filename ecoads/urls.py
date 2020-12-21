@@ -19,7 +19,7 @@ import ecos.dashplotly
 
 urlpatterns = [
 
-    url('^demo-one$', TemplateView.as_view(template_name='plotly/plotly.html'), name="demo-one"),
+    url('^example$', TemplateView.as_view(template_name='plotly/plotly.html'), name="example"),
 
     path('django_plotly_dash/', include('django_plotly_dash.urls')),
 
