@@ -15,13 +15,8 @@ from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from search import views as search_views
-import ecos.dashplotly
 
 urlpatterns = [
-
-    url('^example$', TemplateView.as_view(template_name='plotly/plotly.html'), name="example"),
-
-    path('django_plotly_dash/', include('django_plotly_dash.urls')),
 
     url(r'^django-admin/', admin.site.urls),
 

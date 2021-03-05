@@ -33,7 +33,6 @@ INSTALLED_APPS = [
     'leaflet',
 
     'django_extensions',
-    'django_plotly_dash.apps.DjangoPlotlyDashConfig',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -75,9 +74,6 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-
-    'django_plotly_dash.middleware.BaseMiddleware',
-
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
