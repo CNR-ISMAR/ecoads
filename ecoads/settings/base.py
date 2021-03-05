@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'ecos_features',
     'streams',
     'leaflet',
+    'measurements',
 
     'django_extensions',
 
@@ -52,6 +53,7 @@ INSTALLED_APPS = [
     'modelcluster',
     'taggit',
 
+    'django.contrib.gis',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -190,3 +192,8 @@ BASE_URL = 'http://example.com'
 SERIALIZATION_MODULES = {
     "geojson": "django.contrib.gis.serializers.geojson", 
  }
+
+# Django-measurements
+POSTGRES_EXTRA_DB_BACKEND_BASE = 'django.contrib.gis.db.backends.postgis'
+MEASUREMENTS_DATABASE_ROUTING = 'measurements'
+DATABASE_ROUTERS = ['measurements.router.MeasurementsRouter',]
