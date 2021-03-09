@@ -10,7 +10,7 @@ from django.http import JsonResponse
 
 def sitesjson(request):
     data = []
-    for s in EcosSite.objects.filter(is_lter = True ):
+    for s in EcosSite.objects.filter(is_ecoss = True ):
         data.append(s.data)
     return JsonResponse(data, safe=False)
     
