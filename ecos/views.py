@@ -48,3 +48,20 @@ class EcosSiteDetailView(DetailView):
                 geometry_field='domain_area',
                 fields=('denomination',)))
         return context
+
+
+class EcosSiteDashboard(ListView):
+
+    model = EcosSite
+    template_name = 'ecos/ecossite_dashboard.html'
+    #slug_field = 'suffix'
+
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['singlesite'] = [self.object.location.y, self.object.location.x]
+    #     context['denomination'] = self.object.denomination
+    #     if self.object.domain_area is not None:
+    #         context['polygon'] = json.loads(serialize('geojson', [self.object],
+    #             geometry_field='domain_area',
+    #             fields=('denomination',)))
+    #     return context

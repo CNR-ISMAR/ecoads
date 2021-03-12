@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    <h1 style="text-align: center";> Grafana Dashboard </h1>
+
+    <div>
+        <iframe src="https://ecoads.eu/measurements/d-solo/hvh9-qyGk/test?orgId=1&from=1614729140828&to=1614863540828&var-location=14&panelId=2" width="450" height="200" frameborder="0"></iframe>
+    
+    </div>
+  
+    
+  
+
+    <!--div id="debug">
+        {{ object.labels }}
+    </div--> 
+
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+{{ polygon|json_script:"polygon" }}
+{{ singlesite|json_script:"singlesite" }}
+{{ denomination|json_script:"denomination" }}
+<script type="text/javascript" src="/static/js/singlesite.js"></script>
+<script type="text/javascript" src="/static/js/searchparameter.js"></script> 
+{% endblock %}
