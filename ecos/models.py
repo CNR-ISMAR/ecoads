@@ -17,6 +17,7 @@ class DataSource(models.Model):
     temporal_resolution = models.CharField(max_length=200, blank=True, null=False)
     temporal_coverage = models.CharField(max_length=200, blank=True, null=False)
     parameters = models.ManyToManyField("Parameter", through='DataSourcesParameters')
+    #measurement_id = models.IntegerField
 
     def __str__(self): 
         return self.name
@@ -70,21 +71,3 @@ class DataSourcesParameters(models.Model):
 class EcosSitesCMPages(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
     conceptualmodels = models.ForeignKey(CMPage, on_delete=models.CASCADE)
-
-
-class Serie(models.Model):
-    site_data_source = models.ForeignKey(EcosSitesDataSources, on_delete=models.CASCADE)
-    parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE)
-    height = models.FloatField(blank=True, null=True)
-
-    def __str__(self):
-        return u'{} - {}'.format(self.site_data_source, self.parameter)
-
-
-class Measure(models.Model):
-    serie = models.ForeignKey(Serie, on_delete=models.CASCADE)
-    timestamp = models.DateTimeField(db_index=True)
-    value = models.FloatField()
-
-    class Meta:
-        unique_together = ('serie', 'timestamp', 'value')
