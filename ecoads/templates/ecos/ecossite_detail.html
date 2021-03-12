@@ -26,7 +26,7 @@
                 {% for cm in object.conceptualmodels.all %}
                     <p> {{ cm.conceptual_model_type}} Concetual Model <a href="/{{ cm.slug }}"> view </h4></a> </p>
                 {% endfor %}
-                <p>Explore <a href="/datatools/"> data </h4></a> </p>
+                <p>Explore <a href="/site/{{ object.data.id.suffix }}/dashboard"> dashboard </h4></a> </p>
                 {% if ecossite.img is not None %}   
                     <img alt=""  class="pull-left" src="{{ object.img}}" width="100%">
                 {% endif %} 
