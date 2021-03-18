@@ -5,22 +5,25 @@ from django.contrib.gis.db import models
 from django.contrib.postgres.fields import JSONField
 from wagtail.admin.edit_handlers import FieldPanel
 from ecos_cm.models import CMPage
+from measurements.models import Location
 
 
-class DataSource(models.Model):
-    name = models.CharField(max_length=200, blank=True, null=False)
-    observation_model = models.CharField(max_length=200, blank=True, null=False)
-    location = models.PointField(blank=False, null=True )
-    domain_area = models.MultiPolygonField(blank=False, null=True )
-    update_frequency = models.CharField(max_length=200, blank=True, null=False)
-    sampling_frequency = models.CharField(max_length=200, blank=True, null=False)
-    temporal_resolution = models.CharField(max_length=200, blank=True, null=False)
-    temporal_coverage = models.CharField(max_length=200, blank=True, null=False)
-    parameters = models.ManyToManyField("Parameter", through='DataSourcesParameters')
-    #measurement_id = models.IntegerField
 
-    def __str__(self): 
-        return self.name
+# class DataSource(models.Model):
+#     name = models.CharField(max_length=200, blank=True, null=False)
+#     observation_model = models.CharField(max_length=200, blank=True, null=False)
+#     location = models.PointField(blank=False, null=True )
+#     domain_area =data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
+#     parameters = models.ManyToManyField(Parameter, throug models.MultiPolygonField(blank=False, null=True )
+#     update_frequency = models.CharField(max_length=200, blank=True, null=False)
+#     sampling_frequency = models.CharField(max_length=200, blank=True, null=False)
+#     temporal_resolution = models.CharField(max_length=200, blank=True, null=False)
+#     temporal_coverage = models.CharField(max_length=200, blank=True, null=False)
+#     parameters = models.ManyToManyField("Parameter", through='DataSourcesParameters')
+#     #measurement_id = models.IntegerField(blank=True, null=True)
+
+#     def __str__(self): 
+#         return self.name
 
 
 class Parameter(models.Model):
@@ -46,7 +49,9 @@ class EcosSite(models.Model):
     is_lter = models.BooleanField(default=False)
     is_fixoss = models.BooleanField(default=False)
     img = models.URLField(max_length=600,blank=False, null=True)
-    data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
+    #measurement_id = models.IntegerField(blank=True, null=True)
+    #measurement location id many to many django measurment  #tutte le location che cadono nella mia area 
+    #data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
     conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages')
    
@@ -59,14 +64,14 @@ class EcosSitesParameters(models.Model):
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
 
 
-class EcosSitesDataSources(models.Model): 
-    ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)
-    data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+# class EcosSitesDataSources(models.Model): 
+#     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)
+#     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
 
 
-class DataSourcesParameters(models.Model): 
-    parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
-    data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+# class DataSourcesParameters(models.Model): 
+#     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
+#     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
 
 class EcosSitesCMPages(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 

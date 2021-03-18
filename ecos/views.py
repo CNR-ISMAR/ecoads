@@ -4,7 +4,8 @@ import json
 
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from .models import DataSource, Parameter, EcosSite
+from .models import Parameter, EcosSite
+#from .models import DataSource
 
 from django.http import JsonResponse
 
