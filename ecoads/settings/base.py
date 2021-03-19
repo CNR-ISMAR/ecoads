@@ -194,5 +194,5 @@ SERIALIZATION_MODULES = {
 
 # Django-measurements
 POSTGRES_EXTRA_DB_BACKEND_BASE = 'django.contrib.gis.db.backends.postgis'
-MEASUREMENTS_DATABASE_ROUTING = 'measurements'
-DATABASE_ROUTERS = ['measurements.router.MeasurementsRouter',]
+#MEASUREMENTS_DATABASE_ROUTING = 'measurements'
+#DATABASE_ROUTERS = ['measurements.router.MeasurementsRouter',]
