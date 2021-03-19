@@ -196,12 +196,3 @@ SERIALIZATION_MODULES = {
 POSTGRES_EXTRA_DB_BACKEND_BASE = 'django.contrib.gis.db.backends.postgis'
 #MEASUREMENTS_DATABASE_ROUTING = 'measurements'
 #DATABASE_ROUTERS = ['measurements.router.MeasurementsRouter',]
-
-# import osgeo
-
-# ... so something to create and SRS:
-# srs = SpatialReference()
-
-# if int(osgeo.__version__[0]) >= 3:
-#     # GDAL 3 changes axis order: https://github.com/OSGeo/gdal/issues/1546
-#     srs.SetAxisMappingStrategy(osgeo.osr.OAMS_TRADITIONAL_GIS_ORDER)

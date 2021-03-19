@@ -50,7 +50,8 @@ class EcosSite(models.Model):
     is_fixoss = models.BooleanField(default=False)
     img = models.URLField(max_length=600,blank=False, null=True)
     #measurement_id = models.IntegerField(blank=True, null=True)
-    #measurement location id many to many django measurment  #tutte le location che cadono nella mia area 
+    #tutte le location che cadono in quest'area - script @todo
+    measurement_location_id = models.ManyToManyField(Location, through='EcosSitesLocationDjangoMeasurements')
     #data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
     conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages')
@@ -72,6 +73,12 @@ class EcosSitesParameters(models.Model):
 # class DataSourcesParameters(models.Model): 
 #     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
 #     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+
+
+class EcosSitesLocationDjangoMeasurements(models.Model): 
+    ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
+    measurement_locationid = models.ForeignKey(Location, on_delete=models.CASCADE)
+
 
 class EcosSitesCMPages(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
