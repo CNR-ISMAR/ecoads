@@ -4,8 +4,13 @@ from wagtail.contrib.modeladmin.options import (
 )
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtailleafletwidget.edit_handlers import GeoPanel
-from .models import Parameter, EcosSite, EcosSitesParameters
- #from .models import DataSource, DataSourcesParameters, EcosSitesDataSources
+from .models import ( Parameter, 
+    EcosSite, 
+    EcosSitesParameters,
+    EcosSitesLocationDjangoMeasurements,
+)
+ 
+#from .models import DataSource, DataSourcesParameters, EcosSitesDataSources
 
 # class DataSourceAdmin(ModelAdmin):
 #     """DataSource admin."""
@@ -61,6 +66,7 @@ class EcosSiteAdmin(ModelAdmin):
     panels =[
     FieldPanel("denomination"),
     FieldPanel("conceptualmodels"),
+    FieldPanel("measurement_location_id"),
     FieldPanel("last_update"),
     FieldPanel("description"),
     GeoPanel("location"),
@@ -98,10 +104,23 @@ class EcosSitesParametersAdmin(ModelAdmin):
     menu_order = 800
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ("ecos_site", "parameters",)
-    search_field = ("ecos_site", "parameters",)
+    list_display = ("ecos_site", "parameter",)
+    search_field = ("ecos_site", "parameter",)
 
 modeladmin_register(EcosSitesParametersAdmin)
+
+class EcosSitesLocationDjangoMeasurementsAdmin(ModelAdmin): 
+    """EcosSitesLocationDjangoMeasurements admin."""
+    model = EcosSitesLocationDjangoMeasurements
+    menu_label = "M2M EcosSites/Location Measurementes"
+    menu_icon = "pick"
+    menu_order = 900
+    add_to_settings_menu = False 
+    exclude_from_explorer = False
+    list_display = ("ecos_site", "EcosSitesParametersAdmin",)
+    search_field = ("ecos_site", "EcosSitesParametersAdmin",)
+
+modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
 
 
 # class DataSourcesParametersAdmin(ModelAdmin):
