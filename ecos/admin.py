@@ -12,30 +12,7 @@ from .models import ( Parameter,
  
 #from .models import DataSource, DataSourcesParameters, EcosSitesDataSources
 
-# class DataSourceAdmin(ModelAdmin):
-#     """DataSource admin."""
 
-#     model = DataSource
-#     menu_label = "Data Source"
-#     menu_icon = "folder"
-#     menu_order = 500
-#     add_to_settings_menu = False 
-#     exclude_from_explorer = False
-#     list_display = ("name", "observation_model", "update_frequency", "sampling_frequency", "temporal_resolution", "temporal_coverage",)
-#     search_field = ("name", "observation_model", "update_frequency", "sampling_frequency", "temporal_resolution", "temporal_coverage",)
-      
-#     panels =[
-#          FieldPanel("name"),
-#          FieldPanel("observation_model"),
-#          GeoPanel("location"),
-#          #GeoPanel("domain_area"), #tofix 
-#          FieldPanel("update_frequency"),
-#          FieldPanel("sampling_frequency"),
-#          FieldPanel("temporal_resolution"),
-#          FieldPanel("temporal_coverage"),
-#     ] 
-
-# modeladmin_register(DataSourceAdmin)
 
 class ParameterAdmin(ModelAdmin):
     """Parameter admin."""
@@ -80,22 +57,6 @@ class EcosSiteAdmin(ModelAdmin):
 
 modeladmin_register(EcosSiteAdmin)
 
-# class EcosSitesDataSourcesAdmin(ModelAdmin):
-#     """EcosSitesDataSources admin."""
-
-#     model = EcosSitesDataSources
-#     menu_label = "M2M EcosSites/DataSources"
-#     menu_icon = "success"
-#     menu_order = 800
-#     add_to_settings_menu = False 
-#     exclude_from_explorer = False
-#     list_display = ("ecos_site", "data_source",)
-#     search_field = ("ecos_site", "data_source",)
-
-# modeladmin_register(EcosSitesDataSourcesAdmin)
-
-
-
 class EcosSitesParametersAdmin(ModelAdmin):
     """EcosSitesParameters admin."""
     model = EcosSitesParameters
@@ -117,8 +78,8 @@ class EcosSitesLocationDjangoMeasurementsAdmin(ModelAdmin):
     menu_order = 900
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ("ecos_site", "EcosSitesParametersAdmin",)
-    search_field = ("ecos_site", "EcosSitesParametersAdmin",)
+    list_display = ("ecos_site", "measurement_location_id",)
+    search_field = ("ecos_site", "measurement_location_id",)
 
 modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
 
@@ -136,4 +97,43 @@ modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
 #     search_field = ("parameter", "data_source",)
 
 # modeladmin_register(DataSourcesParametersAdmin)
+
+# class DataSourceAdmin(ModelAdmin):
+#     """DataSource admin."""
+
+#     model = DataSource
+#     menu_label = "Data Source"
+#     menu_icon = "folder"
+#     menu_order = 500
+#     add_to_settings_menu = False 
+#     exclude_from_explorer = False
+#     list_display = ("name", "observation_model", "update_frequency", "sampling_frequency", "temporal_resolution", "temporal_coverage",)
+#     search_field = ("name", "observation_model", "update_frequency", "sampling_frequency", "temporal_resolution", "temporal_coverage",)
+      
+#     panels =[
+#          FieldPanel("name"),
+#          FieldPanel("observation_model"),
+#          GeoPanel("location"),
+#          #GeoPanel("domain_area"), #tofix 
+#          FieldPanel("update_frequency"),
+#          FieldPanel("sampling_frequency"),
+#          FieldPanel("temporal_resolution"),
+#          FieldPanel("temporal_coverage"),
+#     ] 
+
+# modeladmin_register(DataSourceAdmin)
+
+# class EcosSitesDataSourcesAdmin(ModelAdmin):
+#     """EcosSitesDataSources admin."""
+
+#     model = EcosSitesDataSources
+#     menu_label = "M2M EcosSites/DataSources"
+#     menu_icon = "success"
+#     menu_order = 800
+#     add_to_settings_menu = False 
+#     exclude_from_explorer = False
+#     list_display = ("ecos_site", "data_source",)
+#     search_field = ("ecos_site", "data_source",)
+
+# modeladmin_register(EcosSitesDataSourcesAdmin)
 
