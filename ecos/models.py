@@ -65,16 +65,6 @@ class EcosSitesParameters(models.Model):
     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
 
 
-# class EcosSitesDataSources(models.Model): 
-#     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)
-#     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
-
-
-# class DataSourcesParameters(models.Model): 
-#     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
-#     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
-
-
 class EcosSitesLocationDjangoMeasurements(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
     measurement_locationid = models.ForeignKey(Location, on_delete=models.CASCADE)
@@ -83,3 +73,14 @@ class EcosSitesLocationDjangoMeasurements(models.Model):
 class EcosSitesCMPages(models.Model): 
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
     conceptualmodels = models.ForeignKey(CMPage, on_delete=models.CASCADE)
+
+
+
+# class EcosSitesDataSources(models.Model): 
+#     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE)
+#     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)
+
+
+# class DataSourcesParameters(models.Model): 
+#     parameter = models.ForeignKey(Parameter, on_delete=models.CASCADE) 
+#     data_source = models.ForeignKey(DataSource, on_delete=models.CASCADE)

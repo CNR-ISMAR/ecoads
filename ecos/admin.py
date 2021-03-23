@@ -78,8 +78,8 @@ class EcosSitesLocationDjangoMeasurementsAdmin(ModelAdmin):
     menu_order = 900
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ("ecos_site", "measurement_location_id",)
-    search_field = ("ecos_site", "measurement_location_id",)
+    list_display = ("ecos_site", "measurement_locationid",)
+    search_field = ("ecos_site", "measurement_locationid",)
 
 modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
 
