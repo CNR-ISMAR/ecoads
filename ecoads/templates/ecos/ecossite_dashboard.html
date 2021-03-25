@@ -2,19 +2,30 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <h1 style="text-align: center";> Grafana Dashboard </h1>
+    <h1 style="text-align: center";> Grafana Dashboard {{ object.denomination }} </h1>
 
     <div id="dashboard">
-        <iframe src="https://ecoads.eu/measurements/d-solo/hvh9-qyGk/test?orgId=1&from=1615819330629&to=1616424130629&var-location=3&var-location=4&theme=light&panelId=4" width="800" height="356" frameborder="0"></iframe>
-        <iframe src="https://ecoads.eu/measurements/d-solo/hvh9-qyGk/test?orgId=1&from=1615819406107&to=1616424206107&var-location=3&var-location=4&theme=light&panelId=2" width="800" height="356" frameborder="0"></iframe>
+
+        <!--
+            sostituire var=3, quel 3 deve essere dinamico e deve essere collecato al
+            fatto che la dashboard è di un sito
+            ovvero var=  {{ measurement_location_id }} ma location id del ecos.site con suffix = a quello
+            della slug della dashboard 
+        --> 
+
+        <!-- <iframe src="https://ecoads.eu/measurements/d-solo/hvh9-qyGk/test?orgId=1&from=1615819330629&to=1616424130629&var-location=3&var-location=4&theme=light&panelId=4" width="800" height="356" frameborder="0"></iframe> -->
+        <!-- <iframe src="https://ecoads.eu/measurements/d-solo/hvh9-qyGk/test?orgId=1&from=1615819406107&to=1616424206107&var-location=3&var-location=4&theme=light&panelId=2" width="800" height="356" frameborder="0"></iframe> -->
+        <iframe src="https://ecoads.eu/measurements/d/hvh9-qyGk/test?orgId=1&from=1616659267929&to=1616680867929&var-location=14&theme=light" width="1600" height="712" frameborder="0"></iframe>
     </div>
   
     
-  
 
-    <!--div id="debug">
-        {{ object.labels }}
-    </div--> 
+    <!-- <div id="debug">
+        
+        {{ object.denomination }}
+        {{ object.measurement_location_id }}
+        
+    </div>  -->
 
 {% endblock %}
 

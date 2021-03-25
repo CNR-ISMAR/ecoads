@@ -4,6 +4,7 @@ import json
 
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
+from django.views.generic.base import TemplateView
 from .models import Parameter, EcosSite
 #from .models import DataSource
 
@@ -51,18 +52,13 @@ class EcosSiteDetailView(DetailView):
         return context
 
 
-class EcosSiteDashboard(ListView):
+class EcosSiteDashboardView(DetailView):
 
     model = EcosSite
     template_name = 'ecos/ecossite_dashboard.html'
-    #slug_field = 'suffix'
+    slug_field = 'suffix'
 
     # def get_context_data(self, **kwargs):
     #     context = super().get_context_data(**kwargs)
-    #     context['singlesite'] = [self.object.location.y, self.object.location.x]
     #     context['denomination'] = self.object.denomination
-    #     if self.object.domain_area is not None:
-    #         context['polygon'] = json.loads(serialize('geojson', [self.object],
-    #             geometry_field='domain_area',
-    #             fields=('denomination',)))
     #     return context

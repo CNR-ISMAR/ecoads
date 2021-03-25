@@ -8,7 +8,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from ecos.views import EcosSiteList
-from ecos.views import EcosSiteDashboard
+from ecos.views import EcosSiteDashboardView
 from ecos.views import EcosSiteDetailView, sitesjson
 
 from wagtail.admin import urls as wagtailadmin_urls
@@ -37,8 +37,7 @@ urlpatterns = [
 
     path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
 
-    path('site/<slug:slug>/dashboard', EcosSiteDashboard.as_view()),
-
+    path('site/<slug:slug>/dashboard', EcosSiteDashboardView.as_view()),
     
 
 ]
