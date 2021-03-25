@@ -58,7 +58,12 @@ class EcosSiteDashboardView(DetailView):
     template_name = 'ecos/ecossite_dashboard.html'
     slug_field = 'suffix'
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['denomination'] = self.object.denomination
-    #     return context
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['url'] = "https://ecoads.eu/measurements/d/hvh9-qyGk/test?orgId=1&from=1616659771110&to=1616681371111"
+        for location in self.object.measurement_location_id.all():
+            context['var'] = '&var-location=' + str(location.id)
+            context['theme'] = '&theme=light&kiosk=tv'
+        return context
+
+        # location.get(pk=location.id)
