@@ -66,4 +66,5 @@ class EcosSiteDashboardView(DetailView):
             context['theme'] = '&theme=light&kiosk=tv'
         return context
 
+
         # location.get(pk=location.id)
