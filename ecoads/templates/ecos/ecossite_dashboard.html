@@ -6,32 +6,15 @@
 
     <div id="dashboard">
 
-        <!--
-            sostituire var=3, quel 3 deve essere dinamico e deve essere collecato al
-            fatto che la dashboard è di un sito
-            ovvero var=  {{ measurement_location_id }} ma location id del ecos.site con suffix = a quello
-            della slug della dashboard 
-        --> 
-
-
         <!-- <iframe src="https://ecoads.eu/measurements/d-solo/hvh9-qyGk/test?orgId=1&from=1615819330629&to=1616424130629&var-location=3&var-location=4&theme=light&panelId=4" width="800" height="356" frameborder="0"></iframe> -->
         <!-- <iframe src="https://ecoads.eu/measurements/d-solo/hvh9-qyGk/test?orgId=1&from=1615819406107&to=1616424206107&var-location=3&var-location=4&theme=light&panelId=2" width="800" height="356" frameborder="0"></iframe> -->
-        
-        
+         
         <iframe src="{{url}}{{var}}{{theme}}" width="1600" height="712" frameborder="0"></iframe>
          
     </div>
 
-                
-                
-                <!-- {% for cm in object.conceptualmodels.all %}
-                <p> {{ cm.conceptual_model_type}} Concetual Model <a href="/{{ cm.slug }}"> view </h4></a> </p>
-            {% endfor %} -->
-    
-  
-    
 
-  <!-- <div id="debug">
+ <!-- <div id="debug">
 
     <a href= {{url}}{{var}}{{theme}}> qui</a>
         
@@ -39,12 +22,12 @@
         {{ url }}
         {{ var }}
         
-        ì {% for location in object.measurement_location_id.all %}
+        {% for location in object.measurement_location_id.all %}
                 <p> {{ location.label }} </p>
                 {{ location.id }}
-        {% endfor %} 
-        
-    </div>   -->
+        {% endfor %}  
+
+    </div>    -->
 
 {% endblock %}
 
