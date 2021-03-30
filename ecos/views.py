@@ -60,7 +60,9 @@ class EcosSiteDashboardView(DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['url'] = "https://ecoads.eu/measurements/d/hvh9-qyGk/test?orgId=1&from=1616659771110&to=1616681371111"
+        context['url'] = "https://ecoads.eu/measurements/d/hvh9-qyGk/test?orgId=1"
+       
+       
         var = []
         for location in self.object.measurement_location_id.all():   
             var.append('&var-location=' + str(location.id))
