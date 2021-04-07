@@ -13,10 +13,8 @@ from ecos.views import EcosSiteDetailView, sitesjson
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
-from wagtail.documents import urls as wagtaildocs_urls
+from wagtail.documents import urls as wagtaildocs_urls 
 
-from measurements.writeapi import  write, write_csv
-from measurements.views import locations_flatjson, measure_geojson   #controllare se funziona
 
 from search import views as search_views
 
@@ -26,18 +24,17 @@ urlpatterns = [
     url(r'^admin/', include(wagtailadmin_urls)),
     url(r'^documents/', include(wagtaildocs_urls)),
     url(r'^search/$', search_views.search, name='search'),
+
+    path('djmeasurements/', include('measurements.urls')),
+
     url(r'', include('allauth.urls')), #tolto account di mezzo 
     url(r'sitesjson/$', sitesjson),
     url(r'sites/$', EcosSiteList.as_view()),
     url(r'sites/(?P<sitetype>[\w]+)/$', EcosSiteList.as_view()),
     path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
     path('site/<slug:slug>/dashboard', EcosSiteDashboardView.as_view()),
+    
 
-    #esporre Django Urls
-    path('write', write),
-    path('writecsv', write_csv),
-    path('locations/flatjson', locations_flatjson),
-    path('djmeasures/geojson', measure_geojson),
 ]
 
 if settings.DEBUG:
@@ -53,7 +50,11 @@ urlpatterns = urlpatterns + [
     # Wagtail's page serving mechanism. This should be the last pattern in
     # the list:
 
+    
     url(r"", include(wagtail_urls)),
+
+
+    
 
     
     # Alternatively, if you want Wagtail pages to be served from a subpath
