@@ -50,3 +50,7 @@ var baseMaps = {
     "<span style='color: gray'>baselayer</span>": baselayer,
     "osmLayer": osmLayer
 };
+
+
+
+
