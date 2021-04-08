@@ -21,7 +21,7 @@ for (var i = 0; i < other_ecossites.length; i++) {
 
 var icon_ecoss_site = L.icon({
     iconUrl: '/media/images/ecoss_site.max-165x165.png',
-    iconSize: [45, 45],
+    iconSize: [40, 40],
     /*iconAnchor: [0, 0],*/
     popupAnchor: [0, -20],
 });
@@ -55,7 +55,7 @@ legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
         grades = ['ECOAdS sites', 'Other Sites', 'Fixed-Point Observing Systems'];
-    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/kisspng-light-clip-art-blue-circle-color-conoce.original.png'];
+    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_2.0.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
@@ -72,9 +72,9 @@ legend.addTo(map);
 // aggiungere json
 
 var icon_fix = L.icon({
-    iconUrl: '/media/images/kisspng-light-clip-art-blue-circle-color-conoce.original.png',
-    iconSize: [17, 17],
-    /*iconAnchor: [0, 0],*/
+    iconUrl: '/media/images/fix_2.0.original.png',
+    iconSize: [20, 20],
+    iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
 });
 
