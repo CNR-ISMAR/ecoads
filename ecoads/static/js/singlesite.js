@@ -51,7 +51,7 @@ if (polygon!="") {
   // aggiungere json
 
 var icon_fix = L.icon({
-    iconUrl: '/media/images/fix_2.0.original.png',
+    iconUrl: '/media/images/fix_2.0_qGnWXr1.original.png',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
