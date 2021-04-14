@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    <div id="fix" style="text-align: justify">
+        <h1 style="text-align: center";>{{ object.label }}</h1>
+        
+        <h1 style="text-align: center";>{{ object.denomination }}</h1>
+
+        {% if object.description is not None %}
+            <h4>Description:</h4>
+            <div>
+                {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
+                <button id="btn1" onclick="myFunction()" >Read more</button>
+            </div>
+            <hr style="height:10pt; visibility:hidden;"/>
+        {% endif %}
+
+        {% if object.location is not None %}
+            <h4>Location</h4>
+            <div>
+                {{ object.location }}
+            </div>
+            <hr style="height:10pt; visibility:hidden;"/>
+        {% endif %}     
+
+
+        <!--div id="debug">
+        {{ object.labels }}
+        </div--> 
+
+    </div>
+
+{% endblock %}
+
+{% block extra_js %}
+
+{% endblock %}

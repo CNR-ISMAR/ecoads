@@ -57,9 +57,7 @@ class FixPointView(DetailView):
 
     model = Station
     template_name = 'ecos/fix_point.html'
-    slug_field = 'code' 
-
-    # il problema è tra qui e marker js qui ho code e là no
+    slug_field = 'id' 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

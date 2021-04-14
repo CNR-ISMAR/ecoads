@@ -40,8 +40,32 @@ var clhoA = L.tileLayer.wms("https://ec.oceanbrowser.net/emodnet/Python/web/wms"
     opacity: 0.5
 });
 
+
+
+var icon_fix_virtual = L.icon({
+    iconUrl: '/media/images/fix_3.0.original.png',
+    iconSize: [20, 20],
+    iconAnchor: [-1, -1],
+    popupAnchor: [0, -10],
+});
+
+$.getJSON("/djmeasurements/locations/flatjson", function(fixvirtualpoints){
+    for (var i = 0; i < fixvirtualpoints.length; i++) {
+        //console.log(fixpoints[i].name)
+        //console.log(fixpoints[i].latitute)
+        //console.log(fixpoints[i].longitude)
+        markerfix = new L.marker([fixvirtualpoints[i].latitute, fixvirtualpoints[i].longitude], { icon: icon_fix_virtual })
+        .bindPopup(fixvirtualpoints[i].name)
+        .addTo(map);
+        
+    }
+});
+
+
+
 var overlayMaps = {
-    "clhorophyll A": clhoA
+    "clhorophyll A": clhoA,
+
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);

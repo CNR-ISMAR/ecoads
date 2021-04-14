@@ -1,3 +1,4 @@
+// Sites imported from DEIMS sdr but NOT case studies in ECOSS Project
 var icon_other_site = L.icon({
     iconUrl: '/media/images/other_site.max-165x165.png',
     iconSize: [15, 15],
@@ -19,6 +20,7 @@ for (var i = 0; i < other_ecossites.length; i++) {
         .addTo(map);
 };
 
+// Sites imported fromm DEIMS sdr AND case studies in ECOSS Project
 var icon_ecoss_site = L.icon({
     iconUrl: '/media/images/ecoss_site.max-165x165.png',
     iconSize: [40, 40],
@@ -37,6 +39,7 @@ for (var i = 0; i < ecossites.length; i++) {
         .addTo(map);
 };
 
+// Geometry for ECOSS Case studies sites
 var stylepolygons = {
     color: "#99c034",
     weight: 1,
@@ -49,7 +52,7 @@ var polygons = JSON.parse(document.getElementById('polygons').textContent);
 var layer = L.geoJSON(polygons, { style: stylepolygons }).addTo(map);
 layer.addData(polygons);
 
-
+// LEGEND
 var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function(map) {
 
@@ -69,23 +72,46 @@ legend.onAdd = function(map) {
 legend.addTo(map);
 
 
-// aggiungere json
+// Virtual point for data collection for Dashboard da mettere come layer
 
-var icon_fix = L.icon({
-    iconUrl: '/media/images/fix_3.0.original.png',
+// var icon_fix_virtual = L.icon({
+//     iconUrl: '/media/images/fix_3.0.original.png',
+//     iconSize: [20, 20],
+//     iconAnchor: [-1, -1],
+//     popupAnchor: [0, -10],
+// });
+
+// $.getJSON("/djmeasurements/locations/flatjson", function(fixvirtualpoints){
+//     for (var i = 0; i < fixvirtualpoints.length; i++) {
+//         //console.log(fixpoints[i].name)
+//         //console.log(fixpoints[i].latitute)
+//         //console.log(fixpoints[i].longitude)
+//         markerfix = new L.marker([fixvirtualpoints[i].latitute, fixvirtualpoints[i].longitude], { icon: icon_fix_virtual })
+//         .bindPopup(fixvirtualpoints[i].name)
+//         .addTo(map);
+//     }
+// });
+
+// fixed-point observing systems marker 
+
+var fix_point_icon = L.icon({
+    iconUrl: 'https://ecoads.eu/media/images/fix_2.0.original.png',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
 });
+/*L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);*/
 
-$.getJSON("/djmeasurements/locations/flatjson", function(fixpoints){
-    for (var i = 0; i < fixpoints.length; i++) {
-        //console.log(fixpoints[i].name)
-        //console.log(fixpoints[i].latitute)
-        //console.log(fixpoints[i].longitude)
-        markerfix = new L.marker([fixpoints[i].latitute, fixpoints[i].longitude], { icon: icon_fix })
-        .bindPopup(fixpoints[i].name)
+var fix_point = JSON.parse(document.getElementById('fix_point').textContent);
+for (var i = 0; i < fix_point.length; i++) {
+    var name = fix_point[i][0]
+    var link = $(name.link("fix/" + fix_point[i][3])).click(function() {
+        //alert("test");
+    })[0];
+    //console.log(other_ecossites)
+    marker = new L.marker([fix_point[i][1], fix_point[i][2]], { icon: fix_point_icon })
+    
+        .bindPopup(link)
         .addTo(map);
-    }
-});
+};
 

@@ -21,11 +21,11 @@
         <a href="#">Directives</a>
     </div>
 
-    <!--
-    <div id="debug">
-        {{ other_ecossites }}
+
+    <!-- <div id="debug">
+        {{ fix_point }}
     </div>
-    -->        
+           -->
 {% endblock %}
 
 {% block extra_js %}
@@ -33,6 +33,7 @@
     {{ ecossites|json_script:"ecossites" }}
     {{ other_ecossites|json_script:"other_ecossites" }}
     {{ polygons|json_script:"polygons" }}
+    {{ fix_point|json_script:"fix_point" }}
     
     <script type="text/javascript" src="/static/js/map.js"></script>
     <script type="text/javascript" src="/static/js/marker.js"></script>

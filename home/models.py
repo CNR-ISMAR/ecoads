@@ -6,6 +6,7 @@ from wagtail.core.fields import RichTextField
 from wagtail.admin.edit_handlers import FieldPanel, PageChooserPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from ecos.models import EcosSite
+from measurements.models import Station, Location
 import json
 
 class HomePage(Page):
@@ -33,10 +34,12 @@ class HomePage(Page):
     ]
 
     def get_context(self, request):
-        context = super(HomePage, self).get_context(request)
-        context['ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_ecoss=True)]
-        context['other_ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_ecoss=False)]
-        context['polygons'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_ecoss=True),
-          geometry_field='domain_area',
-          fields=('denomination',)))
-        return context 
+      context = super(HomePage, self).get_context(request)
+      context['ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_ecoss=True)]
+      context['other_ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_ecoss=False)]
+      context['polygons'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_ecoss=True),
+        geometry_field='domain_area',
+        fields=('denomination',))),
+      if Station.location is not None:
+        context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id) for s in Station.objects.all()]
+      return context 

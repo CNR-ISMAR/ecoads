@@ -10,7 +10,7 @@ from django.conf.urls.static import static
 from ecos.views import EcosSiteList
 from ecos.views import EcosSiteDashboardView
 from ecos.views import EcosSiteDetailView, sitesjson
-
+from ecos.views import FixPointView
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.core import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls 
@@ -31,6 +31,7 @@ urlpatterns = [
     url(r'sites/(?P<sitetype>[\w]+)/$', EcosSiteList.as_view()),
     path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
     path('site/<slug:slug>/dashboard', EcosSiteDashboardView.as_view()),
+    path('fix/<slug:slug>/', FixPointView.as_view(), name='fix-view'),
 ]
 
 if settings.DEBUG:
