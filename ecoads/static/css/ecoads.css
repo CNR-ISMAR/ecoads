@@ -158,6 +158,15 @@ h6 {
     height: 1850px;
 }
 
+#fix {
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    padding-bottom: 180px;
+    height: auto; 
+}
+
 #mapsite {
     height: 500px;
     width: 50%;

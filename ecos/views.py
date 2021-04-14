@@ -6,6 +6,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateView
 from .models import Parameter, EcosSite
+from measurements.models import Station
 #from .models import DataSource
 
 from django.http import JsonResponse
@@ -49,6 +50,20 @@ class EcosSiteDetailView(DetailView):
             context['polygon'] = json.loads(serialize('geojson', [self.object],
                 geometry_field='domain_area',
                 fields=('denomination',)))
+        return context
+
+
+class FixPointView(DetailView):
+
+    model = Station
+    template_name = 'ecos/fix_point.html'
+    slug_field = 'code' 
+
+    # il problema è tra qui e marker js qui ho code e là no
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['label'] = self.object.label
         return context
 
 

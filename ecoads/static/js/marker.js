@@ -54,8 +54,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = ['ECOAdS sites', 'Other Sites', 'Fixed-Point Observing Systems'];
-    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_2.0_qGnWXr1.original.png'];
+        grades = ['ECOAdS sites', 'Other Sites', 'Virtual-Point'];
+    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_3.0.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
@@ -72,7 +72,7 @@ legend.addTo(map);
 // aggiungere json
 
 var icon_fix = L.icon({
-    iconUrl: '/media/images/fix_2.0_qGnWXr1.original.png',
+    iconUrl: '/media/images/fix_3.0.original.png',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
@@ -80,7 +80,6 @@ var icon_fix = L.icon({
 
 $.getJSON("/djmeasurements/locations/flatjson", function(fixpoints){
     for (var i = 0; i < fixpoints.length; i++) {
-
         //console.log(fixpoints[i].name)
         //console.log(fixpoints[i].latitute)
         //console.log(fixpoints[i].longitude)

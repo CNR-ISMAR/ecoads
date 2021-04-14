@@ -6,7 +6,7 @@ from django.contrib.postgres.fields import JSONField
 from wagtail.admin.edit_handlers import FieldPanel
 from ecos_cm.models import CMPage
 from measurements.models import Location
-
+from measurements.models import Station
 
 
 # class DataSource(models.Model):
