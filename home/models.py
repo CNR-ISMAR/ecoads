@@ -40,6 +40,5 @@ class HomePage(Page):
       context['polygons'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_ecoss=True),
         geometry_field='domain_area',
         fields=('denomination',))),
-      if Station.location is not None:
-        context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id) for s in Station.objects.all()]
+      context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id) for s in Station.objects.all() if s.location is not None]
       return context 

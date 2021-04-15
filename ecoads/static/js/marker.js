@@ -57,8 +57,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = ['ECOAdS sites', 'Other Sites', 'Virtual-Point'];
-    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_3.0.original.png'];
+        grades = ['ECOAdS sites', 'Other Sites', 'Virtual-Point', 'Fixed-Point Observing Systems'];
+    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_3.0.original.png', '/media/images/fix_2.0.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
@@ -95,7 +95,7 @@ legend.addTo(map);
 // fixed-point observing systems marker 
 
 var fix_point_icon = L.icon({
-    iconUrl: 'https://ecoads.eu/media/images/fix_2.0.original.png',
+    iconUrl: '/media/images/fix_2.0.original.png',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
