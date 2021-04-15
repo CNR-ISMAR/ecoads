@@ -57,8 +57,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = ['ECOAdS sites', 'Other Sites', 'Virtual-Point', 'Fixed-Point Observing Systems'];
-    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_3.0.original.png', '/media/images/fix_2.0.original.png'];
+        grades = ['ECOAdS sites', 'Other Sites', 'Fixed-Point Observing Systems'];
+    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_2.0.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
@@ -114,4 +114,3 @@ for (var i = 0; i < fix_point.length; i++) {
         .bindPopup(link)
         .addTo(map);
 };
-

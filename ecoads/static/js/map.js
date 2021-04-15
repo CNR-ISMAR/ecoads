@@ -32,13 +32,13 @@ var baseMaps = {
     "osmLayer": osmLayer
 };
 
-var clhoA = L.tileLayer.wms("https://ec.oceanbrowser.net/emodnet/Python/web/wms", {
-    layers: 'Mediterranean Sea/Summer (July-September) - 6-years running averages/Water_body_chlorophyll-a.4Danl.nc*Water_body_chlorophyll-a',
-    format: 'image/png',
-    transparent: true,
-    attribution: "EMODnet Chemistry",
-    opacity: 0.5
-});
+// var clhoA = L.tileLayer.wms("https://ec.oceanbrowser.net/emodnet/Python/web/wms", {
+//     layers: 'Mediterranean Sea/Summer (July-September) - 6-years running averages/Water_body_chlorophyll-a.4Danl.nc*Water_body_chlorophyll-a',
+//     format: 'image/png',
+//     transparent: true,
+//     attribution: "EMODnet Chemistry",
+//     opacity: 0.5
+// });
 
 
 
@@ -56,16 +56,18 @@ $.getJSON("/djmeasurements/locations/flatjson", function(fixvirtualpoints){
         //console.log(fixpoints[i].longitude)
         markerfix = new L.marker([fixvirtualpoints[i].latitute, fixvirtualpoints[i].longitude], { icon: icon_fix_virtual })
         .bindPopup(fixvirtualpoints[i].name)
-        .addTo(map);
-        
+        .addTo(virtualfixlayer);
+        //console.log(virtualfixlayer)
     }
+    //console.log(virtualfixlayer)
 });
 
 
+virtualfixlayer = L.layerGroup();
 
 var overlayMaps = {
-    "clhorophyll A": clhoA,
-
+    //"clhorophyll A": clhoA,
+    "Virtual-Point": virtualfixlayer,
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
