@@ -26,14 +26,27 @@ class EcosSiteList(ListView):
         if sitetype == 'natura2000':
             return EcosSite.objects.filter(is_n2k = True )
         elif sitetype == 'lter':
-            return EcosSite.objects.filter(is_lter = True )
-        elif sitetype == 'fixoss':
+        #    return EcosSite.objects.filter(is_lter = True )
+        # elif sitetype == 'fixoss':
             return EcosSite.objects.filter(is_fixoss = True )
         elif sitetype == 'ecoss':
             return EcosSite.objects.filter(is_ecoss = True )
         else:
             return EcosSite.objects.all()
 
+
+class FixPointList(ListView):
+    
+    model = Station
+    template_name = 'ecos/fix_point_list.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id) for s in Station.objects.all() if s.location is not None]
+        context['fix_label'] = Station.label
+        # fix = []
+        # for s in Station.objects.all() if s.location is not None:
+        #     fix.append(s.fix)
+        return context
 
 
 class EcosSiteDetailView(DetailView):
@@ -74,7 +87,6 @@ class EcosSiteDashboardView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['url'] = "https://ecoads.eu/measurements/d/hvh9-qyGk/test?orgId=1"
-       
        
         var = []
         for location in self.object.measurement_location_id.all():   
