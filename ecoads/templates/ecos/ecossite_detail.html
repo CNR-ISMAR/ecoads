@@ -24,7 +24,7 @@
                 <p>Go to DEIMS-SDR <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">website.</h4></a> </p>
                 <hr style="height:10pt; visibility:hidden;"/>
                 {% for cm in object.conceptualmodels.all %}
-                    <p> {{ cm.conceptual_model_type}} Concetual Model <a href="/{{ cm.slug }}"> view </h4></a> </p>
+                    <p> {{ cm.conceptual_model_type}} Conceptual Model <a href="/{{ cm.slug }}"> view </h4></a> </p>
                 {% endfor %}
                 <p>Explore <a href="/site/{{ object.data.id.suffix }}/dashboard"> dashboard </h4></a> </p>
                 {% if ecossite.img is not None %}   
