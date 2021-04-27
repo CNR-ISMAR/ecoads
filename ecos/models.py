@@ -48,6 +48,7 @@ class EcosSite(models.Model):
     is_n2k = models.BooleanField(default=False)
     is_lter = models.BooleanField(default=False)
     is_fixoss = models.BooleanField(default=False)
+    is_onmap = models.BooleanField(default=False)
     img = models.URLField(max_length=600,blank=False, null=True)
     #measurement_id = models.IntegerField(blank=True, null=True)
     #tutte le location che cadono in quest'area - script @todo

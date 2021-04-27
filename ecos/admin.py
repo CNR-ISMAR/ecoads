@@ -37,8 +37,8 @@ class EcosSiteAdmin(ModelAdmin):
     menu_order = 700
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ("denomination", "last_update", "website", "is_ecoss", "is_n2k", "is_lter", "is_fixoss")
-    search_field = ("denomination", "last_update", "website", "is_ecoss", "is_n2k", "is_lter", "is_fixoss")
+    list_display = ("denomination", "last_update", "website", "is_ecoss", "is_n2k", "is_lter", "is_fixoss", "is_onmap")
+    search_field = ("denomination", "last_update", "website", "is_ecoss", "is_n2k", "is_lter", "is_fixoss", "is_onmap")
 
     panels =[
     FieldPanel("denomination"),
@@ -52,6 +52,7 @@ class EcosSiteAdmin(ModelAdmin):
     FieldPanel("is_n2k"), 
     FieldPanel("is_lter"),
     FieldPanel("is_fixoss"),
+    FieldPanel("is_onmap"),
     FieldPanel("parameters"),
     ] 
 
