@@ -3,6 +3,7 @@ var polygon = JSON.parse(document.getElementById('polygon').textContent);
 
 var map = L.map('mapsite', {
 maxZoom: 14,
+minZoom: 5,
 zoom: 10,
 center:singlesite,
 fullscreenControl: true,
@@ -68,3 +69,21 @@ $.getJSON("/djmeasurements/locations/flatjson", function(fixpoints){
         .addTo(map);
     }
 });  
+
+// LEGEND
+var legend = L.control({ position: 'bottomright' });
+legend.onAdd = function(map) {
+
+    var div = L.DomUtil.create('div', 'info legend'),
+        grades = ['Fixed-Point Observing Systems'];
+    labels = ['/media/images/fix_2.0.original.png'];
+
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            (" <img src=" + labels[i] + " height='20' width='20'>") + grades[i] + '<br>';
+    }
+
+    return div;
+
+};
+legend.addTo(map);
