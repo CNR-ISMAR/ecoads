@@ -55,7 +55,7 @@ class EcosSite(models.Model):
     measurement_location_id = models.ManyToManyField(Location, through='EcosSitesLocationDjangoMeasurements', blank=True)
     #data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters', blank=True)
-    conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages', blank=True)
+    conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages', )
    
     def __str__(self):
         return self.denomination
