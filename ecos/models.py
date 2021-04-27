@@ -52,10 +52,10 @@ class EcosSite(models.Model):
     img = models.URLField(max_length=600,blank=True, null=True)
     #measurement_id = models.IntegerField(blank=True, null=True)
     #tutte le location che cadono in quest'area - script @todo
-    measurement_location_id = models.ManyToManyField(Location, through='EcosSitesLocationDjangoMeasurements')
+    measurement_location_id = models.ManyToManyField(Location, through='EcosSitesLocationDjangoMeasurements', blank=True)
     #data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
-    parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters')
-    conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages')
+    parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters', blank=True)
+    conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages', blank=True)
    
     def __str__(self):
         return self.denomination
