@@ -7,7 +7,29 @@ from wagtail.admin.edit_handlers import FieldPanel
 from ecos_cm.models import CMPage
 from measurements.models import Location
 from measurements.models import Station
+from wagtail.core.fields import RichTextField
 
+class InfoResource(models.Model):
+    title = models.CharField(max_length=400, blank=True, null=False)
+    
+    MONITORING_PROGRAM = "Monitoring program"
+    PORTAL = "Portal"
+    GEOSPATIAL_LAYER = "Geospatial layer" 
+    
+    INFO_RESOURCE_TYPE_CHOICES = [
+        (MONITORING_PROGRAM, 'Monitoring program'),
+        (PORTAL, 'Portal'),
+        (GEOSPATIAL_LAYER, 'Geospatial layer') 
+    ]
+    info_resource_type = models.CharField(
+      choices=INFO_RESOURCE_TYPE_CHOICES,
+      max_length=100,
+      default=MONITORING_PROGRAM,
+    )
+    description = RichTextField( null=True, blank=True)
+    reference_url = models.URLField(max_length=600,blank=False, null=True )
+    reference_institution = models.TextField(blank=True, null=True)
+    additional_informations = RichTextField( null=True, blank=True)
 
 # class DataSource(models.Model):
 #     name = models.CharField(max_length=200, blank=True, null=False)
