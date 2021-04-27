@@ -40,7 +40,7 @@ class EcosSite(models.Model):
     suffix = models.CharField(max_length=200, blank=False, null=True)
     denomination = models.CharField(max_length=200)
     description = models.TextField(blank=False, null=True)
-    domain_area = models.MultiPolygonField(blank=False, null=True)  #polygon
+    domain_area = models.MultiPolygonField(blank=True, null=True)  #polygon
     location = models.PointField() # marker point 
     website = models.URLField(max_length=600,blank=False, null=True)
     last_update = models.DateTimeField(blank=False, null=True)
