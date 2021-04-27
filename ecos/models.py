@@ -39,17 +39,17 @@ class EcosSite(models.Model):
     data = JSONField(blank=True, null=True)
     suffix = models.CharField(max_length=200, blank=False, null=True)
     denomination = models.CharField(max_length=200)
-    description = models.TextField(blank=False, null=True)
+    description = models.TextField(blank=True, null=True)
     domain_area = models.MultiPolygonField(blank=True, null=True)  #polygon
     location = models.PointField() # marker point 
-    website = models.URLField(max_length=600,blank=False, null=True)
-    last_update = models.DateTimeField(blank=False, null=True)
+    website = models.URLField(max_length=600,blank=True, null=True)
+    last_update = models.DateTimeField(blank=True, null=True)
     is_ecoss = models.BooleanField(default=False)
     is_n2k = models.BooleanField(default=False)
     is_lter = models.BooleanField(default=False)
     is_fixoss = models.BooleanField(default=False)
     is_onmap = models.BooleanField(default=False)
-    img = models.URLField(max_length=600,blank=False, null=True)
+    img = models.URLField(max_length=600,blank=True, null=True)
     #measurement_id = models.IntegerField(blank=True, null=True)
     #tutte le location che cadono in quest'area - script @todo
     measurement_location_id = models.ManyToManyField(Location, through='EcosSitesLocationDjangoMeasurements')
