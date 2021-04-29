@@ -94,15 +94,16 @@ class InfoResourceAdmin(ModelAdmin):
     menu_order = 500
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ('info_resource_type', 'description', 'reference_url', 'reference_institution','additional_informations')
-    search_field = ('info_resource_type', 'description', 'reference_url', 'reference_institution','additional_informations')
+    list_display = ('title','info_resource_type', 'reference_url', 'reference_institution',)
+    search_field = ('title','info_resource_type', 'description', 'reference_url', 'reference_institution','additional_informations')
     
     panels =[
-         FieldPanel("info_resource_type"),
-         FieldPanel("description"),
-         FieldPanel("reference_url"),
-         FieldPanel("reference_institution"),
-         FieldPanel("additional_informations"),
+        FieldPanel("title"),
+        FieldPanel("info_resource_type"),
+        FieldPanel("description"),
+        FieldPanel("reference_url"),
+        FieldPanel("reference_institution"),
+        FieldPanel("additional_informations"),
     ] 
 
 modeladmin_register(InfoResourceAdmin)

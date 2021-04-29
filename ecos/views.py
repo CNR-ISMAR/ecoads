@@ -5,9 +5,8 @@ import json
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateView
-from .models import Parameter, EcosSite
+from .models import Parameter, EcosSite, InfoResource
 from measurements.models import Station
-#from .models import DataSource
 
 from django.http import JsonResponse
 
@@ -48,6 +47,25 @@ class FixPointList(ListView):
         #     fix.append(s.fix)
         return context
 
+class InfoResourceList(ListView):
+    
+    model = InfoResource
+    template_name = 'ecos/info_resource_list.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['info'] =  [(s.title ) for s in InfoResource.objects.all()]
+        return context
+
+class InfoResourceDetailView(DetailView):
+
+    model = InfoResource
+    template_name = 'ecos/info_resource_detail.html'
+    slug_field = 'id'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.object.title
+        return context
 
 class EcosSiteDetailView(DetailView):
 

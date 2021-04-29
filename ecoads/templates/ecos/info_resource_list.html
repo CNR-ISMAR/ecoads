@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %} {# this is a filter #}
+
+{% block content %}
+  <h1 style="text-align: center"> Information resources </h1>
+  <div class="container">
+    <div class="md-form active-cyan-2 mb-3">
+        <input id="list-search" class="form-control" type="text" style="text-align: center;" placeholder="Search Site" aria-label="Search">
+    </div>
+    <div id="site-list" class="row spacing2">
+        {% for info in object_list %}
+            
+            <div class="carousel slide spacing2" data-ride="carousel" id="carousel" style="width: 150px; margin-left:10px">
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active">
+                        {% if info.img is None %}
+                            <img alt=""  class="pull-left" src="/media/images/img_placeholder.max-165x165.png" width="120" height="100">
+                        {% endif %}
+                        {% if info.img is not None %}   
+                            <img alt=""  class="pull-left" src="{{ info.img}}" width="150" height="100">
+                        {% endif %}
+                    </div>
+                </div> 
+            </div>
+            <div class="col-md-10" id="carousel_text" >
+                <div>
+                    <a href="{% url 'info-view' info.id %}" class="alert-link">
+                        <h5> {{ info.title }} </h5>
+                    </a>
+                    <div style="font-size: 15px;"> {{ info.description|richtext | truncatechars:300 }} </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+  
+
+    <div id="debug">
+
+    {{ info }}
+    {{ description }}
+    </div> 
+
+
+{% endblock %}
+
+{% block extra_js %}
+<script type="text/javascript" src="/static/js/searchsite.js"></script> 
+{% endblock %}
