@@ -95,6 +95,7 @@ class FixPointView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['label'] = self.object.label
+        context['fixsinglesite'] = [self.object.location.geo.centroid.y, self.object.location.geo.centroid.x]
         return context
 
 

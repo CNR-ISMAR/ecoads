@@ -2,30 +2,39 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <div id="fix" style="text-align: justify">
-        <h1 style="text-align: center";>{{ object.label }}</h1>
-
-        {% if object.description is not None %}
-            <h5>Station Description:</h5>
+    <h1 style="text-align: center";>{{ object.label }}</h1>
+    <div id=site>
+        <div id="sitepage" style="text-align: justify";>
+            {% if object.description is not None %}
+                <h4>Station Description:</h4>
+                <div>
+                    {{ object.description }}
+                </div>
+                <hr style="height:10pt; visibility:hidden;"/>
+            {% endif %}
+            
             <div>
-                {{ object.description }}
+                <p> The Location of the Fix-Point Oberserving Systems is {{ object.location }}. The Station is part of the {{ object.network }} Network, and is identify with the {{ object.code }} code.  </p>
+                {% if object.image is not None %}   
+                    <img alt=""  class="pull-left" src="/media/{{ object.image }}" width="100">
+                {% endif %}
             </div>
-            <hr style="height:10pt; visibility:hidden;"/>
-        {% endif %}
-        
-        <div>
-            <p> The Location of the Fix-Point Oberserving Systems is {{ object.location }}. The Station is part of the {{ object.network }} Network, and is identify with the {{ object.code }} code.  </p>
         </div>
-        <hr style="height:10pt; visibility:hidden;"/>
-
-        <!--div id="debug">
-        {{ object.labels }}
-        </div--> 
-
+        <div id="mapsitefix">             
+            
+        </div>
     </div>
+  
+
+    <!-- <div id="debug">
+        {{ fixsinglesite }}
+    </div>  -->
 
 {% endblock %}
 
 {% block extra_js %}
-
+{{ block.super }}
+{{ fixsinglesite|json_script:"fixsinglesite" }}
+{{ label|json_script:"label" }}
+<script type="text/javascript" src="/static/js/fixsinglesite.js"></script>
 {% endblock %}
