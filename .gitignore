@@ -6,10 +6,10 @@ static/
 media/
 
 #include everything within
-!/static/js/
-!/static/js/*
-!/static/css/
-!/static/css/*
+!static/js/
+!static/js/*
+!static/css/
+!static/css/*
 
 
 # Byte-compiled / optimized / DLL files
