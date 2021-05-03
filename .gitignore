@@ -2,15 +2,10 @@
 swagger_client
 local.py
 *~
-static/
-media/
-
-#include everything within
+static/*
 !static/js/
-!static/js/*
 !static/css/
-!static/css/*
-
+media/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
