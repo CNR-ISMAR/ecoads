@@ -14,11 +14,11 @@
                 <div class="carousel slide spacing2" data-ride="carousel" id="carousel" style="width: 150px; margin-left:10px">
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            {% if fix_point.img is None %}
+                            {% if fix_point.image is None %}
                                 <img alt=""  class="pull-left" src="/media/images/img_placeholder.max-165x165.png" width="120" height="100">
                             {% endif %}
-                            {% if fix_point.img is not None %}   
-                                <img alt=""  class="pull-left" src="{{ fixpoint.img}}" width="150" height="100">
+                            {% if  fix_point.image is not None %}   
+                                <img alt=""  class="pull-left" src="/media/{{ fix_point.image }}" width="150" height="100">
                             {% endif %}
                         </div>
                     </div> 
@@ -35,6 +35,11 @@
         {% endfor %}
     </div>
 </div>
+
+    <div id="debug">
+        {{ fix_img }}
+        {{ station.image }}
+    </div>   
 {% endblock %}
 
 {% block extra_js %}

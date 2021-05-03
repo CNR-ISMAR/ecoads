@@ -40,8 +40,10 @@ class FixPointList(ListView):
     template_name = 'ecos/fix_point_list.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id) for s in Station.objects.all() if s.location is not None]
+        context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id, s.image) for s in Station.objects.all() if s.location is not None]
         context['fix_label'] = Station.label
+        if Station.image is not None:
+            context['fix_img'] = Station.image
         # fix = []
         # for s in Station.objects.all() if s.location is not None:
         #     fix.append(s.fix)

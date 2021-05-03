@@ -27,6 +27,13 @@ class InfoResource(models.Model):
       default=MONITORING_PROGRAM,
     )
     description = RichTextField( null=True, blank=True)
+    image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=False,
+        on_delete=models.SET_NULL,
+        related_name="+"
+    )
     reference_url = models.URLField(max_length=600,blank=False, null=True )
     reference_institution = models.TextField(blank=True, null=True)
     additional_informations = RichTextField( null=True, blank=True)

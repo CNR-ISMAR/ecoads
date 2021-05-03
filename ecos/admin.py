@@ -4,6 +4,7 @@ from wagtail.contrib.modeladmin.options import (
 )
 from wagtail.admin.edit_handlers import FieldPanel
 from wagtailleafletwidget.edit_handlers import GeoPanel
+from wagtail.images.edit_handlers import ImageChooserPanel
 from .models import ( Parameter, 
     EcosSite, 
     EcosSitesParameters,
@@ -100,6 +101,7 @@ class InfoResourceAdmin(ModelAdmin):
     panels =[
         FieldPanel("title"),
         FieldPanel("info_resource_type"),
+        ImageChooserPanel("image"),
         FieldPanel("description"),
         FieldPanel("reference_url"),
         FieldPanel("reference_institution"),

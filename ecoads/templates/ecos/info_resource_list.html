@@ -13,11 +13,13 @@
             <div class="carousel slide spacing2" data-ride="carousel" id="carousel" style="width: 150px; margin-left:10px">
                 <div class="carousel-inner" role="listbox">
                     <div class="item active">
-                        {% if info.img is None %}
+                        {% if info.image is None %}
                             <img alt=""  class="pull-left" src="/media/images/img_placeholder.max-165x165.png" width="120" height="100">
                         {% endif %}
-                        {% if info.img is not None %}   
-                            <img alt=""  class="pull-left" src="{{ info.img}}" width="150" height="100">
+                        {% if info.image is not None %}   
+                            <div alt=""  class="pull-left"  width="150" height="100">
+                                {% image info.image width-150 height-100%}
+                            </div>
                         {% endif %}
                     </div>
                 </div> 
@@ -33,14 +35,6 @@
         {% endfor %}
     </div>
 </div>
-  
-
-    <div id="debug">
-
-    {{ info }}
-    {{ description }}
-    </div> 
-
 
 {% endblock %}
 
