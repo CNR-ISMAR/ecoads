@@ -26,7 +26,7 @@
                 <div class="col-md-10" id="carousel_text" >
                     <div>
                         <a href="{% url 'fix-view' fix_point.id %}" class="alert-link">
-                        <h5> {{ fix_point.label }} </h5>
+                        <h5> {{ fix_point.label }} - {{ fix_point.network }} </h5>
                         </a>
                         <p style="font-size: 15px;"> {{ fix_point.description | truncatechars:300 }} </p>
                     </div>

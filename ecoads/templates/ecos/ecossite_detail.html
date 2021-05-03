@@ -5,8 +5,8 @@
     <h1 style="text-align: center";>{{ object.denomination }}</h1>
     <div id=site>
             <div id="sitepage" style="text-align: justify";>
-                {% if object.description is not None %}
-                    <h4>Description:</h4>
+                {% if object.description is not None%}
+                    <h4>Description</h4>
                     <div>
                         {{ object.description|slice:":200" }}<span id="dots">...</span><span id="more">{{ object.description|slice:"201:"}} </span>
                         <button id="btn1" onclick="myFunction()" >Read more</button>
@@ -14,19 +14,26 @@
                     <hr style="height:10pt; visibility:hidden;"/>
                 {% endif %}
                 {% if object.data.attributes.general.purpose is not None %}
-                    <h4>Purpose:</h4>
+                    <h4>Purpose</h4>
                     <div>
                         {{ object.data.attributes.general.purpose }}
                     </div>
                     <hr style="height:10pt; visibility:hidden;"/>
                 {% endif %}     
-                <h4>Last Update:</h4> <p>{{ object.last_update}}</p>
-                <p>Go to DEIMS-SDR <a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}">website.</h4></a> </p>
+                <h4>Last Update</h4> <p>{{ object.last_update}}</p>
+                <hr style="height:10pt; visibility:hidden;"/>   
+                <h4>Measurements</h4>
+                <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data and information</h4></a> for this site. </p>
+                <hr style="height:10pt; visibility:hidden;"/>   
+                <h4>DEIMS-SDR</h4>
+                <p> This site is part of DEIMS-SDR Network. DEIMS-SDR (Dynamic Ecological Information Management System - Site and dataset registry) is an information management system that allows to discover long-term ecosystem research sites and people and networks associated with them. Go to DEIMS-SDR page for<a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}"> {{ object.denomination }}.</h4></a> </p>
                 <hr style="height:10pt; visibility:hidden;"/>
-                {% for cm in object.conceptualmodels.all %}
-                    <p> {{ cm.conceptual_model_type}} Conceptual Model <a href="/{{ cm.slug }}"> view </h4></a> </p>
-                {% endfor %}
-                <p>Explore <a href="/site/{{ object.data.id.suffix }}/dashboard"> dashboard </h4></a> </p>
+               
+                    <h4>Conceptual models</h4>
+                        {% for cm in object.conceptualmodels.all %}
+                            <p> For this site is available the <a href="/{{ cm.slug }}"> {{ cm.conceptual_model_type}} </h4></a> conceptual model.</p>
+                        {% endfor %} 
+            
                 {% if ecossite.img is not None %}   
                     <img alt=""  class="pull-left" src="{{ object.img}}" width="100%">
                 {% endif %} 
@@ -47,12 +54,6 @@
             </div>
         {% endif %}
     </div>
-  
-
-    <!--div id="debug">
-        {{ object.labels }}
-    </div--> 
-
 {% endblock %}
 
 {% block extra_js %}
