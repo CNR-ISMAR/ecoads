@@ -24,6 +24,10 @@
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>Measurements</h4>
                 <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data and information</h4></a> for this site. </p>
+                    <p>Information Resources available for {{ object.denomination }} </p>
+                    {% for i in object.inforesources.all %}
+                    <p>-<a href="/inforesource/{{ i.id}}"> {{ i.title}}-{{i.info_resource_type}} </h4></a></p>
+                        {% endfor %} 
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>DEIMS-SDR</h4>
                 <p> This site is part of DEIMS-SDR Network. DEIMS-SDR (Dynamic Ecological Information Management System - Site and dataset registry) is an information management system that allows to discover long-term ecosystem research sites and people and networks associated with them. Go to DEIMS-SDR page for<a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}"> {{ object.denomination }}.</h4></a> </p>
