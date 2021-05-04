@@ -9,6 +9,7 @@ from .models import ( Parameter,
     EcosSite, 
     EcosSitesParameters,
     EcosSitesLocationDjangoMeasurements,
+    EcosSitesInfoResources,
     InfoResource,
 )
  
@@ -45,6 +46,7 @@ class EcosSiteAdmin(ModelAdmin):
     panels =[
     FieldPanel("denomination"),
     FieldPanel("conceptualmodels"),
+    FieldPanel("inforesources"),
     FieldPanel("measurement_location_id"),
     FieldPanel("last_update"),
     FieldPanel("description"),
@@ -73,18 +75,6 @@ class EcosSitesParametersAdmin(ModelAdmin):
 
 modeladmin_register(EcosSitesParametersAdmin)
 
-class EcosSitesLocationDjangoMeasurementsAdmin(ModelAdmin): 
-    """EcosSitesLocationDjangoMeasurements admin."""
-    model = EcosSitesLocationDjangoMeasurements
-    menu_label = "M2M EcosSites/Location Measurementes"
-    menu_icon = "pick"
-    menu_order = 900
-    add_to_settings_menu = False 
-    exclude_from_explorer = False
-    list_display = ("ecos_site", "measurement_locationid",)
-    search_field = ("ecos_site", "measurement_locationid",)
-
-modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
 
 class InfoResourceAdmin(ModelAdmin):
     """InfoResource admin."""
@@ -109,6 +99,33 @@ class InfoResourceAdmin(ModelAdmin):
     ] 
 
 modeladmin_register(InfoResourceAdmin)
+
+
+class EcosSitesInfoResourcesAdmin(ModelAdmin):
+    """EcosSitesInfoResources admin."""
+    model = EcosSitesInfoResources
+    menu_label = "M2M EcosSites/InfoResources"
+    menu_icon = "success"
+    menu_order = 900
+    add_to_settings_menu = False 
+    exclude_from_explorer = False
+    list_display = ("ecos_site", "inforesource",)
+    search_field = ("ecos_site", "inforesource",)
+
+modeladmin_register(EcosSitesInfoResourcesAdmin)
+
+class EcosSitesLocationDjangoMeasurementsAdmin(ModelAdmin): 
+    """EcosSitesLocationDjangoMeasurements admin."""
+    model = EcosSitesLocationDjangoMeasurements
+    menu_label = "M2M EcosSites/Location Measurementes"
+    menu_icon = "pick"
+    menu_order = 900
+    add_to_settings_menu = False 
+    exclude_from_explorer = False
+    list_display = ("ecos_site", "measurement_locationid",)
+    search_field = ("ecos_site", "measurement_locationid",)
+
+modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
 
 
 
