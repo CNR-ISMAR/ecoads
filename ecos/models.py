@@ -38,6 +38,9 @@ class InfoResource(models.Model):
     reference_institution = models.TextField(blank=True, null=True)
     additional_informations = RichTextField( null=True, blank=True)
 
+    def __str__(self):
+        return self.title
+
 # class DataSource(models.Model):
 #     name = models.CharField(max_length=200, blank=True, null=False)
 #     observation_model = models.CharField(max_length=200, blank=True, null=False)
@@ -84,6 +87,7 @@ class EcosSite(models.Model):
     measurement_location_id = models.ManyToManyField(Location, through='EcosSitesLocationDjangoMeasurements', blank=True)
     #data_source = models.ManyToManyField(DataSource, through='EcosSitesDataSources') 
     parameters = models.ManyToManyField(Parameter, through='EcosSitesParameters', blank=True)
+    inforesources = models.ManyToManyField(InfoResource, through='EcosSitesInfoResources', blank=True)
     conceptualmodels = models.ManyToManyField(CMPage, through='EcosSitesCMPages', blank=True )
    
     def __str__(self):
@@ -104,6 +108,10 @@ class EcosSitesCMPages(models.Model):
     ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
     conceptualmodels = models.ForeignKey(CMPage, on_delete=models.CASCADE)
 
+
+class EcosSitesInfoResources(models.Model): 
+    ecos_site = models.ForeignKey(EcosSite, on_delete=models.CASCADE) 
+    inforesources = models.ForeignKey(InfoResource, on_delete=models.CASCADE) 
 
 
 # class EcosSitesDataSources(models.Model): 
