@@ -3,17 +3,24 @@
 
 {% block content %}
     <div id="fix" style="text-align: justify">
-        <h1 style="text-align: center";>{{ object.label }}</h1>
+        <h1 style="text-align: center";>{{ object.title }} - {{ object.info_resource_type }}</h1>
 
         {% if object.description is not None %}
-            <h4>Description:</h4>
+            <h4>Description</h4>
             <div>
                 {{ object.description|richtext }}
             </div>
             <hr style="height:10pt; visibility:hidden;"/>
         {% endif %}
-        
+        <h4>Contacts</h4>
+        <p>Reference Institution {{ object.reference_institution }}</p>
+        <p> Reference URL <a href="{{ object.reference_url }}"> {{ object.reference_url}} </h4></a></p>
         <hr style="height:10pt; visibility:hidden;"/>
+        <h4>Additional Informations</h4>
+        <div>
+            {{ object.additional_informations|richtext }}
+        </div>
+        
 
         <!--div id="debug">
         {{ object.labels }}
