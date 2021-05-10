@@ -57,7 +57,7 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = ['ECOAdS sites', 'Other Sites', 'Fixed-Point Observing Systems'];
+        grades = ['ECOAdS sites', 'Other LTER Sites', 'Fixed-Point Observing Systems'];
     labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_2.0.original.png'];
 
     for (var i = 0; i < grades.length; i++) {

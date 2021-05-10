@@ -13,17 +13,17 @@
     <div class="sidenav">
         <h4 style="padding:15px 8px 20px 20px; color: #023a70" >ECOAdS RESOURCES</h4>
         <a  href="/sites/ecoss/">All ECOAdS sites</a>
-        <a  href="/sites/natura2000/">Natura 2000 sites</a>
-        <a  href="/sites/lter/">LTER sites</a>
+        <a style="text-indent: 40px;" href="/sites/natura2000/">ECOAdS Natura 2000 sites</a>
+        <a style="text-indent: 40px;" href="/sites/lter/">ECOAdS LTER sites</a>
         <a  href="/fix/list/">Fixed-point observing systems</a>
         <a href="/inforesource/list/">Information Resources</a>
         <!-- <a href="#">Parameters</a> -->
-        <!-- <a href="#">Directives</a> -->
+        <!-- <a href="#">Directives</a> --> 
     </div>
 {% endblock %}
 
 {% block extra_js %}
-    {{ block.super }}
+    {{ block.super }} 
     {{ ecossites|json_script:"ecossites" }}
     {{ other_ecossites|json_script:"other_ecossites" }}
     {{ polygons|json_script:"polygons" }}
