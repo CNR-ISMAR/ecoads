@@ -109,8 +109,8 @@ class EcosSitesInfoResourcesAdmin(ModelAdmin):
     menu_order = 900
     add_to_settings_menu = False 
     exclude_from_explorer = False
-    list_display = ("ecos_site", "inforesource",)
-    search_field = ("ecos_site", "inforesource",)
+    list_display = ("ecos_site", "inforesources",)
+    search_field = ("ecos_site", "inforesources",)
 
 modeladmin_register(EcosSitesInfoResourcesAdmin)
 
@@ -182,4 +182,3 @@ modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
 #     search_field = ("ecos_site", "data_source",)
 
 # modeladmin_register(EcosSitesDataSourcesAdmin)
-

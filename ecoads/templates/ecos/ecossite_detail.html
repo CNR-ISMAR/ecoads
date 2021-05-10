@@ -23,21 +23,21 @@
                 <h4>Last Update</h4> <p>{{ object.last_update}}</p>
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>Measurements</h4>
-                <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data and information</h4></a> for this site. </p>
-                    <p>Information Resources available for {{ object.denomination }} </p>
-                    {% for i in object.inforesources.all %}
-                    <p>-<a href="/inforesource/{{ i.id}}"> {{ i.title}}-{{i.info_resource_type}} </h4></a></p>
-                        {% endfor %} 
+                <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data and information</h4></a> for {{ object.denomination }}. </p>
+                <h4>Information Resources</h4> 
+                    {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
+                            <p><span class="badge badge-secondary"> {{i.info_resource_type}}</span><a href="/inforesource/{{ i.id}}"> {{ i.title}}</h4></a> </p> 
+                    {% endfor %}                 
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>DEIMS-SDR</h4>
                 <p> This site is part of DEIMS-SDR Network. DEIMS-SDR (Dynamic Ecological Information Management System - Site and dataset registry) is an information management system that allows to discover long-term ecosystem research sites and people and networks associated with them. Go to DEIMS-SDR page for<a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}"> {{ object.denomination }}.</h4></a> </p>
                 <hr style="height:10pt; visibility:hidden;"/>
                
-                    <h4>Conceptual models</h4>
-                        {% for cm in object.conceptualmodels.all %}
-                            <p> For this site is available the <a href="/{{ cm.slug }}"> {{ cm.conceptual_model_type}} </h4></a> conceptual model.</p>
-                        {% endfor %} 
-            
+                <h4>Conceptual models</h4>
+                    {% for cm in object.conceptualmodels.all %}
+                        <p> For this site is available the <a href="/{{ cm.slug }}"> {{ cm.conceptual_model_type}} </h4></a> conceptual model.</p>
+                    {% endfor %} 
+
                 {% if ecossite.img is not None %}   
                     <img alt=""  class="pull-left" src="{{ object.img}}" width="100%">
                 {% endif %} 
