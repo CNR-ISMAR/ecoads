@@ -1,6 +1,6 @@
 .view {
     background: url(/media/images/sfondofacts.2e16d0ba.fill-2876x350.png)no-repeat center center;
-    background-size: auto;
+    background-size: cover;
 }
 
 @media (min-width: 768px) {
@@ -25,7 +25,6 @@
         background-color:  #00a1cd;
     }
 }
-
 
 body {
     color: #023a70;
@@ -314,7 +313,6 @@ h6 {
     font-weight: 300;
     font-size: 15px;
     height: 200px;
-    
    }
 
    
@@ -357,8 +355,6 @@ h6 {
     padding-top: 25px;
     margin-bottom: 0px;
 }
-
-
 
 #img_container{
     max-height: 200px;

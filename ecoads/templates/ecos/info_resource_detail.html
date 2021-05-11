@@ -4,12 +4,18 @@
 {% block content %}
     <div id="fix" style="text-align: justify">
         <h1 style="text-align: center";>{{ object.title }} - {{ object.info_resource_type }}</h1>
-        <iframe style="border: 1px solid #023a70;" height="400" width="600"  src="http://data.tools4msp.eu/maps/5357/embed"></iframe>
+        
         {% if object.description is not None %}
             <h4>Description</h4>
             <div>
                 {{ object.description|richtext }}
             </div>
+            {% if object.info_resource_type  == "Geospatial layer" %}
+                <iframe style="border: 1px solid #023a70;" height="400" width="600"  src="{{ object.resource_url}}"></iframe>
+            {% else %} 
+                <p>You can access and explore the {{ object.info_resource_type }} at this <a target="_blank" href="{{ object.resource_url}}">page</h4></a>.</p>
+            {% endif %}
+       <hr style="height:10pt; visibility:hidden;"/>
             <hr style="height:10pt; visibility:hidden;"/>
         {% endif %}
         <h4>Contacts</h4>
