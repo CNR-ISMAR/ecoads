@@ -91,6 +91,7 @@ class InfoResourceAdmin(ModelAdmin):
     panels =[
         FieldPanel("title"),
         FieldPanel("info_resource_type"),
+        FieldPanel("resource_url"),
         ImageChooserPanel("image"),
         FieldPanel("description"),
         FieldPanel("reference_url"),

@@ -34,6 +34,7 @@ class InfoResource(models.Model):
         on_delete=models.SET_NULL,
         related_name="+"
     )
+    resource_url = models.URLField(max_length=600,blank=False, null=True )
     reference_url = models.URLField(max_length=600,blank=False, null=True )
     reference_institution = models.TextField(blank=True, null=True)
     additional_informations = RichTextField( null=True, blank=True)
