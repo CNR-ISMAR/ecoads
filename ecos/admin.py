@@ -97,6 +97,7 @@ class InfoResourceAdmin(ModelAdmin):
         FieldPanel("reference_url"),
         FieldPanel("reference_institution"),
         FieldPanel("additional_informations"),
+        FieldPanel("data_access_information"),
     ] 
 
 modeladmin_register(InfoResourceAdmin)

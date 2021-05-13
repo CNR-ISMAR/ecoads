@@ -14,12 +14,16 @@ class InfoResource(models.Model):
     
     MONITORING_PROGRAM = "Monitoring program"
     PORTAL = "Portal"
-    GEOSPATIAL_LAYER = "Geospatial layer" 
+    GEOSPATIAL_LAYER = "Geospatial layer"
+    DATASET = "Dataset"
+    OTHER = "Other"
     
     INFO_RESOURCE_TYPE_CHOICES = [
         (MONITORING_PROGRAM, 'Monitoring program'),
         (PORTAL, 'Portal'),
-        (GEOSPATIAL_LAYER, 'Geospatial layer') 
+        (GEOSPATIAL_LAYER, 'Geospatial layer'), 
+        (DATASET, 'Dataset'),
+        (OTHER, 'Other')
     ]
     info_resource_type = models.CharField(
       choices=INFO_RESOURCE_TYPE_CHOICES,
@@ -38,6 +42,7 @@ class InfoResource(models.Model):
     reference_url = models.URLField(max_length=600,blank=False, null=True )
     reference_institution = models.TextField(blank=True, null=True)
     additional_informations = RichTextField( null=True, blank=True)
+    data_access_information = RichTextField( null=True, blank=True)
 
     def __str__(self):
         return self.title
