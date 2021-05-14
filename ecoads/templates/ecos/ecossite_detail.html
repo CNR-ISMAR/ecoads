@@ -24,6 +24,8 @@
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>Measurements</h4>
                 <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data and information</h4></a> for {{ object.denomination }}. </p>
+                <p>Explore available<a href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}"> tools </h4></a> for {{ object.denomination }}.</p></p>
+               
                 <h4>Information Resources</h4> 
                     {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
                             <p><span class="badge badge-secondary"> {{i.info_resource_type}}</span><a href="/inforesource/{{ i.id}}"> {{ i.title}}</h4></a> </p> 
