@@ -52,8 +52,8 @@ if (polygon!="") {
   // aggiungere json
 
 var icon_fix = L.icon({
-    iconUrl: '/media/images/fix_2.0.original.png',
-    iconSize: [20, 20],
+    iconUrl: '/media/images/Bullseye_7.original.png',
+    iconSize: [25, 25],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
 });
@@ -76,7 +76,7 @@ legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
         grades = ['Fixed-Point Observing Systems'];
-    labels = ['/media/images/fix_2.0.original.png'];
+    labels = ['/media/images/Bullseye_7.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=

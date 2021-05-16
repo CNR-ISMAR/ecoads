@@ -58,7 +58,7 @@ legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
         grades = ['ECOAdS sites', 'Other LTER Sites', 'Fixed-Point Observing Systems'];
-    labels = ['/media/images/Certificate_7.original.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_2.0.original.png'];
+    labels = ['/media/images/Certificate_7.original.png', '/media/images/other_site.max-165x165.png', '/media/images/Bullseye_7.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
@@ -95,7 +95,7 @@ legend.addTo(map);
 // fixed-point observing systems marker 
 
 var fix_point_icon = L.icon({
-    iconUrl: '/media/images/fix_2.0.original.png',
+    iconUrl: '/media/images/Bullseye_7.original.png',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
