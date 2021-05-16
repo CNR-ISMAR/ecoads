@@ -1,7 +1,7 @@
 // Sites imported from DEIMS sdr but NOT case studies in ECOSS Project
 var icon_other_site = L.icon({
-    iconUrl: '/media/images/other_site.max-165x165.png',
-    iconSize: [15, 15],
+    iconUrl: '/media/images/Certificate_7_1.original.png',
+    iconSize: [20, 20],
     /*iconAnchor: [0, 0],*/
     popupAnchor: [0, -10],
 });
@@ -58,7 +58,7 @@ legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
         grades = ['ECOAdS sites', 'Other LTER Sites', 'Fixed-Point Observing Systems'];
-    labels = ['/media/images/Certificate_7.original.png', '/media/images/other_site.max-165x165.png', '/media/images/Bullseye_7.original.png'];
+    labels = ['/media/images/Certificate_7.original.png', '/media/images/Certificate_7_1.original.pngg', '/media/images/Bullseye_7.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
