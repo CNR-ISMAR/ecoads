@@ -45,7 +45,7 @@ var baseMaps = {
 
 
 var icon_fix_virtual = L.icon({
-    iconUrl: '/media/images/fix_3.0.original.png',
+    iconUrl: '/media/images/Bullseye_7_2.original.pngss',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
