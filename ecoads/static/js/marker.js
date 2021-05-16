@@ -22,7 +22,7 @@ for (var i = 0; i < other_ecossites.length; i++) {
 
 // Sites imported fromm DEIMS sdr AND case studies in ECOSS Project
 var icon_ecoss_site = L.icon({
-    iconUrl: 'https://ecoads.eu/media/images/Certificate_7.original.png',
+    iconUrl: '/media/images/Certificate_7.original.png',
     iconSize: [30, 30],
     /*iconAnchor: [0, 0],*/
     popupAnchor: [0, -20],
@@ -95,7 +95,7 @@ legend.addTo(map);
 // fixed-point observing systems marker 
 
 var fix_point_icon = L.icon({
-    iconUrl: '/media/images/Bullseye_7.original.png',
+    iconUrl: 'https://ecoads.eu/media/images/Bullseye_7_2.original.png',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
