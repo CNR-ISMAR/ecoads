@@ -95,7 +95,7 @@ legend.addTo(map);
 // fixed-point observing systems marker 
 
 var fix_point_icon = L.icon({
-    iconUrl: 'https://ecoads.eu/media/images/Bullseye_7_2.original.png',
+    iconUrl: '/media/images/Bullseye_7.original.png',
     iconSize: [20, 20],
     iconAnchor: [-1, -1],
     popupAnchor: [0, -10],
