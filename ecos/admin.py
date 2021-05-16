@@ -102,7 +102,6 @@ class InfoResourceAdmin(ModelAdmin):
 
 modeladmin_register(InfoResourceAdmin)
 
-
 class EcosSitesInfoResourcesAdmin(ModelAdmin):
     """EcosSitesInfoResources admin."""
     model = EcosSitesInfoResources
@@ -128,9 +127,6 @@ class EcosSitesLocationDjangoMeasurementsAdmin(ModelAdmin):
     search_field = ("ecos_site", "measurement_locationid",)
 
 modeladmin_register(EcosSitesLocationDjangoMeasurementsAdmin)
-
-
-
 
 # class DataSourcesParametersAdmin(ModelAdmin):
 #     """DataSourcesParametersAdmin."""

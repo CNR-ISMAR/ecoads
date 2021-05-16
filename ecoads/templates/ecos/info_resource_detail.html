@@ -2,7 +2,7 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block content %}
-    <div id="fix" style="text-align: justify">
+    <div class="container" style="text-align: justify;">
         <h1 style="text-align: center";>{{ object.title }} - {{ object.info_resource_type }}</h1>
         
         {% if object.description is not None %}
@@ -11,8 +11,11 @@
                 {{ object.description|richtext }}
             </div>
             {% if object.info_resource_type  == "Geospatial layer" %}
-                <iframe style="border: 1px solid #023a70;" height="400" width="600"  src="{{ object.resource_url}}"></iframe>
-            {% else %} 
+                <iframe style="border: 1px solid #023a70;" height="600" width="100%"  src="{{ object.resource_url}}"></iframe>
+                <p>Go to source <a target="_blank" href="{{ object.resource_url}}">page</p>
+            {% elif object.info_resource_type  == "Other" %}   
+                <p>You can access and explore the resource at this <a target="_blank" href="{{ object.resource_url}}">page</h4></a>.</p>
+            {% else %}
                 <p>You can access and explore the {{ object.info_resource_type }} at this <a target="_blank" href="{{ object.resource_url}}">page</h4></a>.</p>
             {% endif %}
        <hr style="height:10pt; visibility:hidden;"/>
@@ -27,13 +30,10 @@
             <div>
                 {{ object.additional_informations|richtext }}
                 <h5>Data Access Information</h5>
-                {{ object.data_access_information }}
+                {{ object.data_access_information|richtext }}
             </div>
             <hr style="height:10pt; visibility:hidden;"/>
         {% endif %}
-        
-        
-
         <!--div id="debug">
         {{ object.labels }}
         </div--> 
