@@ -44,8 +44,6 @@ var stylepolygons = {
     color: "#1b9e77",
     weight: 1,
     opacity: 0.70
-
-    
 };
 
 var polygons = JSON.parse(document.getElementById('polygons').textContent);
@@ -71,28 +69,6 @@ legend.onAdd = function(map) {
 };
 legend.addTo(map);
 
-
-// Virtual point for data collection for Dashboard da mettere come layer
-
-// var icon_fix_virtual = L.icon({
-//     iconUrl: '/media/images/fix_3.0.original.png',
-//     iconSize: [20, 20],
-//     iconAnchor: [-1, -1],
-//     popupAnchor: [0, -10],
-// });
-
-// $.getJSON("/djmeasurements/locations/flatjson", function(fixvirtualpoints){
-//     for (var i = 0; i < fixvirtualpoints.length; i++) {
-//         //console.log(fixpoints[i].name)
-//         //console.log(fixpoints[i].latitute)
-//         //console.log(fixpoints[i].longitude)
-//         markerfix = new L.marker([fixvirtualpoints[i].latitute, fixvirtualpoints[i].longitude], { icon: icon_fix_virtual })
-//         .bindPopup(fixvirtualpoints[i].name)
-//         .addTo(map);
-//     }
-// });
-
-// fixed-point observing systems marker 
 
 var fix_point_icon = L.icon({
     iconUrl: '/media/images/Bullseye_7.original.png',
