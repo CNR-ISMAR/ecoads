@@ -22,8 +22,8 @@ for (var i = 0; i < other_ecossites.length; i++) {
 
 // Sites imported fromm DEIMS sdr AND case studies in ECOSS Project
 var icon_ecoss_site = L.icon({
-    iconUrl: '/media/images/ecoss_site.max-165x165.png',
-    iconSize: [40, 40],
+    iconUrl: 'https://ecoads.eu/media/images/Certificate_7.original.png',
+    iconSize: [30, 30],
     /*iconAnchor: [0, 0],*/
     popupAnchor: [0, -20],
 });
@@ -41,7 +41,7 @@ for (var i = 0; i < ecossites.length; i++) {
 
 // Geometry for ECOSS Case studies sites
 var stylepolygons = {
-    color: "#99c034",
+    color: "#1b9e77",
     weight: 1,
     opacity: 0.70
 
@@ -58,7 +58,7 @@ legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
         grades = ['ECOAdS sites', 'Other LTER Sites', 'Fixed-Point Observing Systems'];
-    labels = ['/media/images/ecoss_site.max-165x165.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_2.0.original.png'];
+    labels = ['/media/images/Certificate_7.original.png', '/media/images/other_site.max-165x165.png', '/media/images/fix_2.0.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=

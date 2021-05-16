@@ -26,7 +26,7 @@ var bathymetryLayer = L.tileLayer.wms("http://ows.emodnet-bathymetry.eu/wms", {
     }).addTo(map);
 
 var markersite = L.icon({
-    iconUrl: '/media/images/markersite.max-165x165.png',
+    iconUrl: '/media/images/Certificate_7.original.png',
     iconSize: [45, 45],
     popupAnchor: [0, -20],
 });
@@ -38,7 +38,7 @@ var marker = new L.marker(singlesite, {icon: markersite})
         .addTo(map);
 
 var stylepolygons = {
-color: "#590416",
+color: "#1b9e77",
 weight: 1,
 opacity: 0.20
 };
