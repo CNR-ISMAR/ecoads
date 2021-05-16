@@ -36,7 +36,7 @@ p {
 }
 
 a {
-    color: #590416;
+    color: #1b9e77;
 }
 
 hr {
@@ -45,26 +45,26 @@ hr {
 }
 
 h1 {
-    color: #590416;
+    color: #1b9e77;
     margin-top: 80px;
     margin-bottom: 40px;
     font-weight: 600
 }
 
 h3 {
-    color: #590402;
+    color: #1b9e77;
     font-weight: 600;
 
 }
 
 h4 {
-    color: #590402;
+    color: #1b9e77;
     font-weight: 600;
 
 }
 
 h5 {
-    color: #590402;
+    color: #1b9e77;
 }
 
 h6 {
@@ -226,7 +226,7 @@ h6 {
 #btn1 {
     background-color: hsla(0, 0%, 80%, 0.8);
     border: none;
-    color: #590416;
+    color: #1b9e77;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -350,4 +350,9 @@ h6 {
 #img_container{
     max-height: 200px;
     align-content: center;
+}
+
+.badge{
+    color: #023a70;
+    background-color: hsla(0, 0%, 80%, 0.8);
 }

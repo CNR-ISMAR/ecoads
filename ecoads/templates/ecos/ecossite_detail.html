@@ -19,16 +19,20 @@
                         {{ object.data.attributes.general.purpose }}
                     </div>
                     <hr style="height:10pt; visibility:hidden;"/>
-                {% endif %}     
-                <h4>Last Update</h4> <p>{{ object.last_update}}</p>
-                <hr style="height:10pt; visibility:hidden;"/>   
-                <h4>Measurements</h4>
-                <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data and information</h4></a> for {{ object.denomination }}. </p>
-                <p>Explore available<a href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}"> tools </h4></a> for {{ object.denomination }}.</p></p>
+                {% endif %}  
+                
+                <h4>Tools</h4>
+                
+                <p>Explore available<a href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}tab=contribution"> tools -contribution </h4></a>.</p></p>
+                <p>Explore available<a href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}tab=conservation"> tools -conservation </h4></a>.</p></p>
                
+                  
+                <h4>Measurements</h4>
+                <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data</h4></a> for {{ object.denomination }}. </p>
                 <h4>Information Resources</h4> 
                     {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
-                            <p><span class="badge badge-secondary"> {{i.info_resource_type}}</span><a href="/inforesource/{{ i.id}}"> {{ i.title}}</h4></a> </p> 
+                      <p><h4 style ="display: inline;"><a href="/inforesource/{{ i.id}}" class="badge badge-secondary">{{i.info_resource_type}}</a></h4> {{ i.title}} </p>
+
                     {% endfor %}                 
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>DEIMS-SDR</h4>
@@ -43,6 +47,9 @@
                 {% if ecossite.img is not None %}   
                     <img alt=""  class="pull-left" src="{{ object.img}}" width="100%">
                 {% endif %} 
+                <hr style="height:10pt; visibility:hidden;"/>
+                <h4>Last Update</h4> <p>{{ object.last_update}}</p>
+                
             </div>
             <div id="mapsite">             
             </div>            
