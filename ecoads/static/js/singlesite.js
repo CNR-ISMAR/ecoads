@@ -1,21 +1,20 @@
 var singlesite = JSON.parse(document.getElementById('singlesite').textContent);
 var polygon = JSON.parse(document.getElementById('polygon').textContent);
 
-var map = L.map('mapsite', {
-maxZoom: 14,
-minZoom: 5,
-zoom: 10,
-center:singlesite,
-fullscreenControl: true,
+
+
+
+var toner = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
 });
 
-L.tileLayer('http://tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
-attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
-}).addTo(map);
+var watercolor = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+});
 
-L.tileLayer('http://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
-attribution: ''
-}).addTo(map);
+var opensea = L.tileLayer('http://tiles.openseamap.org/seamark/{z}/{x}/{y}.png', {
+    attribution: ''
+});
 
 var bathymetryLayer = L.tileLayer.wms("http://ows.emodnet-bathymetry.eu/wms", {
         layers: 'emodnet:mean_atlas_land',
@@ -23,7 +22,21 @@ var bathymetryLayer = L.tileLayer.wms("http://ows.emodnet-bathymetry.eu/wms", {
         transparent: true,
         attribution: "EMODnet Bathymetry",
         opacity: 0.5
-    }).addTo(map);
+    });
+
+
+
+var baselayer = L.layerGroup([ watercolor, toner, bathymetryLayer, opensea])
+
+
+var map = L.map('mapsite', {
+    maxZoom: 14,
+    minZoom: 5,
+    zoom: 10,
+    center:singlesite,
+    fullscreenControl: true,
+    layers: [baselayer]
+    });
 
 var markersite = L.icon({
     iconUrl: '/media/images/Certificate_7.original.png',

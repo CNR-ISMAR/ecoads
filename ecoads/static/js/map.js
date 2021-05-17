@@ -1,8 +1,16 @@
-var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', {
+var watercolor = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png', {
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
 });
 
-var tonerlite = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png', {
+var terrain = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/terrain-background/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+});
+
+var toner = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png', {
+    attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
+});
+
+var toner2 = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png', {
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
 });
 
@@ -23,7 +31,18 @@ var bathymetryLayer = L.tileLayer.wms("http://ows.emodnet-bathymetry.eu/wms", {
     opacity: 0.5
 });
 
-var baselayer = L.layerGroup([ terrain, tonerlite, bathymetryLayer, opensea]);
+var bathymetryLayer2 = L.tileLayer.wms("http://ows.emodnet-bathymetry.eu/wms", {
+    layers: 'emodnet:mean_atlas_land',
+    format: 'image/png',
+    transparent: true,
+    attribution: "EMODnet Bathymetry",
+    opacity: 0.5
+});
+
+var baselayer = L.layerGroup([ watercolor, toner, bathymetryLayer, opensea]);
+
+var baselayer2 = L.layerGroup([terrain, toner2, bathymetryLayer2]);
+
 
 var map = L.map('map', {
     zoom: 7,
@@ -31,12 +50,14 @@ var map = L.map('map', {
     // maxZoom: 0,
     fullscreenControl: true,
     center: [43.35, 13.40],
-    layers: [baselayer]
+    layers: [baselayer],
 });
 
 var baseMaps = {
-    "baselayer": baselayer,
-    "osmLayer": osmLayer
+    "BaseLayer": baselayer,
+    "TerrainBaseLayer": baselayer2,
+    "osmLayer": osmLayer,
+    
 };
 
 // var clhoA = L.tileLayer.wms("https://ec.oceanbrowser.net/emodnet/Python/web/wms", {
