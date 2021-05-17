@@ -73,17 +73,13 @@ var icon_fix = L.icon({
 
 $.getJSON("/djmeasurements/locations/flatjson", function(fixpoints){
     for (var i = 0; i < fixpoints.length; i++) {
-        var name = fixpoints[i].name
-        var link = $(name.link("/fix/" + [i])).click(function() {
-        //alert("test");
-        })[0];
 
         //console.log(fixpoints[i].name)
         //console.log(fixpoints[i].latitute)
         //console.log(fixpoints[i].longitude)
 
         markerfix = new L.marker([fixpoints[i].latitute, fixpoints[i].longitude], { icon: icon_fix })
-        .bindPopup(link)
+        .bindPopup(fixpoints[i].name)
         .addTo(map);
     }
 });  
