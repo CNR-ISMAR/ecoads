@@ -4,7 +4,7 @@
 {% block content %}
     <div class="container" style="text-align: justify;">
         <h1 style="text-align: center";>{{ object.title }} - {{ object.info_resource_type }}</h1>
-        
+         
         {% if object.description is not None %}
             <h4>Description</h4>
             <div>
@@ -16,7 +16,7 @@
             {% elif object.info_resource_type  == "Other" %}   
                 <p>You can access and explore the resource at this <a target="_blank" href="{{ object.resource_url}}">page</h4></a>.</p>
             {% else %}
-                <p>You can access and explore the {{ object.info_resource_type }} at this <a target="_blank" href="{{ object.resource_url}}">page</h4></a>.</p>
+                <p>You can access and explore the {{ object.info_resource_type }} at this page:<a target="_blank" href="{{ object.resource_url}}"> {{ object.resource_url}}</h4></a>.</p>
             {% endif %}
        <hr style="height:10pt; visibility:hidden;"/>
             <hr style="height:10pt; visibility:hidden;"/>
