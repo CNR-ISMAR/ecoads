@@ -74,7 +74,7 @@ var icon_fix = L.icon({
 $.getJSON("/djmeasurements/locations/flatjson", function(fixpoints){
     for (var i = 0; i < fixpoints.length; i++) {
         var name = fixpoints[i].name
-        var link = $(name.link("fix/" + [i])).click(function() {
+        var link = $(name.link("/fix/" + [i])).click(function() {
         //alert("test");
         })[0];
 
