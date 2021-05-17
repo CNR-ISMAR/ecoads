@@ -39,8 +39,7 @@ class InfoResource(models.Model):
         related_name="+"
     )
     resource_url = models.URLField(max_length=600,blank=False, null=True )
-    reference_url = models.URLField(max_length=600,blank=False, null=True )
-    reference_institution = models.TextField(blank=True, null=True)
+    reference_institution = RichTextField( null=True, blank=True)
     additional_informations = RichTextField( null=True, blank=True)
     data_access_information = RichTextField( null=True, blank=True)
 

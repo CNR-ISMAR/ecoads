@@ -22,9 +22,7 @@
             <hr style="height:10pt; visibility:hidden;"/>
         {% endif %}
         <h4>Contacts</h4>
-        <p>Reference Institution {{ object.reference_institution }}</p>
-        <p> Reference URL <a href="{{ object.reference_url }}"> {{ object.reference_url}} </h4></a></p>
-        <hr style="height:10pt; visibility:hidden;"/>
+        <p>Reference Institution {{ object.reference_institution|richtext }}</p>
         {% if object.additional_informations is not None %}
         <h4>Additional Informations</h4>
             <div>
