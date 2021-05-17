@@ -33,6 +33,7 @@ var map = L.map('mapsitefix', {
     layers: [baselayer],
     });
 
+
 var markersite = L.icon({
     iconUrl: '/media/images/Bullseye_7.original.png',
     iconSize: [45, 45],
