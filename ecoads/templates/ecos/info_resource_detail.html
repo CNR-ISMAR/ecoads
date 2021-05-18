@@ -12,7 +12,7 @@
             </div>
             {% if object.info_resource_type  == "Geospatial layer" %}
                 <iframe style="border: 1px solid #023a70;" height="600" width="100%"  src="{{ object.resource_url}}"></iframe>
-                <p>Go to source <a target="_blank" href="{{ object.resource_url}}">page</p>
+                <p>Go to source <a target="_blank" href="{{ object.resource_url}}">page</p> </a>
             {% elif object.info_resource_type  == "Other" %}   
                 <p>You can access and explore the resource at this <a target="_blank" href="{{ object.resource_url}}">page</h4></a>.</p>
             {% else %}
