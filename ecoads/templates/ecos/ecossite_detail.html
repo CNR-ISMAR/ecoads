@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load wagtailcore_tags wagtailimages_tags %}
 
+
 {% block content %}
     <h1 style="text-align: center";>{{ object.denomination }}</h1>
     <div id=site>
@@ -30,10 +31,20 @@
                 <h4>Measurements</h4>
                 <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data</h4></a> for {{ object.denomination }}. </p>
                 <h4>Information Resources</h4> 
-                    {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
-                      <p><h4 style ="display: inline;"><a href="/inforesource/{{ i.id}}" class="badge badge-secondary">{{i.info_resource_type}}</a></h4> {{ i.title}} </p>
+                {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
+                    <p style ="display: inline;"><a href="/inforesource/{{ i.id}}">{{ i.title}}</a>
+                        {% for t in i.info_resource_type %} 
+                            <h5 style ="display: inline;"><span class="badge badge-secondary">{{ t }}</span></h5>
+                        {% endfor %} </p>
+                {% endfor %}  
 
-                    {% endfor %}                 
+
+
+
+
+
+
+
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>DEIMS-SDR</h4>
                 <p> Information about the site is stored in <a target="_blank" href="https://deims.org/">DEIMS-SDR</h4></a> (Dynamic Ecological Information Management System - Site and dataset registry). Go to DEIMS-SDR page for<a href="{{ object.data.id.prefix }}{{ object.data.id.suffix }}"> {{ object.denomination }}.</h4></a> </p>
@@ -67,6 +78,19 @@
             </div>
         {% endif %}
     </div>
+
+    <!-- <div id="debug">
+            
+        ##########
+        {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
+            <p style ="display: inline;"><a href="/inforesource/{{ i.id}}">{{ i.title}}</a>
+            {% for t in i.info_resource_type %} 
+                <h5 style ="display: inline;"><span class="badge badge-secondary">{{ t }}</span></h5>
+            {% endfor %} </p>
+        {% endfor %}
+        @@@@@@@@@@@@@@
+
+    </div>    -->
 {% endblock %}
 
 {% block extra_js %}
