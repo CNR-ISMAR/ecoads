@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     'leaflet',
     'measurements',
 
+    'multiselectfield',
+
     'django_extensions',
 
     'wagtail.contrib.forms',
@@ -50,7 +52,6 @@ INSTALLED_APPS = [
     'wagtailleafletwidget',
 
     'modelcluster',
-    'taggit',
 
     'django.contrib.gis',
     'django.contrib.admin',

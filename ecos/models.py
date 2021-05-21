@@ -8,28 +8,38 @@ from ecos_cm.models import CMPage
 from measurements.models import Location
 from measurements.models import Station
 from wagtail.core.fields import RichTextField
+from multiselectfield import MultiSelectField
+
+
+
+
 
 class InfoResource(models.Model):
     title = models.CharField(max_length=400, blank=True, null=False)
     
     MONITORING_PROGRAM = "Monitoring program"
     PORTAL = "Portal"
-    GEOSPATIAL_LAYER = "Geospatial layer"
+    MAP = "Map"
     DATASET = "Dataset"
     OTHER = "Other"
     
     INFO_RESOURCE_TYPE_CHOICES = [
         (MONITORING_PROGRAM, 'Monitoring program'),
         (PORTAL, 'Portal'),
-        (GEOSPATIAL_LAYER, 'Geospatial layer'), 
+        (MAP, 'Map'), 
         (DATASET, 'Dataset'),
         (OTHER, 'Other')
     ]
-    info_resource_type = models.CharField(
-      choices=INFO_RESOURCE_TYPE_CHOICES,
-      max_length=100,
-      default=MONITORING_PROGRAM,
+    # info_resource_type = models.CharField(
+    #   choices=INFO_RESOURCE_TYPE_CHOICES,
+    #   max_length=100,
+    #   default=MONITORING_PROGRAM,
+    # )
+
+    info_resource_type = MultiSelectField(choices= INFO_RESOURCE_TYPE_CHOICES,
+        max_choices=5,
     )
+
     description = RichTextField( null=True, blank=True)
     image = models.ForeignKey(
         "wagtailimages.Image",
