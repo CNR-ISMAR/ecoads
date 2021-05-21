@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'wagtailleafletwidget',
 
     'modelcluster',
+    'taggit',
 
     'django.contrib.gis',
     'django.contrib.admin',
