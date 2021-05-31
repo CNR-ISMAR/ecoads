@@ -41,7 +41,7 @@ for (var i = 0; i < ltersites.length; i++) {
 
 // Sites imported fromm DEIMS sdr AND case studies in ECOSS Project N2K
 var icon_ecoss_site_n2k = L.icon({
-    iconUrl: '/media/images/Certificate_7_2.original.png',
+    iconUrl: '/media/images/Certificate_71.original.png',
     iconSize: [30, 30],
     /*iconAnchor: [0, 0],*/
     popupAnchor: [0, -20],
@@ -77,7 +77,7 @@ var stylepolygons_lter = {
 };
 
 var stylepolygons_n2k = {
-    color: "#e7298a",
+    color: "#66a61e",
     weight: 1,
     opacity: 0.70
 };
@@ -95,8 +95,8 @@ var legend = L.control({ position: 'bottomleft' });
 legend.onAdd = function(map) {
 
     var div = L.DomUtil.create('div', 'info legend'),
-        grades = [' ECOAdS LTER sites', ' ECOAdS Natura 2000 sites', ' Other LTER Sites', ' Fixed-Point Observing Systems'];
-    labels = ['/media/images/Certificate_7.original.png', '/media/images/Certificate_7_2.original.png', '/media/images/Certificate_7_1.original.png', '/media/images/Bullseye_7.original.png'];
+        grades = [ ' ECOAdS Natura 2000 sites', ' ECOAdS LTER sites', ' Other LTER Sites', ' Fixed-Point Observing Systems'];
+    labels = ['/media/images/Certificate_71.original.png', '/media/images/Certificate_7.original.png', '/media/images/Certificate_7_1.original.png', '/media/images/Bullseye_7.original.png'];
 
     for (var i = 0; i < grades.length; i++) {
         div.innerHTML +=
