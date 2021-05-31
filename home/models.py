@@ -36,8 +36,16 @@ class HomePage(Page):
     def get_context(self, request):
       context = super(HomePage, self).get_context(request)
       context['ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_ecoss=True)]
+      context['ltersites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_lter=True)]
+      context['n2ksites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_n2k=True)]
       context['other_ecossites'] = [(s.denomination, s.location.y, s.location.x, s.suffix) for s in EcosSite.objects.filter(is_onmap=True)]
       context['polygons'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_ecoss=True),
+        geometry_field='domain_area',
+        fields=('denomination',))),
+      context['polygons_n2k'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_n2k=True),
+        geometry_field='domain_area',
+        fields=('denomination',))),
+      context['polygons_lter'] = json.loads(serialize('geojson', EcosSite.objects.filter(is_lter=True),
         geometry_field='domain_area',
         fields=('denomination',))),
       context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id) for s in Station.objects.all() if s.location is not None]

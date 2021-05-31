@@ -23,8 +23,12 @@
 {% block extra_js %}
     {{ block.super }} 
     {{ ecossites|json_script:"ecossites" }}
+    {{ n2ksites|json_script:"n2ksites" }}
+    {{ ltersites|json_script:"ltersites" }}
     {{ other_ecossites|json_script:"other_ecossites" }}
     {{ polygons|json_script:"polygons" }}
+    {{ polygons_n2k|json_script:"polygons_n2k" }}
+    {{ polygons_lter|json_script:"polygons_lter" }}
     {{ fix_point|json_script:"fix_point" }}
     
     <script type="text/javascript" src="/static/js/map.js"></script>
