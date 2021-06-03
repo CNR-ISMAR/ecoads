@@ -23,14 +23,14 @@
                 
                 <h4>Tools</h4>
                 <a target="_blank" href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}&tab=contribution">
-                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
-                    width="40" height="40"> 
+                    <img src="/media/images/Angle_Right_5.original.png"
+                    width="30" height="30"> 
                 </a>
                 <p style ="display: inline;" >Evaluate the site contribution to the Marine Strategy Framework Directive (MSFD) monitoring.</p></p>
                 
                 <a target="_blank" href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}&tab=conservation">
-                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
-                    width="40" height="40"> 
+                    <img src="/media/images/Angle_Right_5.original.png"
+                    width="30" height="30"> 
                 </a>
                 
                 
@@ -40,8 +40,8 @@
                 <h4>Measurements</h4>
 
                 <a href="/site/{{ object.data.id.suffix }}/dashboard">
-                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
-                    width="40" height="40"> 
+                    <img src="/media/images/Angle_Right_5.original.png"
+                    width="30" height="30"> 
                 </a>
                 <p style ="display: inline;">Explore available data for {{ object.denomination }}. </p>
                 
@@ -50,19 +50,15 @@
                 {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
 
                     <a href="/inforesource/{{ i.id}}">
-                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
+                    <img src="/media/images/Angle_Right_51.original.png"
                     width="30" height="30"> 
                     </a>
 
-                    <p style ="display: inline;">{{ i.title}}
+                    <p style ="display: inline;">
                         {% for t in i.info_resource_type %} 
                             <h5 style ="display: inline;"><span class="badge badge-secondary">{{ t }}</span></h5>
-                        {% endfor %} </p>
+                        {% endfor %} {{ i.title}} </p>
                 {% endfor %}
-
-
-
-
 
 
 
