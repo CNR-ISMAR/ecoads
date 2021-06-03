@@ -22,21 +22,43 @@
                 {% endif %}  
                 
                 <h4>Tools</h4>
+                <a target="_blank" href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}&tab=contribution">
+                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
+                    width="40" height="40"> 
+                </a>
+                <p style ="display: inline;" >Evaluate the site contribution to the Marine Strategy Framework Directive (MSFD) monitoring.</p></p>
                 
-                <p>Evaluate the<a target="_blank" href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}&tab=contribution"> site contribution </h4></a>to the Marine Strategy Framework Directive (MSFD) monitoring.</p></p>
-                <p>Evaluate how the site contributes to the<a target="_blank" href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}&tab=conservation"> conservation strategy</h4></a>.</p></p>
-               
+                <a target="_blank" href="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}&tab=conservation">
+                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
+                    width="40" height="40"> 
+                </a>
+                
+                
+                <p style ="display: inline;">Evaluate how the site contributes to the conservation strategy</p>
+                <hr style="height:10pt; visibility:hidden;"/>
                   
                 <h4>Measurements</h4>
-                <p>Explore available<a href="/site/{{ object.data.id.suffix }}/dashboard"> data</h4></a> for {{ object.denomination }}. </p>
+
+                <a href="/site/{{ object.data.id.suffix }}/dashboard">
+                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
+                    width="40" height="40"> 
+                </a>
+                <p style ="display: inline;">Explore available data for {{ object.denomination }}. </p>
+                
+                <hr style="height:10pt; visibility:hidden;"/>
                 <h4>Information Resources</h4> 
                 {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
-                    <p style ="display: inline;"><a href="/inforesource/{{ i.id}}">{{ i.title}}</a>
+
+                    <a href="/inforesource/{{ i.id}}">
+                    <img src="https://ecoads.eu/media/images/Angle_Right_5.original.png"
+                    width="30" height="30"> 
+                    </a>
+
+                    <p style ="display: inline;">{{ i.title}}
                         {% for t in i.info_resource_type %} 
                             <h5 style ="display: inline;"><span class="badge badge-secondary">{{ t }}</span></h5>
                         {% endfor %} </p>
-                {% endfor %}  
-
+                {% endfor %}
 
 
 

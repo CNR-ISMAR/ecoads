@@ -36,7 +36,7 @@ p {
 }
 
 a {
-    color: #1b9e77;
+    color: #00a1cd;
 }
 
 hr {
@@ -45,26 +45,26 @@ hr {
 }
 
 h1 {
-    color: #1b9e77;
+    color: #023a70;
     margin-top: 80px;
     margin-bottom: 40px;
     font-weight: 600
 }
 
 h3 {
-    color: #1b9e77;
+    color: #023a70;
     font-weight: 600;
 
 }
 
 h4 {
-    color: #1b9e77;
+    color: #023a70;
     font-weight: 600;
 
 }
 
 h5 {
-    color: #1b9e77;
+    color: #023a70;
 }
 
 h6 {
@@ -224,9 +224,9 @@ h6 {
 }
 
 #btn1 {
-    background-color: hsla(0, 0%, 80%, 0.8);
+    background-color: white;
     border: none;
-    color: #1b9e77;
+    color: #00a1cd;
     text-align: center;
     text-decoration: none;
     display: inline-block;
