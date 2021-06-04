@@ -10,10 +10,10 @@
             <div>
                 {{ object.description|richtext }}
             </div>
-            {% if object.info_resource_type  == "Geospatial layer" %}
+            {% if "Map" in object.info_resource_type %}
                 <iframe style="border: 1px solid #023a70;" height="600" width="100%"  src="{{ object.resource_url}}"></iframe>
                 <p>Go to source <a target="_blank" href="{{ object.resource_url}}">page</p> </a>
-            {% elif object.info_resource_type  == "Other" %}   
+            {% elif "Other" in object.info_resource_type %}   
                 <p>You can access and explore the resource at this <a target="_blank" href="{{ object.resource_url}}">page</h4></a>.</p>
             {% else %}
                 <p>You can access and explore the {{ object.info_resource_type }} at this page:<a target="_blank" href="{{ object.resource_url}}"> {{ object.resource_url}}</h4></a>.</p>
