@@ -21,6 +21,7 @@ class InfoResource(models.Model):
     PORTAL = "Portal"
     MAP = "Map"
     DATASET = "Dataset"
+    DATASOURCE = "Data Source"
     OTHER = "Other"
     
     INFO_RESOURCE_TYPE_CHOICES = [
@@ -28,6 +29,7 @@ class InfoResource(models.Model):
         (PORTAL, 'Portal'),
         (MAP, 'Map'), 
         (DATASET, 'Dataset'),
+        (DATASOURCE, 'Data Source'),
         (OTHER, 'Other')
     ]
     # info_resource_type = models.CharField(
