@@ -5,6 +5,23 @@
     <h1 style="text-align: center";> Grafana Dashboard {{ object.denomination }} </h1>
 
     <div id="dashboard">
+        <h4> Information Resources </h4>
+        
+        {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
+            {% if "Data Source" in i.info_resource_type %}
+            <a href="/inforesource/{{ i.id}}">
+                <img src="/media/images/Angle_Right_51.original.png"
+                width="30" height="30"> 
+                </a>
+
+                <p style ="display: inline;">
+                {% for t in i.info_resource_type %} 
+                    <h5 style ="display: inline;"><span class="badge badge-secondary">{{ t }}</span></h5>
+                {% endfor %} {{ i.title}} </p>
+            {% endif %}
+        {% endfor %}
+
+
         <iframe src="{{url}}{{var}}{{theme}}" width="1700" height="2000" frameborder="0"></iframe>
     </div>
 
