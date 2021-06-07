@@ -12,7 +12,6 @@
             </div>
             {% if object.embed_url is not None %}
                 <iframe style="border: 1px solid #023a70;" height="600" width="100%"  src="{{ object.embed_url}}"></iframe>
-                <p>Go to source <a target="_blank" href="{{ object.resource_url}}">page</p> </a>
             {% endif %}
             
             {% if "Other" in object.info_resource_type %}   
