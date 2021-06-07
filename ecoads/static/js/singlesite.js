@@ -4,6 +4,7 @@ var polygon = JSON.parse(document.getElementById('polygon').textContent);
 
 
 
+
 var toner = L.tileLayer('https://stamen-tiles.a.ssl.fastly.net/toner-hybrid/{z}/{x}/{y}.png', {
     attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://www.openstreetmap.org/copyright">ODbL</a>.'
 });
@@ -38,23 +39,48 @@ var map = L.map('mapsite', {
     layers: [baselayer]
     });
 
-var markersite = L.icon({
-    iconUrl: '/media/images/Certificate_7.original.png',
-    iconSize: [45, 45],
-    popupAnchor: [0, -20],
-});
+
+var n2k = JSON.parse(document.getElementById('n2k').textContent);
+
+if (n2k == false) {
+    var markersite = L.icon({
+        iconUrl: '/media/images/Certificate_7.original.png',
+        iconSize: [45, 45],
+        popupAnchor: [0, -20],
+    });
+
+    var stylepolygons = {
+        color: "#1b9e77",
+        weight: 1,
+        opacity: 0.20
+        };
+        
+};
+
+if (n2k == true) {
+    var markersite = L.icon({
+        iconUrl: '/media/images/Certificate_71.original.png',
+        iconSize: [45, 45],
+        popupAnchor: [0, -20],
+    });
+
+    var stylepolygons = {
+        color: "#66a61e",
+        weight: 1,
+        opacity: 0.20
+        };
+    
+};
+
 
 var denomination = JSON.parse(document.getElementById('denomination').textContent); 
+
+
 
 var marker = new L.marker(singlesite, {icon: markersite})
         .bindPopup(denomination)
         .addTo(map);
 
-var stylepolygons = {
-color: "#1b9e77",
-weight: 1,
-opacity: 0.20
-};
 
 if (polygon!="") {
     var layer = L.geoJSON(polygon, {style: stylepolygons}).addTo(map);

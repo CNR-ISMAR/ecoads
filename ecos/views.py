@@ -79,6 +79,7 @@ class EcosSiteDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['singlesite'] = [self.object.location.y, self.object.location.x]
         context['denomination'] = self.object.denomination
+        context['n2k']= self.object.is_n2k
         if self.object.domain_area is not None:
             context['polygon'] = json.loads(serialize('geojson', [self.object],
                 geometry_field='domain_area',

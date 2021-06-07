@@ -60,7 +60,7 @@
                         {% endfor %} {{ i.title}} </p>
                 {% endfor %}
                 
-             
+                {% if object.conceptualmodels.all.count > 0 %}
                     <h4>Conceptual models</h4>
                     {% for cm in object.conceptualmodels.all %}
 
@@ -72,7 +72,7 @@
                     <br>
                     <hr style="height:10pt; visibility:hidden;"/>
                     {% endfor %} 
-                
+                {% endif %}
 
                 <hr style="height:10pt; visibility:hidden;"/>   
                 <h4>DEIMS-SDR</h4>
@@ -110,9 +110,9 @@
         {{ object.conceptualmodels }}
         /////////////////////
 
-        {{ object.conceptualmodels.all }}
+        {{ object.conceptualmodels.all.count }}
 
-        {% if object.conceptualmodels.all is not None %}
+        {% if object.conceptualmodels.all.count > 0 %}
         <h4>Conceptual models</h4>
         {% for cm in object.conceptualmodels.all %}
             <p> For this site is available the <a href="/{{ cm.slug }}"> {{ cm.conceptual_model_type}} </h4></a> conceptual model.</p>
@@ -127,6 +127,7 @@
 {{ polygon|json_script:"polygon" }}
 {{ singlesite|json_script:"singlesite" }}
 {{ denomination|json_script:"denomination" }}
+{{ n2k|json_script:"n2k" }}
 <script type="text/javascript" src="/static/js/singlesite.js"></script>
 <script type="text/javascript" src="/static/js/searchparameter.js"></script> 
 {% endblock %}
