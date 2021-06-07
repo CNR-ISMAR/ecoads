@@ -50,6 +50,7 @@ class InfoResource(models.Model):
         on_delete=models.SET_NULL,
         related_name="+"
     )
+    embed_url = models.URLField(max_length=600,blank=False, null=False )
     resource_url = models.URLField(max_length=600,blank=False, null=True )
     reference_institution = RichTextField( null=True, blank=True)
     additional_informations = RichTextField( null=True, blank=True)
