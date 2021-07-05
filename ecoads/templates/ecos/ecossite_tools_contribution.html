@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    <h1 style="text-align: center";> Contribution Tools for {{ object.denomination }} </h1>
+
+    <div id="dashboard">
+
+        <iframe src="https://processing.get-it.it/shiny/ecoss/?siteid={{ object.data.id.suffix }}&tab=contribution" width="1700" height="2000" frameborder="0"></iframe>
+    </div>
+
+ <!-- <div id="debug">
+    <a href= {{url}}{{var}}{{theme}}> qui</a>
+        {{ object.denomination }}
+        {{ url }}
+        {{ var }}
+        {% for location in object.measurement_location_id.all %}
+                <p> {{ location.label }} </p>
+                {{ location.id }}
+        {% endfor %}  
+    </div>    -->
+{% endblock %}
+
+{% block extra_js %}
+{{ block.super }}
+{{ polygon|json_script:"polygon" }}
+{{ singlesite|json_script:"singlesite" }}
+{{ denomination|json_script:"denomination" }}
+<script type="text/javascript" src="/static/js/singlesite.js"></script>
+<script type="text/javascript" src="/static/js/searchparameter.js"></script> 
+{% endblock %}

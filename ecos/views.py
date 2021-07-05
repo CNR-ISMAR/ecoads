@@ -116,3 +116,23 @@ class EcosSiteDashboardView(DetailView):
             context['var'] ="".join(var)
             context['theme'] = '&theme=light&kiosk=tv'
         return context
+
+class EcosSiteToolsContributionView(DetailView):
+
+    model = EcosSite
+    template_name = 'ecos/ecossite_tools_contribution.html'
+    slug_field = 'suffix'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+class EcosSiteToolsConservationView(DetailView):
+
+    model = EcosSite
+    template_name = 'ecos/ecossite_tools_conservation.html'
+    slug_field = 'suffix'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
