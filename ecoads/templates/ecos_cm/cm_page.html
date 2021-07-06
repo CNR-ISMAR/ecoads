@@ -6,24 +6,20 @@
     <h1 style="text-align: center">{{ self.cm_title }}</h1>
     
 
-    <div class="container">
-
-            {% image self.cm_image width-1200 %}
-        
-        <div id="prova">
-            <!-- <small>yellow - human interaction / activities <br>
-                green - ecological parts <br>
-                blue - oceanographic variables/ processes  <br>
-                orange - performance indicators that come from ecological variables <br>
-                all of these feed ECOAdS (in red in the middle of the model) <br>
-                simple line causal relationships<br>
-                dotted line - different functions
-            </small> -->
-          
-
+    <div class="container" style="text-align: center">
+        <!-- [LIGHTBOX CONTAINER] -->
+        <div id="lb-back">
+            <div id="lb-img"></div>
         </div>
-            
-    </div>        
+
+        <!-- [THE IMAGES] -->
+        {% image self.cm_image width-800 class="zoomD" %}
+        
+    </div>
+
+
+               
+       
     <div class="container">
         <hr style="height:100px; visibility:hidden;"/> 
         <h3 style="text-align: center">Description</h3>
@@ -51,5 +47,6 @@
 {% endblock %}
 
 {% block extra_js %}
+<script type="text/javascript" src="/static/js/ecoads.js"></script>
 
 {% endblock %}
