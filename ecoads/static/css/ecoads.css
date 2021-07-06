@@ -113,7 +113,7 @@ h6 {
 }
 
 #map {
-    height: calc(100vh - 191.2px);
+    height: calc(100vh - 192px);
     width: 78%;
     float: right;
     margin-bottom: 60px;
@@ -121,7 +121,7 @@ h6 {
 }
 
 #fluid{
-    height:calc(100vh - 191.2px);
+    height:calc(100vh - 192px);
     width:100%;
     padding: 0px;
 }
@@ -263,7 +263,7 @@ h6 {
 
  /* The sidebar menu */
  .sidenav {
-    height: calc(100vh - 191.2px); /* Full-height: remove this if you want "auto" height */
+    height: calc(100vh - 192px); /* Full-height: remove this if you want "auto" height */
     width: 22%; /* Set the width of the sidebar */
     /*position: fixed; Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
