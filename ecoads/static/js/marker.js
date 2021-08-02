@@ -113,7 +113,7 @@ legend.addTo(map);
 var fix_point_icon = L.icon({
     iconUrl: '/media/images/Bullseye_7.original.png',
     iconSize: [20, 20],
-    iconAnchor: [-1, -1],
+    iconAnchor: [0, 0],
     popupAnchor: [0, -10],
 });
 /*L.marker([50.505, 30.57], {icon: myIcon}).addTo(map);*/
