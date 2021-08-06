@@ -6,7 +6,7 @@ from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.base import TemplateView
 from .models import Parameter, EcosSite, InfoResource
-from measurements.models import Station
+from measurements.models import Station, Location
 
 from django.http import JsonResponse
 
@@ -89,14 +89,32 @@ class EcosSiteDetailView(DetailView):
 
 class FixPointView(DetailView):
 
-    model = Station
+    model = Location
     template_name = 'ecos/fix_point.html'
     slug_field = 'id' 
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['label'] = self.object.label
+        context['fixsinglesite'] = [self.object.geo.centroid.y, self.object.geo.centroid.x]
+        context['prova'] = Location.objects.get(pk=self.object.id).station_set.all()
+        stationlabel = []
+        for l in Location.objects.get(pk=self.object.id).station_set.all():
+            context['stationlabel'] = l.label
+        return context
+
+
+class FixDataView(DetailView):
+
+    model = Station
+    template_name = 'ecos/fix_point_data.html'
+    slug_field = 'id' 
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['label'] = self.object.label
         context['fixsinglesite'] = [self.object.location.geo.centroid.y, self.object.location.geo.centroid.x]
+        
         return context
 
 

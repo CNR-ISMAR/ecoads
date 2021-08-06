@@ -6,7 +6,7 @@
 
     <div id="dashboard">
         <h4> Information Resources </h4>
-        
+
         {% for i in object.inforesources.all|dictsort:"info_resource_type" %}
             {% if "Data Source" in i.info_resource_type %}
             <a href="/inforesource/{{ i.id}}">
