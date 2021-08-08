@@ -9,8 +9,7 @@
         <input id="list-search" class="form-control" type="text" style="text-align: center;" placeholder="Search Site" aria-label="Search">
     </div>
     <div id="site-list" class="row spacing2">
-        {% for fix_point in object_list %}
-            {% if fix_point.location is not None %}   
+        {% for fix_point in object_list %} 
                 <div class="carousel slide spacing2" data-ride="carousel" id="carousel" style="width: 150px; margin-left:10px">
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
@@ -31,7 +30,6 @@
                         <p style="font-size: 15px;"> {{ fix_point.description | truncatechars:300 }} </p>
                     </div>
                 </div>
-            {% endif %}
         {% endfor %}
     </div>
 </div>
