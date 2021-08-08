@@ -101,6 +101,12 @@ class FixPointView(DetailView):
         stationlabel = []
         for l in Location.objects.get(pk=self.object.id).station_set.all():
             context['stationlabel'] = l.label
+        
+        context['sito'] = Location.objects.get(pk=self.object.id).ecossite_set.all()
+        sitolocation = []
+        for l in Location.objects.get(pk=self.object.id).ecossite_set.all():
+            context['sitolocation'] = l.suffix
+        
         return context
 
 

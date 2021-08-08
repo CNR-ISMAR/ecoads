@@ -11,6 +11,15 @@
             <h5><span class="badge badge-secondary">{{ i.network }}</span> <a href="{% url 'fix-dataview' i.id %}"> {{ i.label }} </a></h5>
             {% endfor %}
             
+            {% for s in sito %}
+            <a href="{% url 'grafana' s.suffix %}">
+                <img src="https://ecoads.eu/media/images/Angle_Right_51.original.png"
+                width="30" height="30"> 
+            </a>
+             <h5 style ="display: inline;"> Explore available data collcted in this Fixed-point observing system.</h5>
+            <br>
+             {% endfor %}
+
             <div>
                 {% if object.image is not None %}   
                     <img alt=""  class="pull-left" src="/media/{{ object.image }}" width="400">

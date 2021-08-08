@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'sites/$', EcosSiteList.as_view()),
     url(r'sites/(?P<sitetype>[\w]+)/$', EcosSiteList.as_view()),
     path('site/<slug:slug>/', EcosSiteDetailView.as_view(), name='site-view'),
-    path('site/<slug:slug>/dashboard', EcosSiteDashboardView.as_view()),
+    path('site/<slug:slug>/dashboard', EcosSiteDashboardView.as_view(),name='grafana' ),
     path('fix/list/', FixPointList.as_view()),
     path('fix/<slug:slug>/', FixPointView.as_view(), name='fix-view'),
     path('fix/datasource/<slug:slug>/', FixDataView.as_view(), name='fix-dataview'),
