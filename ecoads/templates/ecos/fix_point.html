@@ -10,9 +10,6 @@
             {% for i in prova %}
             <h5><span class="badge badge-secondary">{{ i.network }}</span> <a href="{% url 'fix-dataview' i.id %}"> {{ i.label }} </a></h5>
             {% endfor %}
-
-               
-           
             
             <div>
                 {% if object.image is not None %}   
