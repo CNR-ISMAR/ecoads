@@ -95,7 +95,7 @@ virtualfixlayer = L.layerGroup();
 
 var overlayMaps = {
     //"clhorophyll A": clhoA,
-    "Virtual-Point": virtualfixlayer,
+    //"Virtual-Point": virtualfixlayer,
 };
 
 L.control.layers(baseMaps, overlayMaps).addTo(map);
