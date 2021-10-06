@@ -6,10 +6,24 @@
     <div id=site>
         <div id="sitepage" style="text-align: justify";>
 
+            {% if object.description is not None %}
+             <h4>Location Description</h4>
+             <div>
+                {{ object.description }}
+             </div>
+             <hr style="height:10pt; visibility:hidden;"/>
+            {% endif %}
+            <div>
+                {% if object.image is not None %}   
+                    <img alt=""  class="pull-left" src="/media/{{ object.image }}" width="400">
+                {% endif %}
+            </div>
 
+            <h4>Sensors and Measurements available for this Location</h4>
             {% for i in prova %}
             <h5><span class="badge badge-secondary">{{ i.network }}</span> <a href="{% url 'fix-dataview' i.id %}"> {{ i.label }} </a></h5>
             {% endfor %}
+            
             
             {% for s in sito %}
             <a href="{% url 'grafana' s.suffix %}">
@@ -20,11 +34,6 @@
             <br>
              {% endfor %}
 
-            <div>
-                {% if object.image is not None %}   
-                    <img alt=""  class="pull-left" src="/media/{{ object.image }}" width="400">
-                {% endif %}
-            </div>
         </div>
         <div id="mapsitefix">             
             
