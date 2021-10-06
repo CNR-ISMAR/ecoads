@@ -15,7 +15,7 @@
                     {% endif %}
                     <br>
                     <hr style="height:10pt; visibility:hidden;"/>
-                    {{ object.description|urlize }}
+                    {{ object.description|safe }}
                 </div>
                 <hr style="height:10pt; visibility:hidden;"/>
             {% endif %}
