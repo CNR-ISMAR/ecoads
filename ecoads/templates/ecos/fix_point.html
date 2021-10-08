@@ -9,7 +9,7 @@
             {% if object.description is not None %}
              <h4>Location Description</h4>
              <div>
-                {{ object.description}}
+                {{ object.description|safe}}
              </div>
              <hr style="height:10pt; visibility:hidden;"/>
             {% endif %}
@@ -30,7 +30,7 @@
                 <img src="https://ecoads.eu/media/images/Angle_Right_51.original.png"
                 width="30" height="30"> 
             </a>
-             <h5 style ="display: inline;"> Explore the other available data collcted in the area nearby this location.</h5>
+             <h5 style ="display: inline;"> Explore the available data collected nearby this location.</h5>
             <br>
              {% endfor %}
 
