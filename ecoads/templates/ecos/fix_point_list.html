@@ -13,11 +13,8 @@
                 <div class="carousel slide spacing2" data-ride="carousel" id="carousel" style="width: 150px; margin-left:10px">
                     <div class="carousel-inner" role="listbox">
                         <div class="item active">
-                            {% if fix_point.image is None %}
-                            <img alt=""  class="pull-left" src="/media/images/img_placeholder.max-165x165.png" width="120" height="100">
-                            {% endif %}
-                            {% if  fix_point.image is not None %}   
-                                <img alt=""  class="pull-left" src="/media/{{ fix_point.image }}" width="150" height="100">
+                            {% if  fix_point.location.image is not None %}   
+                                <img alt=""  class="pull-left" src="/media/{{ fix_point.location.image }}" width="150" height="100">
                             {% endif %}
                         </div>
                     </div> 
@@ -25,9 +22,9 @@
                 <div class="col-md-10" id="carousel_text" >
                     <div>
                         <a href="{% url 'fix-view' fix_point.id %}" class="alert-link">
-                        <h5> {{ fix_point.label }} </h5>
+                        <h5> {{ fix_point.location.label }} </h5>
                         </a>
-                        <p style="font-size: 15px;"> {{ fix_point.description | truncatechars:300 }} </p>
+                        <p style="font-size: 15px;"> {{ fix_point.location.description | truncatechars:300 }} </p>
                     </div>
                 </div>
         {% endfor %}
