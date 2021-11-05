@@ -34,24 +34,55 @@ class EcosSiteList(ListView):
             return EcosSite.objects.all()
 
 
+# class FixPointList(ListView):
+    
+#     model = Location
+#     template_name = 'ecos/fix_point_list.html'
+#     slug_field = 'id' 
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         #for s in Location.objects.get(pk=self.object.id).station_set.all().exclude(location=None):
+#         #for s in Location.objects.all(): #questo va
+#         for s in Location.objects.get(pk=self.object.id).station_set.all():
+#            context['fix_point'] = [(s.label, s.geo.centroid.y, s.geo.centroid.x, s.id, s.image)]
+    
+#         context['fix_label'] = Location.label
+#         if Station.image is not None:
+#             context['fix_img'] = Location.image
+
+#         # context['prova'] = Location.objects.get(pk=self.object.id).station_set.all()
+#         # stationlabel = []
+#     # for l in Location.objects.get(pk=self.object.id).station_set.all():
+#             # context['stationlabel'] = l.label
+#         # context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id, s.location.image) 
+#         #   for s in Station.objects.exclude(location=None)]          
+
+
+#         # for l in Location.objects.get(pk=self.object.id).station_set.all():
+#         #     context['stationlabel'] = l.label
+#         return context
+
+
+# questo funziona ma fa il matchh sbagliato
 class FixPointList(ListView):
     
     model = Station
     template_name = 'ecos/fix_point_list.html'
     def get_context_data(self, **kwargs):
-        for s in Station.objects.all():
-            if s.location is not None:
-                context = super().get_context_data(**kwargs)
-                context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.id, s.location.image) for s in Station.objects.exclude(location=None)]
-                context['fix_label'] = Location.label
-                if Station.image is not None:
-                    context['fix_img'] = Location.image
+        context = super().get_context_data(**kwargs)
+        context['fix_point'] = [(s.location.label, s.location.geo.centroid.y, s.location.geo.centroid.x, s.location.id, s.location.image) for s in Station.objects.exclude(location=None)]
+        context['fix_label'] = [s.location.label for s in Station.objects.exclude(location=None)]
+        context['fix_img'] =[ s.location.image for s in Station.objects.exclude(location=None) if s.location.image is not None]
             # Station.objects.exclude(network__code='CMEMS').distinct('location').count()
+            #Location.objects.get(pk=self.object.id).station_set.all():
             # fix = []
             # for s in Station.objects.all() if s.location is not None:
             #     fix.append(s.fix)
         return context
 
+
+#questo è quello di partenza
 # class FixPointList(ListView):
     
 #     model = Location
@@ -62,10 +93,6 @@ class FixPointList(ListView):
 #         context['fix_label'] = Location.label
 #         if Station.image is not None:
 #             context['fix_img'] = Location.image
-#         # Station.objects.exclude(network__code='CMEMS').distinct('location').count()
-#         # fix = []
-#         # for s in Station.objects.all() if s.location is not None:
-#         #     fix.append(s.fix)
 #         return context
 
 class InfoResourceList(ListView):
